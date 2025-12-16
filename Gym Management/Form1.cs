@@ -31,5 +31,10 @@ namespace Gym_Management
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

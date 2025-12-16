@@ -39,6 +39,7 @@
             button1 = new Button();
             panel1 = new Panel();
             button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -146,11 +147,22 @@
             button2.Text = "Sign Up";
             button2.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            button3.Location = new Point(277, 356);
+            button3.Name = "button3";
+            button3.Size = new Size(132, 51);
+            button3.TabIndex = 13;
+            button3.Text = "Click";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(panel1);
             Controls.Add(button1);
@@ -161,7 +173,7 @@
             Controls.Add(textBox2);
             Controls.Add(Name);
             Controls.Add(textBox1);
-            //Name = "Form1";
+            Name = "Form1";
             Text = "Gym Management";
             ResumeLayout(false);
             PerformLayout();
@@ -179,5 +191,6 @@
         private Button button1;
         private Panel panel1;
         private Button button2;
+        private Button button3;
     }
 }
