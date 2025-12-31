@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             textBox1 = new TextBox();
-            Name = new Label();
+            EmailLabel = new Label();
             textBox2 = new TextBox();
             lab = new Label();
             label2 = new Label();
@@ -43,29 +43,32 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(212, 132);
+            textBox1.Location = new Point(265, 165);
+            textBox1.Margin = new Padding(4, 4, 4, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(233, 27);
+            textBox1.Size = new Size(290, 31);
             textBox1.TabIndex = 0;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
-            // Name
+            // EmailLabel
             // 
-            Name.AutoSize = true;
-            Name.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Name.ForeColor = SystemColors.HotTrack;
-            Name.Location = new Point(212, 101);
-            Name.Name = "Name";
-            Name.Size = new Size(73, 28);
-            Name.TabIndex = 1;
-            Name.Text = "Email*";
-            Name.Click += label1_Click;
+            EmailLabel.AutoSize = true;
+            EmailLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            EmailLabel.ForeColor = SystemColors.HotTrack;
+            EmailLabel.Location = new Point(265, 126);
+            EmailLabel.Margin = new Padding(4, 0, 4, 0);
+            EmailLabel.Name = "EmailLabel";
+            EmailLabel.Size = new Size(87, 32);
+            EmailLabel.TabIndex = 1;
+            EmailLabel.Text = "Email*";
+            EmailLabel.Click += label1_Click;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(209, 197);
+            textBox2.Location = new Point(261, 246);
+            textBox2.Margin = new Padding(4, 4, 4, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(233, 27);
+            textBox2.Size = new Size(290, 31);
             textBox2.TabIndex = 2;
             // 
             // lab
@@ -73,9 +76,10 @@
             lab.AutoSize = true;
             lab.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lab.ForeColor = SystemColors.HotTrack;
-            lab.Location = new Point(212, 171);
+            lab.Location = new Point(265, 214);
+            lab.Margin = new Padding(4, 0, 4, 0);
             lab.Name = "lab";
-            lab.Size = new Size(93, 23);
+            lab.Size = new Size(115, 30);
             lab.TabIndex = 3;
             lab.Text = "Password*";
             lab.Click += lab_Click;
@@ -85,9 +89,10 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.HotTrack;
-            label2.Location = new Point(212, 54);
+            label2.Location = new Point(265, 68);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(92, 31);
+            label2.Size = new Size(112, 38);
             label2.TabIndex = 7;
             label2.Text = "Sign-In";
             // 
@@ -96,9 +101,10 @@
             checkBox1.AutoSize = true;
             checkBox1.BackColor = Color.Transparent;
             checkBox1.ForeColor = SystemColors.AppWorkspace;
-            checkBox1.Location = new Point(209, 256);
+            checkBox1.Location = new Point(261, 320);
+            checkBox1.Margin = new Padding(4, 4, 4, 4);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(129, 24);
+            checkBox1.Size = new Size(154, 29);
             checkBox1.TabIndex = 8;
             checkBox1.Text = "Remember Me";
             checkBox1.UseVisualStyleBackColor = false;
@@ -109,9 +115,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.HotTrack;
-            label1.Location = new Point(352, 255);
+            label1.Location = new Point(440, 319);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(151, 23);
+            label1.Size = new Size(186, 30);
             label1.TabIndex = 9;
             label1.Text = "Forgot Password?";
             // 
@@ -119,9 +126,10 @@
             // 
             button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.HotTrack;
-            button1.Location = new Point(85, 308);
+            button1.Location = new Point(106, 385);
+            button1.Margin = new Padding(4, 4, 4, 4);
             button1.Name = "button1";
-            button1.Size = new Size(230, 42);
+            button1.Size = new Size(288, 52);
             button1.TabIndex = 10;
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = true;
@@ -129,9 +137,10 @@
             // panel1
             // 
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
-            panel1.Location = new Point(585, 101);
+            panel1.Location = new Point(731, 126);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(191, 249);
+            panel1.Size = new Size(239, 311);
             panel1.TabIndex = 11;
             panel1.Paint += panel1_Paint;
             // 
@@ -139,18 +148,19 @@
             // 
             button2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = SystemColors.HotTrack;
-            button2.Location = new Point(321, 308);
+            button2.Location = new Point(401, 385);
+            button2.Margin = new Padding(4, 4, 4, 4);
             button2.Name = "button2";
-            button2.Size = new Size(230, 42);
+            button2.Size = new Size(288, 52);
             button2.TabIndex = 12;
             button2.Text = "Sign Up";
             button2.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1000, 562);
             Controls.Add(button2);
             Controls.Add(panel1);
             Controls.Add(button1);
@@ -159,9 +169,10 @@
             Controls.Add(label2);
             Controls.Add(lab);
             Controls.Add(textBox2);
-            Controls.Add(Name);
+            Controls.Add(EmailLabel);
             Controls.Add(textBox1);
-            //Name = "Form1";
+            Margin = new Padding(4, 4, 4, 4);
+            Name = "LoginForm";
             Text = "Gym Management";
             ResumeLayout(false);
             PerformLayout();
@@ -170,7 +181,7 @@
         #endregion
 
         private TextBox textBox1;
-        private Label Name;
+        private Label EmailLabel;
         private TextBox textBox2;
         private Label lab;
         private Label label2;
