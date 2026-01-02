@@ -22,7 +22,7 @@ namespace Gym_Management
             try
             {
                 string cs = ConfigurationManager
-                            .ConnectionStrings["UserDb"]
+                            .ConnectionStrings["GymsDB"]
                             .ConnectionString;
 
                 using (SqlConnection con = new SqlConnection(cs))

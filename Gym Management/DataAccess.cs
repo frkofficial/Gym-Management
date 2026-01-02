@@ -12,7 +12,7 @@ namespace Gym_Management
 {
     public class DataAccess
     {
-        public static string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["UserDb"].ConnectionString;
+        public static string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["GymsDb"].ConnectionString;
 
         //This returns the connection string  
         private static string _connectionString = string.Empty;
