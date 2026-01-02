@@ -194,17 +194,17 @@ namespace Gym_Management
             if (hasError) return;
 
             TestDb();
-           SqlCommand cmd= DataAccess.GetCommand(@"SELECT UserId, UserName
-                       FROM UserInfo
-                         WHERE UserName= @name AND UserPass= @password");
+           SqlCommand Admincmd= DataAccess.GetCommand(@"SELECT AdminId, AdminName,UserType
+                       FROM AdminInfo
+                         WHERE AdminName= @name AND AdminPass= @password");
 
-            cmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
-            cmd.Parameters.AddWithValue("@password", PassTextBox.Text.Trim());
-            DataTable dt = DataAccess.Execute(cmd);
-            var rows = dt.Rows;
+            Admincmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
+            Admincmd.Parameters.AddWithValue("@password", PassTextBox.Text.Trim());
+            DataTable Admindt = DataAccess.Execute(Admincmd);
+            var rows = Admindt.Rows;
             if(rows.Count==1)
             {
-                string userName = rows[0]["UserName"].ToString();
+                string adminName = rows[0]["AdminName"].ToString();
                 string userType = rows[0]["UserType"].ToString().ToLower();
                 if(userType=="admin")
                 {
@@ -213,16 +213,34 @@ namespace Gym_Management
                         admin = new AdminForm(this);
                     }
                     this.Hide();
-                    admin.Text = "WelCome" + userName;
+                    admin.Text = "WelCome" + adminName;
                     admin.Show();
                 }
-                else if(userType=="member")
+                
+            }
+        SqlCommand Usercmd = DataAccess.GetCommand(@"SELECT UserId,UserName,UserType
+                                  FROM UserInfo
+                                   WHERE UserName= @name AND UserPass= @password");
+            Usercmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
+            Usercmd.Parameters.AddWithValue("password", PassTextBox.Text.Trim());
+            DataTable Userdt = DataAccess.Execute(Usercmd);
+            var rows1 = Userdt.Rows;
+             if(rows1.Count==1)
+            {
+                string userName = rows1[0]["UserName"].ToString();
+                string UserType = rows1[0]["UserType"].ToString().ToLower();
+                if(UserType=="member")
                 {
                     user = new UserForm(this);
                     this.Hide();
+                    user.Text = " Welcome" + userName;
                     user.Show();
+
                 }
             }
+
+
+
             else
             {
                 UserNamePnl.Visible = true;
