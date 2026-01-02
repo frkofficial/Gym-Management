@@ -1,3 +1,14 @@
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using Microsoft.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace Gym_Management
 {
     public partial class LoginForm : Form
@@ -6,30 +17,180 @@ namespace Gym_Management
         {
             InitializeComponent();
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TestDb()
         {
+            try
+            {
+                string cs = ConfigurationManager
+                            .ConnectionStrings["UserDb"]
+                            .ConnectionString;
 
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+                    MessageBox.Show("Database connected successfully!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
+            UserNameTextBox.Text = "Enter Username";
+            UserNameTextBox.ForeColor = Color.Gray;
 
-        }
+            PassTextBox.Text = "Enter Password";
+            PassTextBox.ForeColor = Color.Gray;
+            PassTextBox.UseSystemPasswordChar = false;
 
-        private void lab_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
+            UserNamePnl.Visible = false;
+            PassPnl.Visible = false;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+
+
+        private void panelLogin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                UserNameTextBox.ForeColor = Color.White;
+                UserNamePnl.Visible = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void PassTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                PassTextBox.ForeColor = Color.White;
+                PassPnl.Visible = false;
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void UserNameTextBox_Enter(object sender, EventArgs e)
+        {
+            if (UserNameTextBox.Text == "Enter Username")
+            {
+                UserNameTextBox.Text = "";
+                UserNameTextBox.ForeColor = Color.White;
+            }
+        }
+
+        private void UserNameTextBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(UserNameTextBox.Text))
+            {
+                UserNameTextBox.Text = "Enter Username";
+                UserNameTextBox.ForeColor = Color.Gray;
+            }
+        }
+        private void PassTextBox_Enter(object sender, EventArgs e)
+        {
+            if (PassTextBox.Text == "Enter Password")
+            {
+                PassTextBox.Text = "";
+                PassTextBox.ForeColor = Color.White;
+                PassTextBox.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void PassTextBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(PassTextBox.Text))
+            {
+                PassTextBox.UseSystemPasswordChar = false;
+                PassTextBox.Text = "Enter Password";
+                PassTextBox.ForeColor = Color.Gray;
+            }
+        }
+
+
+        private void UserNameText_Click(object sender, EventArgs e)
+        {
+            //UserNameTextBox.SelectAll();
+        }
+
+        private void PassText_Click(object sender, EventArgs e)
+        {
+            //PassTextBox.SelectAll();
+        }
+
+        private void loginBtn_MouseEnter(object sender, EventArgs e)
+        {
+            LoginBtn.ForeColor = Color.Black;
+        }
+
+        private void loginBtn_MouseLeave(object sender, EventArgs e)
+        {
+            LoginBtn.ForeColor = Color.White;
+        }
+        private void LoginBtn_Click(object sender, EventArgs e)
+        {
+            // user u= new user(this);
+            //this.Hide();
+            //u.Show();
+
+            bool hasError = false;
+
+            if (UserNameTextBox.Text == "Enter Username")
+            {
+                UserNamePnl.Text = "Invalid User Name, Try Again";
+                UserNamePnl.Visible = true;
+                hasError = true;
+            }
+            else
+            {
+                UserNamePnl.Visible = false;
+            }
+
+            if (PassTextBox.Text == "Enter Password")
+            {
+                PassPnl.Text = "Invalid Password, Try Again";
+                PassPnl.Visible = true;
+                hasError = true;
+            }
+            else
+            {
+                PassPnl.Visible = false;
+            }
+
+            if (hasError) return;
+
+            TestDb();
+        }
+
     }
 }
