@@ -37,7 +37,7 @@ namespace Gym_Management
 
         public DataAccess()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["UserDb"].ConnectionString;
+            string connStr = ConfigurationManager.ConnectionStrings["GymsDb"].ConnectionString;
             CONNECTION_STRING = connStr;
         }
 

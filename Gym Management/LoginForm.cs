@@ -13,25 +13,27 @@ namespace Gym_Management
 {
     public partial class LoginForm : Form
     {
+        public AdminForm admin { private get; set; }
+        public UserForm user { private get; set; }
+        DataAccess DataAccess;
         public LoginForm()
         {
             InitializeComponent();
+            DataAccess = new DataAccess();
         }
         private void TestDb()
         {
             try
             {
-                string cs = ConfigurationManager
-                            .ConnectionStrings["GymsDB"]
-                            .ConnectionString;
-
+                string cs = ConfigurationManager.ConnectionStrings["GymsDB"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(cs))
                 {
                     con.Open();
-                    MessageBox.Show("Database connected successfully!");
+                    MessageBox.Show("Database connected successfully");
                 }
+
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -163,6 +165,8 @@ namespace Gym_Management
             //this.Hide();
             //u.Show();
 
+            
+
             bool hasError = false;
 
             if (UserNameTextBox.Text == "Enter Username")
@@ -190,6 +194,41 @@ namespace Gym_Management
             if (hasError) return;
 
             TestDb();
+           SqlCommand cmd= DataAccess.GetCommand(@"SELECT UserId, UserName
+                       FROM UserInfo
+                         WHERE UserName= @name AND UserPass= @password");
+
+            cmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
+            cmd.Parameters.AddWithValue("@password", PassTextBox.Text.Trim());
+            DataTable dt = DataAccess.Execute(cmd);
+            var rows = dt.Rows;
+            if(rows.Count==1)
+            {
+                string userName = rows[0]["UserName"].ToString();
+                string userType = rows[0]["UserType"].ToString().ToLower();
+                if(userType=="admin")
+                {
+                    if(admin==null)
+                    {
+                        admin = new AdminForm(this);
+                    }
+                    this.Hide();
+                    admin.Text = "WelCome" + userName;
+                    admin.Show();
+                }
+                else if(userType=="member")
+                {
+                    user = new UserForm(this);
+                    this.Hide();
+                    user.Show();
+                }
+            }
+            else
+            {
+                UserNamePnl.Visible = true;
+                PassPnl.Visible = true;
+            }
+               
         }
 
     }
