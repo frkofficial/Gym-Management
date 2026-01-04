@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.SqlServer.Server;
 
 namespace Gym_Management
 {
@@ -15,6 +16,7 @@ namespace Gym_Management
     {
         public AdminForm admin { private get; set; }
         public UserForm user { private get; set; }
+        public EmployeeForm emp { private get; set; }
         DataAccess DataAccess;
         public LoginForm()
         {
@@ -238,7 +240,25 @@ namespace Gym_Management
 
                 }
             }
-
+            SqlCommand Empcmd = DataAccess.GetCommand(@"SELECT EmpName,EmpPass,UserType
+                                                      FROM EmpInfo
+                                                       WHERE  EmpName =@name AND EmpPass= @password");
+            Empcmd.Parameters.AddWithValue("@name",UserNameTextBox.Text.Trim());
+            Empcmd.Parameters.AddWithValue("@password", PassTextBox.Text.Trim());
+            DataTable Empdt = DataAccess.Execute(Empcmd);
+            var Emprows = Empdt.Rows;
+            if(Emprows.Count==1)
+            {
+                string userName = Emprows[0]["EmpName"].ToString();
+                string userType = Emprows[0]["UserType"].ToString().ToLower();
+                if(userType=="employee")
+                {
+                     emp = new EmployeeForm(this);
+                    this.Hide();
+                    emp.Text = "WelCome " + userName;
+                    emp.Show();
+                }
+            }
 
 
             else

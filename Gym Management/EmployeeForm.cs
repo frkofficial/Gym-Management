@@ -10,26 +10,22 @@ using System.Windows.Forms;
 
 namespace Gym_Management
 {
-    public partial class AdminForm : Form
+    public partial class EmployeeForm : Form
     {
         LoginForm login;
-        public AdminForm(LoginForm login)
+        public EmployeeForm(LoginForm login)
         {
             InitializeComponent();
             this.login = login;
-            this.FormClosing += AdminFormClosing;
+            this.FormClosing += EmpFormClosing;
         }
-        public void AdminFormClosing(object sender, FormClosingEventArgs e)
+
+        public void EmpFormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AdminForm_Load(object sender, EventArgs e)
         {
 
         }

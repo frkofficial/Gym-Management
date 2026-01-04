@@ -1,6 +1,6 @@
 ﻿namespace Gym_Management
 {
-    partial class AdminForm
+    partial class EmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(379, 183);
+            button1.Location = new Point(346, 163);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 0;
@@ -41,15 +41,14 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // AdminForm
+            // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
-            Name = "AdminForm";
-            Text = "AdminForm";
-            Load += AdminForm_Load;
+            Name = "EmployeeForm";
+            Text = "EmployeeForm";
             ResumeLayout(false);
         }
 
