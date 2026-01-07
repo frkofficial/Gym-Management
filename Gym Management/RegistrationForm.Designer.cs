@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
             RegiPnl = new Panel();
+            EmrPhonelbl = new Label();
+            GoalWeightlbl = new Label();
+            LastNamelbl = new Label();
             Trainerlbl = new Label();
             FirstNamePnl = new Panel();
             Fnamelbl = new Label();
@@ -76,6 +79,9 @@
             // RegiPnl
             // 
             RegiPnl.BackColor = SystemColors.WindowText;
+            RegiPnl.Controls.Add(EmrPhonelbl);
+            RegiPnl.Controls.Add(GoalWeightlbl);
+            RegiPnl.Controls.Add(LastNamelbl);
             RegiPnl.Controls.Add(Trainerlbl);
             RegiPnl.Controls.Add(FirstNamePnl);
             RegiPnl.Controls.Add(Addresslbl);
@@ -119,6 +125,33 @@
             RegiPnl.TabIndex = 0;
             RegiPnl.Paint += RegiPnl_Paint;
             // 
+            // EmrPhonelbl
+            // 
+            EmrPhonelbl.ForeColor = Color.Lime;
+            EmrPhonelbl.Location = new Point(999, 677);
+            EmrPhonelbl.Name = "EmrPhonelbl";
+            EmrPhonelbl.Size = new Size(211, 25);
+            EmrPhonelbl.TabIndex = 41;
+            EmrPhonelbl.Text = " Emergency is Optional";
+            // 
+            // GoalWeightlbl
+            // 
+            GoalWeightlbl.ForeColor = Color.Lime;
+            GoalWeightlbl.Location = new Point(673, 615);
+            GoalWeightlbl.Name = "GoalWeightlbl";
+            GoalWeightlbl.Size = new Size(211, 25);
+            GoalWeightlbl.TabIndex = 40;
+            GoalWeightlbl.Text = " Goal Weight Optional";
+            // 
+            // LastNamelbl
+            // 
+            LastNamelbl.ForeColor = Color.Lime;
+            LastNamelbl.Location = new Point(999, 347);
+            LastNamelbl.Name = "LastNamelbl";
+            LastNamelbl.Size = new Size(211, 30);
+            LastNamelbl.TabIndex = 39;
+            LastNamelbl.Text = " Last Name is Optional";
+            // 
             // Trainerlbl
             // 
             Trainerlbl.ForeColor = Color.Red;
@@ -149,7 +182,7 @@
             // Addresslbl
             // 
             Addresslbl.ForeColor = Color.Red;
-            Addresslbl.Location = new Point(673, 813);
+            Addresslbl.Location = new Point(673, 822);
             Addresslbl.Name = "Addresslbl";
             Addresslbl.Size = new Size(211, 21);
             Addresslbl.TabIndex = 36;
@@ -342,7 +375,7 @@
             UserAddresstextBox.Multiline = true;
             UserAddresstextBox.Name = "UserAddresstextBox";
             UserAddresstextBox.PlaceholderText = " Provide Your Address";
-            UserAddresstextBox.Size = new Size(537, 31);
+            UserAddresstextBox.Size = new Size(537, 40);
             UserAddresstextBox.TabIndex = 17;
             UserAddresstextBox.TextChanged += UserAddresstextBox_TextChanged;
             // 
@@ -433,7 +466,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(31, 79);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(558, 860);
+            pictureBox1.Size = new Size(558, 818);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 8;
             pictureBox1.TabStop = false;
@@ -554,5 +587,8 @@
         private Label Genderlbl;
         private Panel FirstNamePnl;
         private Label Trainerlbl;
+        private Label GoalWeightlbl;
+        private Label LastNamelbl;
+        private Label EmrPhonelbl;
     }
 }

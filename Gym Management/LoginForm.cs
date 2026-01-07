@@ -196,9 +196,9 @@ namespace Gym_Management
             if (hasError) return;
 
             TestDb();
-           SqlCommand Admincmd= DataAccess.GetCommand(@"SELECT AdminId, AdminName,UserType
+           SqlCommand Admincmd= DataAccess.GetCommand(@"SELECT AdminId, AdminUserName,UserType
                        FROM AdminInfo
-                         WHERE AdminName= @name AND AdminPass= @password");
+                         WHERE AdminUserName= @name AND AdminPass= @password");
 
             Admincmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
             Admincmd.Parameters.AddWithValue("@password", PassTextBox.Text.Trim());
@@ -206,7 +206,7 @@ namespace Gym_Management
             var rows = Admindt.Rows;
             if(rows.Count==1)
             {
-                string adminName = rows[0]["AdminName"].ToString();
+                string adminName = rows[0]["AdminUserName"].ToString();
                 string userType = rows[0]["UserType"].ToString().ToLower();
                 if(userType=="admin")
                 {
