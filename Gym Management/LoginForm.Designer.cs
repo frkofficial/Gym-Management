@@ -36,7 +36,7 @@
             LoginBtn = new Button();
             panelLogin = new Panel();
             label6 = new Label();
-            linkLabel1 = new LinkLabel();
+            SignupLinllbl = new LinkLabel();
             label2 = new Label();
             pictureBox3 = new PictureBox();
             panel6 = new Panel();
@@ -140,7 +140,7 @@
             // panelLogin
             // 
             panelLogin.Controls.Add(label6);
-            panelLogin.Controls.Add(linkLabel1);
+            panelLogin.Controls.Add(SignupLinllbl);
             panelLogin.Controls.Add(label2);
             panelLogin.Controls.Add(pictureBox3);
             panelLogin.Controls.Add(panel6);
@@ -168,18 +168,19 @@
             label6.TabIndex = 14;
             label6.Text = "Dont have an account?";
             // 
-            // linkLabel1
+            // SignupLinllbl
             // 
-            linkLabel1.ActiveLinkColor = Color.White;
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            linkLabel1.LinkColor = Color.White;
-            linkLabel1.Location = new Point(424, 656);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(79, 25);
-            linkLabel1.TabIndex = 13;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Sign up";
+            SignupLinllbl.ActiveLinkColor = Color.White;
+            SignupLinllbl.AutoSize = true;
+            SignupLinllbl.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SignupLinllbl.LinkColor = Color.White;
+            SignupLinllbl.Location = new Point(424, 656);
+            SignupLinllbl.Name = "SignupLinllbl";
+            SignupLinllbl.Size = new Size(79, 25);
+            SignupLinllbl.TabIndex = 13;
+            SignupLinllbl.TabStop = true;
+            SignupLinllbl.Text = "Sign up";
+            SignupLinllbl.LinkClicked += SignupLinllbl_LinkClicked;
             // 
             // label2
             // 
@@ -465,7 +466,7 @@
         private System.Windows.Forms.PictureBox MotivationPictureBox;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel SignupLinllbl;
         private System.Windows.Forms.Label label6;
     }
 }

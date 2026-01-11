@@ -17,11 +17,17 @@ namespace Gym_Management
         public AdminForm admin { private get; set; }
         public UserForm user { private get; set; }
         public EmployeeForm emp { private get; set; }
+        public RegistrationForm reg { private get; set; }
+        public  IntroForm intro { private get; set; }
+        
         DataAccess DataAccess;
-        public LoginForm()
+
+        public LoginForm(IntroForm intro)
         {
             InitializeComponent();
             DataAccess = new DataAccess();
+            this.intro=intro ;
+
         }
         private void TestDb()
         {
@@ -35,7 +41,7 @@ namespace Gym_Management
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -167,7 +173,7 @@ namespace Gym_Management
             //this.Hide();
             //u.Show();
 
-            
+
 
             bool hasError = false;
 
@@ -193,10 +199,11 @@ namespace Gym_Management
                 PassPnl.Visible = false;
             }
 
+
             if (hasError) return;
 
             TestDb();
-           SqlCommand Admincmd= DataAccess.GetCommand(@"SELECT AdminId, AdminUserName,UserType
+            SqlCommand Admincmd = DataAccess.GetCommand(@"SELECT AdminId, AdminUserName,UserType
                        FROM AdminInfo
                          WHERE AdminUserName= @name AND AdminPass= @password");
 
@@ -204,13 +211,13 @@ namespace Gym_Management
             Admincmd.Parameters.AddWithValue("@password", PassTextBox.Text.Trim());
             DataTable Admindt = DataAccess.Execute(Admincmd);
             var rows = Admindt.Rows;
-            if(rows.Count==1)
+            if (rows.Count == 1)
             {
                 string adminName = rows[0]["AdminUserName"].ToString();
                 string userType = rows[0]["UserType"].ToString().ToLower();
-                if(userType=="admin")
+                if (userType == "admin")
                 {
-                    if(admin==null)
+                    if (admin == null)
                     {
                         admin = new AdminForm(this);
                     }
@@ -218,20 +225,20 @@ namespace Gym_Management
                     admin.Text = "WelCome" + adminName;
                     admin.Show();
                 }
-                
+
             }
-        SqlCommand Usercmd = DataAccess.GetCommand(@"SELECT UserId,UserName,UserType
+            SqlCommand Usercmd = DataAccess.GetCommand(@"SELECT UserId,UserName,UserType
                                   FROM UserInfo
                                    WHERE UserName= @name AND UserPass= @password");
             Usercmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
             Usercmd.Parameters.AddWithValue("password", PassTextBox.Text.Trim());
             DataTable Userdt = DataAccess.Execute(Usercmd);
             var rows1 = Userdt.Rows;
-             if(rows1.Count==1)
+            if (rows1.Count == 1)
             {
                 string userName = rows1[0]["UserName"].ToString();
                 string UserType = rows1[0]["UserType"].ToString().ToLower();
-                if(UserType=="member")
+                if (UserType == "member")
                 {
                     user = new UserForm(this);
                     this.Hide();
@@ -243,17 +250,17 @@ namespace Gym_Management
             SqlCommand Empcmd = DataAccess.GetCommand(@"SELECT EmpName,EmpPass,UserType
                                                       FROM EmpInfo
                                                        WHERE  EmpName =@name AND EmpPass= @password");
-            Empcmd.Parameters.AddWithValue("@name",UserNameTextBox.Text.Trim());
+            Empcmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
             Empcmd.Parameters.AddWithValue("@password", PassTextBox.Text.Trim());
             DataTable Empdt = DataAccess.Execute(Empcmd);
             var Emprows = Empdt.Rows;
-            if(Emprows.Count==1)
+            if (Emprows.Count == 1)
             {
                 string userName = Emprows[0]["EmpName"].ToString();
                 string userType = Emprows[0]["UserType"].ToString().ToLower();
-                if(userType=="employee")
+                if (userType == "employee")
                 {
-                     emp = new EmployeeForm(this);
+                    emp = new EmployeeForm(this);
                     this.Hide();
                     emp.Text = "WelCome " + userName;
                     emp.Show();
@@ -266,8 +273,14 @@ namespace Gym_Management
                 UserNamePnl.Visible = true;
                 PassPnl.Visible = true;
             }
-               
+
         }
 
+        private void SignupLinllbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            reg = new RegistrationForm(this);
+            this.Hide();
+            reg.Show();
+        }
     }
 }

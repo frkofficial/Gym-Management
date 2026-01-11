@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.SqlServer.Server;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic.ApplicationServices;
 
 
 
@@ -18,17 +19,23 @@ namespace Gym_Management
 {
     public partial class RegistrationForm : Form
     {
-        public LoginForm loginForm { private get; set; }
+        //public LoginForm login { private get; set; }
+        //public LoginForm login;
+        private Form previousform;
         DataAccess DataAccess;
-        public RegistrationForm()
+        public RegistrationForm(Form previousform)
         {
 
             InitializeComponent();
             DataAccess = new DataAccess();
-            
+            this.previousform = previousform;
+            this.FormClosing += RegistrationFormClosing;
 
         }
-
+        public void RegistrationFormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
@@ -68,6 +75,7 @@ namespace Gym_Management
             var Gender = GendercomboBox.SelectedItem.ToString();
             string UserTrainer = UseTrainercomboBox2.SelectedItem.ToString();
             string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            string passPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
 
             bool hasError = false;
 
@@ -107,7 +115,20 @@ namespace Gym_Management
             {
                 passlbl.Visible = false;
             }
-            if (UserConfirmPasstextBox.Text == " Confirm Password" || string.IsNullOrWhiteSpace(ConPass))
+            if (!Regex.IsMatch(Pass, passPattern))
+            {
+                passlbl.Text = "Weak Password";
+                passlbl.ForeColor = Color.Red;
+                passlbl.Visible = true;
+                hasError = true;
+            }
+            else
+            {
+                passlbl.Visible = false;
+            }
+            
+
+                if (UserConfirmPasstextBox.Text == " Confirm Password" || string.IsNullOrWhiteSpace(ConPass))
             {
                 ConPasslbl.Visible = true;
                 hasError = true;
@@ -207,10 +228,7 @@ namespace Gym_Management
                 EmrPhonelbl.Visible = true;
                 hasError = true;
             }
-            else
-            {
-                EmrPhonelbl.Visible = false;
-            }
+           
             if (UserWeighttextBox.Text == " You Current Weight" || string.IsNullOrWhiteSpace(Weight))
             {
                 Weightlbl.Visible = true;
@@ -265,7 +283,11 @@ namespace Gym_Management
                // UseTrainercomboBox2.Focus();
                 hasError=true;
             }
+            else
+            {
+                Trainerlbl.Visible = false;
 
+            }
 
             if (hasError) return;
 
@@ -280,25 +302,30 @@ namespace Gym_Management
             Usercmd.Parameters.AddWithValue("@email", Email);
             Usercmd.Parameters.AddWithValue("@address",Address);
             Usercmd.Parameters.AddWithValue("@gender", Gender);
-            Usercmd.Parameters.AddWithValue("@age", Age);
-            Usercmd.Parameters.AddWithValue("@height", Height);
-            Usercmd.Parameters.AddWithValue("@weight", Weight);
-            Usercmd.Parameters.AddWithValue("@goalweight", GoalWeight);
+            Usercmd.Parameters.Add("@age", SqlDbType.Int).Value=int.Parse(Age);
+            Usercmd.Parameters.Add("@height", SqlDbType.Float).Value= float.Parse(Height);
+            Usercmd.Parameters.Add("@weight", SqlDbType.Int).Value=int.Parse(Weight);
+            Usercmd.Parameters.Add("@goalweight", SqlDbType.Int).Value=int.Parse(GoalWeight);
             Usercmd.Parameters.AddWithValue("@trainer", UserTrainer);
             Usercmd.Parameters.AddWithValue("@emrphone", EmrPhone);
 
             try
             {
-                if(!string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Pass) && !string.IsNullOrEmpty(ConPass)&& !string.IsNullOrEmpty(Phone) && !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Address) && !string.IsNullOrEmpty(Gender) && !string.IsNullOrEmpty(Age) && !string.IsNullOrEmpty(Height) && !string.IsNullOrEmpty(Weight) && !string.IsNullOrEmpty(GoalWeight) && !string.IsNullOrEmpty(UserTrainer) && !string.IsNullOrEmpty(EmrPhone))
+                if(!string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Pass) && !string.IsNullOrEmpty(ConPass)&& !string.IsNullOrEmpty(Phone) && !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Address) && !string.IsNullOrEmpty(Gender) && !string.IsNullOrEmpty(Age) && !string.IsNullOrEmpty(Height) && !string.IsNullOrEmpty(Weight)  && !string.IsNullOrEmpty(UserTrainer) )
                 {
                     var rows = DataAccess.ExecuteNonQuery(Usercmd);
                     if(rows==1)
                     {
                         MessageBox.Show($"Congratulations!!! {UserName}, Your Refgistration Has Completed");
+                       
+                        //this.Hide();
+                        previousform.Show();
+                        this.Close();
                     }
+
                     else
                     {
-                        MessageBox.Show($"Sorry!!! {UserName}, Your Registration Has failed");
+                        MessageBox.Show($"Sorry!!! {UserName}, Your Registration Has failed, Try Again");
                     }
                 }
                 else
