@@ -27,7 +27,11 @@ namespace Gym_Management
             InitializeComponent();
             DataAccess = new DataAccess();
             this.intro=intro ;
-
+            this.FormClosing += LoginFormClosing;
+        }
+        public void LoginFormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
         private void TestDb()
         {

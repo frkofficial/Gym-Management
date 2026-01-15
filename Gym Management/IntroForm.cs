@@ -64,5 +64,7 @@ namespace Gym_Management
             GetStartedBtn.ForeColor = Color.Black;
             GetStartedBtn.BackColor = Color.Orange;
         }
+
+       
     }
 }

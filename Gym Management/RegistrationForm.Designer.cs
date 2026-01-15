@@ -46,7 +46,7 @@
             passlbl = new Label();
             Agelbl = new Label();
             UserNamelbl = new Label();
-            button1 = new Button();
+            CancelBtn = new Button();
             ProceedBtn = new Button();
             UseTrainercomboBox2 = new ComboBox();
             GendercomboBox = new ComboBox();
@@ -94,7 +94,7 @@
             RegiPnl.Controls.Add(passlbl);
             RegiPnl.Controls.Add(Agelbl);
             RegiPnl.Controls.Add(UserNamelbl);
-            RegiPnl.Controls.Add(button1);
+            RegiPnl.Controls.Add(CancelBtn);
             RegiPnl.Controls.Add(ProceedBtn);
             RegiPnl.Controls.Add(UseTrainercomboBox2);
             RegiPnl.Controls.Add(GendercomboBox);
@@ -130,9 +130,9 @@
             EmrPhonelbl.ForeColor = Color.Lime;
             EmrPhonelbl.Location = new Point(999, 677);
             EmrPhonelbl.Name = "EmrPhonelbl";
-            EmrPhonelbl.Size = new Size(211, 25);
+            EmrPhonelbl.Size = new Size(245, 25);
             EmrPhonelbl.TabIndex = 41;
-            EmrPhonelbl.Text = " Emergency is Optional";
+            EmrPhonelbl.Text = "Emergency is Optional";
             // 
             // GoalWeightlbl
             // 
@@ -141,7 +141,7 @@
             GoalWeightlbl.Name = "GoalWeightlbl";
             GoalWeightlbl.Size = new Size(211, 25);
             GoalWeightlbl.TabIndex = 40;
-            GoalWeightlbl.Text = " Goal Weight Optional";
+            GoalWeightlbl.Text = "Goal Weight Optional";
             // 
             // LastNamelbl
             // 
@@ -150,7 +150,7 @@
             LastNamelbl.Name = "LastNamelbl";
             LastNamelbl.Size = new Size(211, 30);
             LastNamelbl.TabIndex = 39;
-            LastNamelbl.Text = " Last Name is Optional";
+            LastNamelbl.Text = "Last Name is Optional";
             // 
             // Trainerlbl
             // 
@@ -240,7 +240,7 @@
             ConPasslbl.Name = "ConPasslbl";
             ConPasslbl.Size = new Size(211, 21);
             ConPasslbl.TabIndex = 30;
-            ConPasslbl.Text = "Unmatched Password";
+            ConPasslbl.Text = "Confirm Password";
             // 
             // passlbl
             // 
@@ -269,19 +269,20 @@
             UserNamelbl.TabIndex = 27;
             UserNamelbl.Text = "Enter User Name";
             // 
-            // button1
+            // CancelBtn
             // 
-            button1.FlatAppearance.BorderColor = Color.White;
-            button1.FlatAppearance.BorderSize = 3;
-            button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 207, 64);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = SystemColors.Window;
-            button1.Location = new Point(999, 856);
-            button1.Name = "button1";
-            button1.Size = new Size(211, 41);
-            button1.TabIndex = 25;
-            button1.Text = "Cancel";
-            button1.UseVisualStyleBackColor = true;
+            CancelBtn.FlatAppearance.BorderColor = Color.White;
+            CancelBtn.FlatAppearance.BorderSize = 3;
+            CancelBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 207, 64);
+            CancelBtn.FlatStyle = FlatStyle.Flat;
+            CancelBtn.ForeColor = SystemColors.Window;
+            CancelBtn.Location = new Point(999, 856);
+            CancelBtn.Name = "CancelBtn";
+            CancelBtn.Size = new Size(211, 41);
+            CancelBtn.TabIndex = 25;
+            CancelBtn.Text = "Cancel";
+            CancelBtn.UseVisualStyleBackColor = true;
+            CancelBtn.Click += CancelBtn_Click;
             // 
             // ProceedBtn
             // 
@@ -573,7 +574,7 @@
         private ComboBox GendercomboBox;
         private ComboBox UseTrainercomboBox2;
         private Button ProceedBtn;
-        private Button button1;
+        private Button CancelBtn;
         private Label Fnamelbl;
         private Label Agelbl;
         private Label UserNamelbl;

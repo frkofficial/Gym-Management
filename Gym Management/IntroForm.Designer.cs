@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IntroForm));
-            pictureBox1 = new PictureBox();
+            IntroPicBox = new PictureBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -38,31 +38,32 @@
             GetStartedBtn = new Button();
             LoginBtn = new Button();
             pictureBox2 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)IntroPicBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // IntroPicBox
             // 
-            pictureBox1.BackColor = SystemColors.ActiveCaptionText;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 124);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(665, 719);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            IntroPicBox.BackColor = SystemColors.ActiveCaptionText;
+            IntroPicBox.Image = (Image)resources.GetObject("IntroPicBox.Image");
+            IntroPicBox.Location = new Point(3, 124);
+            IntroPicBox.Name = "IntroPicBox";
+            IntroPicBox.Size = new Size(665, 719);
+            IntroPicBox.SizeMode = PictureBoxSizeMode.Zoom;
+            IntroPicBox.TabIndex = 0;
+            IntroPicBox.TabStop = false;
             // 
             // label1
             // 
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(107, 553);
+            label1.Location = new Point(141, 553);
             label1.Name = "label1";
             label1.Size = new Size(291, 80);
             label1.TabIndex = 1;
             label1.Text = "Transform Your";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            //label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -77,7 +78,7 @@
             // 
             label3.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(107, 633);
+            label3.Location = new Point(131, 633);
             label3.Name = "label3";
             label3.Size = new Size(200, 71);
             label3.TabIndex = 3;
@@ -87,7 +88,7 @@
             // 
             label4.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(384, 553);
+            label4.Location = new Point(420, 553);
             label4.Name = "label4";
             label4.Size = new Size(131, 80);
             label4.TabIndex = 4;
@@ -99,9 +100,9 @@
             // 
             label5.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ControlLightLight;
-            label5.Location = new Point(298, 620);
+            label5.Location = new Point(337, 620);
             label5.Name = "label5";
-            label5.Size = new Size(291, 80);
+            label5.Size = new Size(214, 80);
             label5.TabIndex = 5;
             label5.Text = "Your Mind";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -113,7 +114,7 @@
             GetStartedBtn.FlatAppearance.BorderSize = 3;
             GetStartedBtn.FlatStyle = FlatStyle.Flat;
             GetStartedBtn.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            GetStartedBtn.Location = new Point(131, 728);
+            GetStartedBtn.Location = new Point(131, 707);
             GetStartedBtn.Name = "GetStartedBtn";
             GetStartedBtn.Size = new Size(396, 71);
             GetStartedBtn.TabIndex = 6;
@@ -133,7 +134,7 @@
             LoginBtn.FlatStyle = FlatStyle.Flat;
             LoginBtn.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LoginBtn.ForeColor = SystemColors.HighlightText;
-            LoginBtn.Location = new Point(131, 827);
+            LoginBtn.Location = new Point(131, 809);
             LoginBtn.Name = "LoginBtn";
             LoginBtn.Size = new Size(396, 71);
             LoginBtn.TabIndex = 7;
@@ -167,10 +168,10 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
+            Controls.Add(IntroPicBox);
             Name = "IntroForm";
             Text = "IntroForm";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)IntroPicBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -178,7 +179,7 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox IntroPicBox;
         private Label label1;
         private Label label2;
         private Label label3;
