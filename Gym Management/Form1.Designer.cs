@@ -182,7 +182,7 @@
         #endregion
 
         private TextBox textBox1;
-        private Label Name;
+        //private Label Name;
         private TextBox textBox2;
         private Label lab;
         private Label label2;

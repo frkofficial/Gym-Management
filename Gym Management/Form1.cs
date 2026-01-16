@@ -34,6 +34,14 @@ namespace Gym_Management
 
         private void button3_Click(object sender, EventArgs e)
         {
+            User f2 = new User();
+            f2.Show();
+            this.Hide();
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
