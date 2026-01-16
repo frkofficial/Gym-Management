@@ -265,7 +265,7 @@ namespace Gym_Management
             else
             {
                 EmrPhonelbl.Text = "Emergency is Optional";
-                EmrPhonelbl.ForeColor = Color.Green;
+                EmrPhonelbl.ForeColor = Color.Lime;
                 EmrPhonelbl.Visible = true;
 
             }
