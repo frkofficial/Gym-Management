@@ -262,6 +262,11 @@ namespace Gym_Management
                 //EmrPhonelbl.Visible = true;
                 hasError = true;
             }
+            else
+            {
+                EmrPhonelbl.Text = "Emergency is Optional";
+                EmrPhonelbl.ForeColor = Color.Lime;
+                EmrPhonelbl.Visible = true;
             //else
             //{
             //    EmrPhonelbl.Text = "Emergency is Optional";

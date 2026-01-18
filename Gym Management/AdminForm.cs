@@ -13,10 +13,12 @@ namespace Gym_Management
     public partial class AdminForm : Form
     {
         LoginForm login;
-        public AdminForm(LoginForm login)
+        int adminId;
+        public AdminForm(LoginForm login,int adminId)
         {
             InitializeComponent();
             this.login = login;
+            this.adminId = adminId;
             this.FormClosing += AdminFormClosing;
         }
         public void AdminFormClosing(object sender, FormClosingEventArgs e)

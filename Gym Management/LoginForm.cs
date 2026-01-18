@@ -217,13 +217,14 @@ namespace Gym_Management
             var rows = Admindt.Rows;
             if (rows.Count == 1)
             {
+                int adminId = int.Parse(rows[0]["AdminId"].ToString());
                 string adminName = rows[0]["AdminUserName"].ToString();
                 string userType = rows[0]["UserType"].ToString().ToLower();
                 if (userType == "admin")
                 {
                     if (admin == null)
                     {
-                        admin = new AdminForm(this);
+                        admin = new AdminForm(this,adminId);
                     }
                     this.Hide();
                     admin.Text = "WelCome" + adminName;
@@ -240,18 +241,19 @@ namespace Gym_Management
             var rows1 = Userdt.Rows;
             if (rows1.Count == 1)
             {
+                int userId = int.Parse(rows1[0]["UserId"].ToString());
                 string userName = rows1[0]["UserName"].ToString();
                 string UserType = rows1[0]["UserType"].ToString().ToLower();
                 if (UserType == "member")
                 {
-                    user = new UserForm(this);
+                    user = new UserForm(this,userId);
                     this.Hide();
                     user.Text = " Welcome" + userName;
                     user.Show();
 
                 }
             }
-            SqlCommand Empcmd = DataAccess.GetCommand(@"SELECT EmpName,EmpPass,UserType
+            SqlCommand Empcmd = DataAccess.GetCommand(@"SELECT EmpId,EmpName,EmpPass,UserType
                                                       FROM EmpInfo
                                                        WHERE  EmpName =@name AND EmpPass= @password");
             Empcmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
@@ -260,13 +262,14 @@ namespace Gym_Management
             var Emprows = Empdt.Rows;
             if (Emprows.Count == 1)
             {
-                string userName = Emprows[0]["EmpName"].ToString();
+                int empId = int.Parse(Emprows[0]["EmpId"].ToString());
+                string empName = Emprows[0]["EmpName"].ToString();
                 string userType = Emprows[0]["UserType"].ToString().ToLower();
                 if (userType == "employee")
                 {
-                    emp = new EmployeeForm(this);
+                    emp = new EmployeeForm(this,empId);
                     this.Hide();
-                    emp.Text = "WelCome " + userName;
+                    emp.Text = "WelCome " + empName;
                     emp.Show();
                 }
             }
