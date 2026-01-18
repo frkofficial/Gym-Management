@@ -51,13 +51,13 @@ namespace Gym_Management
             Weightlbl.Visible = false;
             Trainerlbl.Visible = false;
             GoalWeightlbl.Visible = true;
-            EmrPhonelbl.Visible = true;
+            //EmrPhonelbl.Visible = true;
             LastNamelbl.Visible = true;
 
 
 
             GendercomboBox.SelectedIndex = 0;
-            UseTrainercomboBox2.SelectedIndex = 0;
+            //UseTrainercomboBox2.SelectedIndex = 0;
         }
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
@@ -96,7 +96,7 @@ namespace Gym_Management
             var EmrPhone = UserEmerPhonetextBox.Text;
             var Address = UserAddresstextBox.Text;
             var Gender = GendercomboBox.SelectedItem.ToString();
-            string UserTrainer = UseTrainercomboBox2.SelectedItem.ToString();
+            //string UserTrainer = UseTrainercomboBox2.SelectedItem.ToString();/
             string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             string passPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
 
@@ -243,32 +243,32 @@ namespace Gym_Management
             }
             if (UserEmerPhonetextBox.Text == " Emergency Contact" || string.IsNullOrWhiteSpace(EmrPhone))
             {
-                EmrPhonelbl.Text = "Emergency is Optional";
-                EmrPhonelbl.ForeColor = Color.Lime;
-                EmrPhonelbl.Visible = true;
+                //EmrPhonelbl.Text = "Emergency is Optional";/
+                //EmrPhonelbl.ForeColor = Color.Lime;
+                //EmrPhonelbl.Visible = true;
             }
 
             else if (EmrPhone == Phone && !string.IsNullOrWhiteSpace(EmrPhone))
             {
-                EmrPhonelbl.Text = "Use Diiferent Emergency Contact";
-                EmrPhonelbl.ForeColor = Color.Red;
-                EmrPhonelbl.Visible = true;
+                //EmrPhonelbl.Text = "Use Diiferent Emergency Contact";
+                //EmrPhonelbl.ForeColor = Color.Red;
+                //EmrPhonelbl.Visible = true;
                 hasError = true;
             }
             else if (!Regex.IsMatch(EmrPhone, @"^\d{11}$"))
             {
-                EmrPhonelbl.Text = "Invalid Contact";
-                EmrPhonelbl.ForeColor = Color.Red;
-                EmrPhonelbl.Visible = true;
+                //EmrPhonelbl.Text = "Invalid Contact";
+                //EmrPhonelbl.ForeColor = Color.Red;/
+                //EmrPhonelbl.Visible = true;
                 hasError = true;
             }
-            else
-            {
-                EmrPhonelbl.Text = "Emergency is Optional";
-                EmrPhonelbl.ForeColor = Color.Green;
-                EmrPhonelbl.Visible = true;
+            //else
+            //{
+            //    EmrPhonelbl.Text = "Emergency is Optional";
+            //    EmrPhonelbl.ForeColor = Color.Green;
+            //    EmrPhonelbl.Visible = true;
 
-            }
+            //}
 
             if (UserWeighttextBox.Text == " You Current Weight" || string.IsNullOrWhiteSpace(Weight))
             {
@@ -331,17 +331,18 @@ namespace Gym_Management
             {
                 Genderlbl.Visible = false;
             }
-            if (UseTrainercomboBox2.SelectedIndex == 0)
-            {
-                Trainerlbl.Visible = true;
-                // UseTrainercomboBox2.Focus();
-                hasError = true;
-            }
-            else
-            {
-                Trainerlbl.Visible = false;
 
-            }
+            //if (UseTrainercomboBox2.SelectedIndex == 0)
+            //{
+            //    Trainerlbl.Visible = true;
+            //    // UseTrainercomboBox2.Focus();
+            //    hasError = true;
+            //}
+            //else
+            //{
+            //    Trainerlbl.Visible = false;
+
+            //}
 
             if (hasError) return;
 
@@ -370,7 +371,7 @@ namespace Gym_Management
                 Usercmd.Parameters.Add("@goalweight", SqlDbType.Int).Value = DBNull.Value;
             }
 
-            Usercmd.Parameters.AddWithValue("@trainer", UserTrainer);
+            //Usercmd.Parameters.AddWithValue("@trainer", UserTrainer);
 
             // Handle optional EmrPhone
             Usercmd.Parameters.AddWithValue("@emrphone", string.IsNullOrWhiteSpace(EmrPhone) ? DBNull.Value : EmrPhone);
@@ -427,7 +428,12 @@ namespace Gym_Management
         {
             previousform.Show();
             this.Hide();
-            
+
+        }
+
+        private void UseTrainercomboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
