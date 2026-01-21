@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Gym_Management
 {
-    public partial class memberdashboard : Form
+    public partial class MemberForm : Form
     {
-        public memberdashboard()
+        public MemberForm()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
