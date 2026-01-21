@@ -74,10 +74,17 @@ namespace Gym_Management
 
         private void MembershipBtn_Click(object sender, EventArgs e)
         {
-
+            CenterPnl.Controls.Clear();
+            CenterPnl.Controls.Add(new Button() { Name = "btnx", Text = "Test Button" });
         }
 
         private void MemberBtn_Click(object sender, EventArgs e)
+        {
+            CenterPnl.Controls.Clear();
+
+        }
+
+        private void StaffBtn_Click(object sender, EventArgs e)
         {
 
         }

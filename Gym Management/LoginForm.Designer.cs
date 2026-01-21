@@ -78,7 +78,7 @@
             panel1.Controls.Add(MotivationPictureBox);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(6, 6);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Margin = new Padding(2, 4, 2, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(1186, 150);
             panel1.TabIndex = 0;
@@ -89,7 +89,7 @@
             MotivationPictureBox.Dock = DockStyle.Fill;
             MotivationPictureBox.Image = (Image)resources.GetObject("MotivationPictureBox.Image");
             MotivationPictureBox.Location = new Point(0, 0);
-            MotivationPictureBox.Margin = new Padding(3, 4, 3, 4);
+            MotivationPictureBox.Margin = new Padding(2, 4, 2, 4);
             MotivationPictureBox.Name = "MotivationPictureBox";
             MotivationPictureBox.Size = new Size(1186, 150);
             MotivationPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -102,7 +102,7 @@
             panellogo.Controls.Add(LogoPictureBox);
             panellogo.Dock = DockStyle.Left;
             panellogo.Location = new Point(6, 156);
-            panellogo.Margin = new Padding(3, 4, 3, 4);
+            panellogo.Margin = new Padding(2, 4, 2, 4);
             panellogo.Name = "panellogo";
             panellogo.Size = new Size(416, 830);
             panellogo.TabIndex = 1;
@@ -112,7 +112,7 @@
             LogoPictureBox.Dock = DockStyle.Fill;
             LogoPictureBox.Image = (Image)resources.GetObject("LogoPictureBox.Image");
             LogoPictureBox.Location = new Point(0, 0);
-            LogoPictureBox.Margin = new Padding(3, 4, 3, 4);
+            LogoPictureBox.Margin = new Padding(2, 4, 2, 4);
             LogoPictureBox.Name = "LogoPictureBox";
             LogoPictureBox.Size = new Size(416, 830);
             LogoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -127,7 +127,7 @@
             LoginBtn.FlatStyle = FlatStyle.Flat;
             LoginBtn.ForeColor = Color.Lime;
             LoginBtn.Location = new Point(72, 575);
-            LoginBtn.Margin = new Padding(3, 4, 3, 4);
+            LoginBtn.Margin = new Padding(2, 4, 2, 4);
             LoginBtn.Name = "LoginBtn";
             LoginBtn.Size = new Size(638, 59);
             LoginBtn.TabIndex = 2;
@@ -153,7 +153,7 @@
             panelLogin.Controls.Add(label1);
             panelLogin.Dock = DockStyle.Fill;
             panelLogin.Location = new Point(422, 156);
-            panelLogin.Margin = new Padding(3, 4, 3, 4);
+            panelLogin.Margin = new Padding(2, 4, 2, 4);
             panelLogin.Name = "panelLogin";
             panelLogin.Size = new Size(770, 830);
             panelLogin.TabIndex = 2;
@@ -162,9 +162,10 @@
             // label6
             // 
             label6.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(217, 656);
+            label6.Location = new Point(218, 656);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(213, 25);
+            label6.Size = new Size(212, 25);
             label6.TabIndex = 14;
             label6.Text = "Dont have an account?";
             // 
@@ -175,6 +176,7 @@
             SignupLinllbl.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             SignupLinllbl.LinkColor = Color.White;
             SignupLinllbl.Location = new Point(424, 656);
+            SignupLinllbl.Margin = new Padding(2, 0, 2, 0);
             SignupLinllbl.Name = "SignupLinllbl";
             SignupLinllbl.Size = new Size(79, 25);
             SignupLinllbl.TabIndex = 13;
@@ -187,6 +189,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(184, 238);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(377, 22);
             label2.TabIndex = 11;
@@ -195,10 +198,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(293, 8);
-            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Location = new Point(292, 8);
+            pictureBox3.Margin = new Padding(2, 4, 2, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(197, 189);
+            pictureBox3.Size = new Size(198, 189);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 10;
             pictureBox3.TabStop = false;
@@ -208,18 +211,18 @@
             panel6.Controls.Add(PassPnl);
             panel6.Controls.Add(panel8);
             panel6.Location = new Point(280, 422);
-            panel6.Margin = new Padding(3, 4, 3, 4);
+            panel6.Margin = new Padding(2, 4, 2, 4);
             panel6.Name = "panel6";
-            panel6.Size = new Size(433, 145);
+            panel6.Size = new Size(432, 145);
             panel6.TabIndex = 8;
             // 
             // PassPnl
             // 
             PassPnl.Controls.Add(label4);
-            PassPnl.Location = new Point(3, 95);
-            PassPnl.Margin = new Padding(3, 4, 3, 4);
+            PassPnl.Location = new Point(2, 95);
+            PassPnl.Margin = new Padding(2, 4, 2, 4);
             PassPnl.Name = "PassPnl";
-            PassPnl.Size = new Size(427, 40);
+            PassPnl.Size = new Size(428, 40);
             PassPnl.TabIndex = 6;
             PassPnl.Visible = false;
             // 
@@ -230,6 +233,7 @@
             label4.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Red;
             label4.Location = new Point(0, 0);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new Size(260, 25);
             label4.TabIndex = 2;
@@ -239,18 +243,18 @@
             // 
             panel8.Controls.Add(panel9);
             panel8.Controls.Add(PassTextBox);
-            panel8.Location = new Point(3, 4);
-            panel8.Margin = new Padding(3, 4, 3, 4);
+            panel8.Location = new Point(2, 4);
+            panel8.Margin = new Padding(2, 4, 2, 4);
             panel8.Name = "panel8";
-            panel8.Size = new Size(427, 84);
+            panel8.Size = new Size(428, 84);
             panel8.TabIndex = 1;
             // 
             // panel9
             // 
             panel9.Anchor = AnchorStyles.None;
             panel9.BackColor = Color.White;
-            panel9.Location = new Point(13, 79);
-            panel9.Margin = new Padding(3, 4, 3, 4);
+            panel9.Location = new Point(12, 79);
+            panel9.Margin = new Padding(2, 4, 2, 4);
             panel9.Name = "panel9";
             panel9.Size = new Size(400, 1);
             panel9.TabIndex = 2;
@@ -262,8 +266,8 @@
             PassTextBox.BorderStyle = BorderStyle.None;
             PassTextBox.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
             PassTextBox.ForeColor = SystemColors.WindowFrame;
-            PassTextBox.Location = new Point(13, 30);
-            PassTextBox.Margin = new Padding(3, 4, 3, 4);
+            PassTextBox.Location = new Point(12, 30);
+            PassTextBox.Margin = new Padding(2, 4, 2, 4);
             PassTextBox.Multiline = true;
             PassTextBox.Name = "PassTextBox";
             PassTextBox.Size = new Size(400, 50);
@@ -278,9 +282,9 @@
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(61, 426);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Margin = new Padding(2, 4, 2, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(83, 89);
+            pictureBox2.Size = new Size(82, 89);
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
@@ -290,6 +294,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.Location = new Point(151, 465);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
             label5.Size = new Size(98, 25);
             label5.TabIndex = 6;
@@ -300,18 +305,18 @@
             panel4.Controls.Add(UserNamePnl);
             panel4.Controls.Add(panel2);
             panel4.Location = new Point(280, 270);
-            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Margin = new Padding(2, 4, 2, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(433, 145);
+            panel4.Size = new Size(432, 145);
             panel4.TabIndex = 5;
             // 
             // UserNamePnl
             // 
             UserNamePnl.Controls.Add(label3);
-            UserNamePnl.Location = new Point(3, 95);
-            UserNamePnl.Margin = new Padding(3, 4, 3, 4);
+            UserNamePnl.Location = new Point(2, 95);
+            UserNamePnl.Margin = new Padding(2, 4, 2, 4);
             UserNamePnl.Name = "UserNamePnl";
-            UserNamePnl.Size = new Size(427, 40);
+            UserNamePnl.Size = new Size(428, 40);
             UserNamePnl.TabIndex = 6;
             UserNamePnl.Visible = false;
             // 
@@ -322,6 +327,7 @@
             label3.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Red;
             label3.Location = new Point(0, 0);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(266, 25);
             label3.TabIndex = 2;
@@ -332,10 +338,10 @@
             // 
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(UserNameTextBox);
-            panel2.Location = new Point(3, 4);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(2, 4);
+            panel2.Margin = new Padding(2, 4, 2, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(427, 84);
+            panel2.Size = new Size(428, 84);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
@@ -343,8 +349,8 @@
             // 
             panel3.Anchor = AnchorStyles.None;
             panel3.BackColor = Color.White;
-            panel3.Location = new Point(13, 79);
-            panel3.Margin = new Padding(3, 4, 3, 4);
+            panel3.Location = new Point(12, 79);
+            panel3.Margin = new Padding(2, 4, 2, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(400, 1);
             panel3.TabIndex = 2;
@@ -356,8 +362,8 @@
             UserNameTextBox.BorderStyle = BorderStyle.None;
             UserNameTextBox.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
             UserNameTextBox.ForeColor = SystemColors.WindowFrame;
-            UserNameTextBox.Location = new Point(13, 30);
-            UserNameTextBox.Margin = new Padding(3, 4, 3, 4);
+            UserNameTextBox.Location = new Point(12, 30);
+            UserNameTextBox.Margin = new Padding(2, 4, 2, 4);
             UserNameTextBox.Multiline = true;
             UserNameTextBox.Name = "UserNameTextBox";
             UserNameTextBox.Size = new Size(400, 50);
@@ -372,9 +378,9 @@
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(61, 274);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Margin = new Padding(2, 4, 2, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(83, 89);
+            pictureBox1.Size = new Size(82, 89);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
@@ -384,7 +390,8 @@
             labelLogin.AutoSize = true;
             labelLogin.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelLogin.ForeColor = Color.White;
-            labelLogin.Location = new Point(253, 200);
+            labelLogin.Location = new Point(252, 200);
+            labelLogin.Margin = new Padding(2, 0, 2, 0);
             labelLogin.Name = "labelLogin";
             labelLogin.Size = new Size(259, 30);
             labelLogin.TabIndex = 0;
@@ -395,6 +402,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(151, 312);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(110, 25);
             label1.TabIndex = 1;
@@ -410,7 +418,7 @@
             Controls.Add(panellogo);
             Controls.Add(panel1);
             ForeColor = SystemColors.ControlLightLight;
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(2, 4, 2, 4);
             Name = "LoginForm";
             Padding = new Padding(6);
             StartPosition = FormStartPosition.CenterScreen;

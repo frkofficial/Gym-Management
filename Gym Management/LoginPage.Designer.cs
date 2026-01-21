@@ -39,6 +39,7 @@
             button1 = new Button();
             panel1 = new Panel();
             button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -190,5 +191,6 @@
         private Button button1;
         private Panel panel1;
         private Button button2;
+        private Button button3;
     }
 }

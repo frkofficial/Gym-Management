@@ -55,6 +55,7 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            CenterPnl.SuspendLayout();
             SuspendLayout();
             // 
             // DashBoardBtn
@@ -83,7 +84,6 @@
             SliderDrawerpnl.Controls.Add(WorkoutBtn);
             SliderDrawerpnl.Controls.Add(ClassSchedulingBtn);
             SliderDrawerpnl.Controls.Add(ActivityBtn);
-            SliderDrawerpnl.Controls.Add(GroupBtn);
             SliderDrawerpnl.Controls.Add(StaffBtn);
             SliderDrawerpnl.Controls.Add(DashBoardBtn);
             SliderDrawerpnl.Controls.Add(MembershipBtn);
@@ -181,7 +181,7 @@
             GroupBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
             GroupBtn.FlatStyle = FlatStyle.Flat;
             GroupBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            GroupBtn.Location = new Point(0, 494);
+            GroupBtn.Location = new Point(149, 115);
             GroupBtn.Name = "GroupBtn";
             GroupBtn.Size = new Size(273, 52);
             GroupBtn.TabIndex = 3;
@@ -194,12 +194,13 @@
             StaffBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
             StaffBtn.FlatStyle = FlatStyle.Flat;
             StaffBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            StaffBtn.Location = new Point(0, 436);
+            StaffBtn.Location = new Point(0, 485);
             StaffBtn.Name = "StaffBtn";
             StaffBtn.Size = new Size(273, 52);
             StaffBtn.TabIndex = 5;
             StaffBtn.Text = "Staff Member";
             StaffBtn.UseVisualStyleBackColor = true;
+            StaffBtn.Click += StaffBtn_Click;
             // 
             // MembershipBtn
             // 
@@ -207,11 +208,13 @@
             MembershipBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
             MembershipBtn.FlatStyle = FlatStyle.Flat;
             MembershipBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MembershipBtn.Location = new Point(3, 387);
+            MembershipBtn.Image = (Image)resources.GetObject("MembershipBtn.Image");
+            MembershipBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            MembershipBtn.Location = new Point(3, 409);
             MembershipBtn.Name = "MembershipBtn";
-            MembershipBtn.Size = new Size(273, 52);
+            MembershipBtn.Size = new Size(270, 53);
             MembershipBtn.TabIndex = 2;
-            MembershipBtn.Text = "Membership Type";
+            MembershipBtn.Text = "    Membership Type";
             MembershipBtn.UseVisualStyleBackColor = true;
             MembershipBtn.Click += MembershipBtn_Click;
             // 
@@ -244,9 +247,9 @@
             MemberBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             MemberBtn.Image = (Image)resources.GetObject("MemberBtn.Image");
             MemberBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            MemberBtn.Location = new Point(6, 329);
+            MemberBtn.Location = new Point(6, 337);
             MemberBtn.Name = "MemberBtn";
-            MemberBtn.Size = new Size(270, 52);
+            MemberBtn.Size = new Size(270, 53);
             MemberBtn.TabIndex = 4;
             MemberBtn.Text = "Member";
             MemberBtn.UseVisualStyleBackColor = false;
@@ -309,6 +312,7 @@
             // CenterPnl
             // 
             CenterPnl.BackColor = Color.FromArgb(35, 35, 35);
+            CenterPnl.Controls.Add(GroupBtn);
             CenterPnl.Dock = DockStyle.Fill;
             CenterPnl.Location = new Point(276, 156);
             CenterPnl.Name = "CenterPnl";
@@ -333,6 +337,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            CenterPnl.ResumeLayout(false);
             ResumeLayout(false);
         }
 
