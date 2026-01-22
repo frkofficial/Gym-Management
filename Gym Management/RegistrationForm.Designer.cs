@@ -493,7 +493,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            //pictureBox2.Click += pictureBox2_Click;
             // 
             // label2
             // 
