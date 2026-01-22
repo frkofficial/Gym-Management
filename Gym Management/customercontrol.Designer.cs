@@ -29,29 +29,44 @@
         private void InitializeComponent()
         {
             button1 = new Button();
+            dataGridViewCustomer = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(191, 129);
+            button1.Location = new Point(129, 404);
             button1.Name = "button1";
-            button1.Size = new Size(241, 157);
+            button1.Size = new Size(140, 59);
             button1.TabIndex = 0;
             button1.Text = "customer";
             button1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewCustomer
+            // 
+            dataGridViewCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCustomer.Location = new Point(110, 66);
+            dataGridViewCustomer.Name = "dataGridViewCustomer";
+            dataGridViewCustomer.RowHeadersWidth = 51;
+            dataGridViewCustomer.Size = new Size(514, 313);
+            dataGridViewCustomer.TabIndex = 1;
             // 
             // customercontrol
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(dataGridViewCustomer);
             Controls.Add(button1);
             Name = "customercontrol";
             Size = new Size(705, 481);
+            Load += customercontrol_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button button1;
+        private DataGridView dataGridViewCustomer;
     }
 }
