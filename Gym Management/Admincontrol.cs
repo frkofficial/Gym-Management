@@ -51,14 +51,33 @@ namespace Gym_Management
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-                    dataGridViewadmin.DataSource = dt; 
+                    dataGridViewadmin.DataSource = dt;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Admin load error: " + ex.Message);
             }
-            
+
+            dataGridViewadmin.SelectionChanged += dataGridViewemployee_SelectionChanged;
+        }
+
+        private void dataGridViewemployee_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewadmin.CurrentRow != null)
+            {
+                textBoxId.Text = dataGridViewadmin.CurrentRow.Cells["AdminId"].Value?.ToString();
+                textBoxName.Text = dataGridViewadmin.CurrentRow.Cells["AdminUserName"].Value?.ToString();
+                textBoxRank.Text = dataGridViewadmin.CurrentRow.Cells["Rank"].Value?.ToString();
+                textBoxPhone.Text = dataGridViewadmin.CurrentRow.Cells["AdminPhone"].Value?.ToString();
+            }
+        }
+
+        
+
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
-using Microsoft.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 
 namespace Gym_Management
 {
@@ -48,6 +50,7 @@ namespace Gym_Management
         /// <returns></returns>
         public SqlCommand GetCommand(string sql)
         {
+            
             SqlConnection conn = new SqlConnection(ConnectionString);
             SqlCommand sqlCmd = new SqlCommand(sql, conn);
             return sqlCmd;
@@ -106,8 +109,9 @@ namespace Gym_Management
                 cmd.Connection.Open();
                 result = cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
+                throw;
             }
             finally
             {

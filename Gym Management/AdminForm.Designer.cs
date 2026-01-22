@@ -119,9 +119,11 @@
             // 
             // contentpannel
             // 
+            contentpannel.BackColor = Color.White;
+            contentpannel.ForeColor = SystemColors.ControlLight;
             contentpannel.Location = new Point(189, 7);
             contentpannel.Name = "contentpannel";
-            contentpannel.Size = new Size(659, 481);
+            contentpannel.Size = new Size(983, 481);
             contentpannel.TabIndex = 7;
             // 
             // panel2
@@ -141,7 +143,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(877, 500);
+            ClientSize = new Size(1184, 500);
             Controls.Add(panel2);
             Controls.Add(contentpannel);
             Margin = new Padding(2);

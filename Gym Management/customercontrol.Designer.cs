@@ -58,7 +58,7 @@
             Controls.Add(dataGridViewCustomer);
             Controls.Add(button1);
             Name = "customercontrol";
-            Size = new Size(705, 481);
+            Size = new Size(1236, 481);
             Load += customercontrol_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).EndInit();
             ResumeLayout(false);

@@ -47,13 +47,13 @@ namespace Gym_Management
             control.Dock = DockStyle.Fill;
             contentpannel.Controls.Add(control);
         }
-        
+
         public void AdminFormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
-       
+
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
