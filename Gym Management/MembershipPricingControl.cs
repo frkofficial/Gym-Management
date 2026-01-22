@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace Gym_Management
 {
-    public partial class memberdashboard : Form
+    public partial class MembershipPricingControl : UserControl
     {
-        public memberdashboard()
+        public MembershipPricingControl()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       private void lblBasic_Click(object sender, EventArgs e)
         {
 
         }
