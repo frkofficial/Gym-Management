@@ -420,7 +420,7 @@
             ForeColor = SystemColors.ControlLightLight;
             Margin = new Padding(2, 3, 2, 3);
             Name = "LoginForm";
-            Padding = new Padding(5, 5, 5, 5);
+            Padding = new Padding(5);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             Load += Form1_Load;

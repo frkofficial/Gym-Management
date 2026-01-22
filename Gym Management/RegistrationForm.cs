@@ -262,11 +262,7 @@ namespace Gym_Management
                 //EmrPhonelbl.Visible = true;
                 hasError = true;
             }
-            else
-            {
-                EmrPhonelbl.Text = "Emergency is Optional";
-                EmrPhonelbl.ForeColor = Color.Lime;
-                EmrPhonelbl.Visible = true;
+
             //else
             //{
             //    EmrPhonelbl.Text = "Emergency is Optional";
@@ -437,6 +433,11 @@ namespace Gym_Management
         }
 
         private void UseTrainercomboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }

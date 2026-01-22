@@ -47,6 +47,7 @@
             UserNamelbl = new Label();
             CancelBtn = new Button();
             ProceedBtn = new Button();
+            GendercomboBox = new ComboBox();
             UserEmerPhonetextBox = new TextBox();
             UserPhonetextBox = new TextBox();
             UserLastNametextBox = new TextBox();
@@ -67,7 +68,6 @@
             label2 = new Label();
             label1 = new Label();
             Headinglabel = new Label();
-            GendercomboBox = new ComboBox();
             RegiPnl.SuspendLayout();
             FirstNamePnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -116,7 +116,7 @@
             RegiPnl.Controls.Add(Headinglabel);
             RegiPnl.Dock = DockStyle.Fill;
             RegiPnl.Location = new Point(0, 0);
-            RegiPnl.Margin = new Padding(2, 2, 2, 2);
+            RegiPnl.Margin = new Padding(2);
             RegiPnl.Name = "RegiPnl";
             RegiPnl.Size = new Size(998, 814);
             RegiPnl.TabIndex = 0;
@@ -157,7 +157,7 @@
             // 
             FirstNamePnl.Controls.Add(Fnamelbl);
             FirstNamePnl.Location = new Point(538, 274);
-            FirstNamePnl.Margin = new Padding(2, 2, 2, 2);
+            FirstNamePnl.Margin = new Padding(2);
             FirstNamePnl.Name = "FirstNamePnl";
             FirstNamePnl.Size = new Size(169, 25);
             FirstNamePnl.TabIndex = 37;
@@ -280,7 +280,7 @@
             CancelBtn.FlatStyle = FlatStyle.Flat;
             CancelBtn.ForeColor = SystemColors.Window;
             CancelBtn.Location = new Point(799, 685);
-            CancelBtn.Margin = new Padding(2, 2, 2, 2);
+            CancelBtn.Margin = new Padding(2);
             CancelBtn.Name = "CancelBtn";
             CancelBtn.Size = new Size(169, 33);
             CancelBtn.TabIndex = 25;
@@ -296,7 +296,7 @@
             ProceedBtn.FlatStyle = FlatStyle.Flat;
             ProceedBtn.ForeColor = SystemColors.Window;
             ProceedBtn.Location = new Point(538, 685);
-            ProceedBtn.Margin = new Padding(2, 2, 2, 2);
+            ProceedBtn.Margin = new Padding(2);
             ProceedBtn.Name = "ProceedBtn";
             ProceedBtn.Size = new Size(169, 33);
             ProceedBtn.TabIndex = 24;
@@ -304,12 +304,26 @@
             ProceedBtn.UseVisualStyleBackColor = true;
             ProceedBtn.Click += ProceedBtn_Click;
             // 
+            // GendercomboBox
+            // 
+            GendercomboBox.BackColor = SystemColors.WindowText;
+            GendercomboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            GendercomboBox.FlatStyle = FlatStyle.Flat;
+            GendercomboBox.ForeColor = SystemColors.Window;
+            GendercomboBox.FormattingEnabled = true;
+            GendercomboBox.Items.AddRange(new object[] { "Select Gender", "Male", "Female" });
+            GendercomboBox.Location = new Point(538, 564);
+            GendercomboBox.Margin = new Padding(2);
+            GendercomboBox.Name = "GendercomboBox";
+            GendercomboBox.Size = new Size(170, 28);
+            GendercomboBox.TabIndex = 22;
+            // 
             // UserEmerPhonetextBox
             // 
             UserEmerPhonetextBox.BackColor = SystemColors.WindowText;
             UserEmerPhonetextBox.ForeColor = SystemColors.Window;
             UserEmerPhonetextBox.Location = new Point(799, 514);
-            UserEmerPhonetextBox.Margin = new Padding(2, 2, 2, 2);
+            UserEmerPhonetextBox.Margin = new Padding(2);
             UserEmerPhonetextBox.Name = "UserEmerPhonetextBox";
             UserEmerPhonetextBox.PlaceholderText = " Emergency Contact";
             UserEmerPhonetextBox.Size = new Size(170, 27);
@@ -320,7 +334,7 @@
             UserPhonetextBox.BackColor = Color.Black;
             UserPhonetextBox.ForeColor = SystemColors.Window;
             UserPhonetextBox.Location = new Point(799, 465);
-            UserPhonetextBox.Margin = new Padding(2, 2, 2, 2);
+            UserPhonetextBox.Margin = new Padding(2);
             UserPhonetextBox.Name = "UserPhonetextBox";
             UserPhonetextBox.PlaceholderText = " Contact Number";
             UserPhonetextBox.Size = new Size(170, 27);
@@ -332,7 +346,7 @@
             UserLastNametextBox.Cursor = Cursors.IBeam;
             UserLastNametextBox.ForeColor = SystemColors.Window;
             UserLastNametextBox.Location = new Point(799, 250);
-            UserLastNametextBox.Margin = new Padding(2, 2, 2, 2);
+            UserLastNametextBox.Margin = new Padding(2);
             UserLastNametextBox.Name = "UserLastNametextBox";
             UserLastNametextBox.PlaceholderText = " Your Last name";
             UserLastNametextBox.Size = new Size(170, 27);
@@ -344,7 +358,7 @@
             UserEmailtextBox.BackColor = SystemColors.WindowText;
             UserEmailtextBox.ForeColor = SystemColors.Window;
             UserEmailtextBox.Location = new Point(538, 514);
-            UserEmailtextBox.Margin = new Padding(2, 2, 2, 2);
+            UserEmailtextBox.Margin = new Padding(2);
             UserEmailtextBox.Multiline = true;
             UserEmailtextBox.Name = "UserEmailtextBox";
             UserEmailtextBox.PlaceholderText = " Email ID";
@@ -356,7 +370,7 @@
             UserAddresstextBox.BackColor = SystemColors.WindowText;
             UserAddresstextBox.ForeColor = SystemColors.Window;
             UserAddresstextBox.Location = new Point(538, 623);
-            UserAddresstextBox.Margin = new Padding(2, 2, 2, 2);
+            UserAddresstextBox.Margin = new Padding(2);
             UserAddresstextBox.Multiline = true;
             UserAddresstextBox.Name = "UserAddresstextBox";
             UserAddresstextBox.PlaceholderText = " Provide Your Address";
@@ -369,7 +383,7 @@
             UserWeightGoaltextBox.BackColor = SystemColors.WindowText;
             UserWeightGoaltextBox.ForeColor = SystemColors.Window;
             UserWeightGoaltextBox.Location = new Point(538, 465);
-            UserWeightGoaltextBox.Margin = new Padding(2, 2, 2, 2);
+            UserWeightGoaltextBox.Margin = new Padding(2);
             UserWeightGoaltextBox.Name = "UserWeightGoaltextBox";
             UserWeightGoaltextBox.PlaceholderText = " Goal Weight";
             UserWeightGoaltextBox.Size = new Size(170, 27);
@@ -380,7 +394,7 @@
             UserHeighttextBox.BackColor = SystemColors.WindowText;
             UserHeighttextBox.ForeColor = SystemColors.Window;
             UserHeighttextBox.Location = new Point(799, 412);
-            UserHeighttextBox.Margin = new Padding(2, 2, 2, 2);
+            UserHeighttextBox.Margin = new Padding(2);
             UserHeighttextBox.Name = "UserHeighttextBox";
             UserHeighttextBox.PlaceholderText = " Your Current Height";
             UserHeighttextBox.Size = new Size(170, 27);
@@ -391,7 +405,7 @@
             UserWeighttextBox.BackColor = SystemColors.WindowText;
             UserWeighttextBox.ForeColor = SystemColors.Window;
             UserWeighttextBox.Location = new Point(538, 412);
-            UserWeighttextBox.Margin = new Padding(2, 2, 2, 2);
+            UserWeighttextBox.Margin = new Padding(2);
             UserWeighttextBox.Name = "UserWeighttextBox";
             UserWeighttextBox.PlaceholderText = " Your Current Weight";
             UserWeighttextBox.Size = new Size(170, 27);
@@ -402,7 +416,7 @@
             UserPasstextBox.BackColor = SystemColors.WindowText;
             UserPasstextBox.ForeColor = SystemColors.Window;
             UserPasstextBox.Location = new Point(538, 355);
-            UserPasstextBox.Margin = new Padding(2, 2, 2, 2);
+            UserPasstextBox.Margin = new Padding(2);
             UserPasstextBox.Name = "UserPasstextBox";
             UserPasstextBox.PlaceholderText = " Password(Strong)";
             UserPasstextBox.Size = new Size(170, 27);
@@ -413,7 +427,7 @@
             UserConfirmPasstextBox.BackColor = SystemColors.WindowText;
             UserConfirmPasstextBox.ForeColor = SystemColors.Window;
             UserConfirmPasstextBox.Location = new Point(799, 355);
-            UserConfirmPasstextBox.Margin = new Padding(2, 2, 2, 2);
+            UserConfirmPasstextBox.Margin = new Padding(2);
             UserConfirmPasstextBox.Name = "UserConfirmPasstextBox";
             UserConfirmPasstextBox.PlaceholderText = " Confirm Password";
             UserConfirmPasstextBox.Size = new Size(170, 27);
@@ -425,7 +439,7 @@
             UserAgetextBox.BackColor = SystemColors.WindowText;
             UserAgetextBox.ForeColor = SystemColors.Window;
             UserAgetextBox.Location = new Point(799, 304);
-            UserAgetextBox.Margin = new Padding(2, 2, 2, 2);
+            UserAgetextBox.Margin = new Padding(2);
             UserAgetextBox.Name = "UserAgetextBox";
             UserAgetextBox.PlaceholderText = " Your Age";
             UserAgetextBox.Size = new Size(170, 27);
@@ -436,7 +450,7 @@
             UserNametextBox.BackColor = SystemColors.WindowText;
             UserNametextBox.ForeColor = SystemColors.Window;
             UserNametextBox.Location = new Point(538, 304);
-            UserNametextBox.Margin = new Padding(2, 2, 2, 2);
+            UserNametextBox.Margin = new Padding(2);
             UserNametextBox.Name = "UserNametextBox";
             UserNametextBox.PlaceholderText = " Your User Name";
             UserNametextBox.Size = new Size(170, 27);
@@ -447,7 +461,7 @@
             UserFirstNametextBox.BackColor = SystemColors.WindowText;
             UserFirstNametextBox.ForeColor = SystemColors.Window;
             UserFirstNametextBox.Location = new Point(538, 250);
-            UserFirstNametextBox.Margin = new Padding(2, 2, 2, 2);
+            UserFirstNametextBox.Margin = new Padding(2);
             UserFirstNametextBox.Name = "UserFirstNametextBox";
             UserFirstNametextBox.PlaceholderText = " Your First Name";
             UserFirstNametextBox.Size = new Size(170, 27);
@@ -458,7 +472,7 @@
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(25, 63);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(446, 654);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -469,7 +483,7 @@
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
             panel1.Location = new Point(497, 220);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(471, 1);
             panel1.TabIndex = 6;
@@ -489,12 +503,13 @@
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(830, 63);
-            pictureBox2.Margin = new Padding(2, 2, 2, 2);
+            pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(138, 76);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // label2
             // 
@@ -529,20 +544,6 @@
             Headinglabel.TabIndex = 1;
             Headinglabel.Text = "Welcome To \r\n";
             // 
-            // GendercomboBox
-            // 
-            GendercomboBox.BackColor = SystemColors.WindowText;
-            GendercomboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            GendercomboBox.FlatStyle = FlatStyle.Flat;
-            GendercomboBox.ForeColor = SystemColors.Window;
-            GendercomboBox.FormattingEnabled = true;
-            GendercomboBox.Items.AddRange(new object[] { "Select Gender", "Male", "Female" });
-            GendercomboBox.Location = new Point(538, 564);
-            GendercomboBox.Margin = new Padding(2);
-            GendercomboBox.Name = "GendercomboBox";
-            GendercomboBox.Size = new Size(170, 28);
-            GendercomboBox.TabIndex = 22;
-            // 
             // RegistrationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -550,7 +551,7 @@
             AutoScroll = true;
             ClientSize = new Size(998, 814);
             Controls.Add(RegiPnl);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "RegistrationForm";
             Text = "RegistrationForm";
             Load += RegistrationForm_Load;

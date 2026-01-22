@@ -227,7 +227,7 @@ namespace Gym_Management
                         admin = new AdminForm(this,adminId);
                     }
                     this.Hide();
-                    admin.Text = "WelCome" + adminName;
+                    admin.Text = "WelCome " + adminName;
                     admin.Show();
                 }
 
