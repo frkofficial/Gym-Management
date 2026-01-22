@@ -12,13 +12,13 @@ namespace Gym_Management
 {
     public partial class UserForm : Form
     {
-        LoginForm login;
+        
         int userId;
-        public UserForm(LoginForm login,int userId)
+        public UserForm()
         {
             InitializeComponent();
-            this.login = login;
-            this.userId = userId;
+            //this.login = login;
+            //this.userId = userId;
             this.FormClosing += UserFormClosing;
 
         }

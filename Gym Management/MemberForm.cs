@@ -14,17 +14,17 @@ namespace Gym_Management
     {
         LoginForm login;
         int userId;
-        public MemberForm()
+        public MemberForm(LoginForm login, int userId)
         {
             InitializeComponent();
-            // this.login = login;
-            // this.userId = userId;
-            // this.FormClosing += MemberFormClosing;
+             this.login = login;
+             this.userId = userId;
+            this.FormClosing += MemberFormClosing;
         }
-        //public void MemberFormClosing(object sender, FormClosingEventArgs e)
-        // {
-        //   Application.Exit();
-        //}
+        public void MemberFormClosing(object sender, FormClosingEventArgs e)
+        {
+          Application.Exit();
+        }
         private void LoadControl(UserControl control)
         {
             panelMain.Controls.Clear();
