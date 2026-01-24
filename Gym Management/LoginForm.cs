@@ -238,7 +238,7 @@ namespace Gym_Management
            
                 if (member!= null && member.UserType == "member")
                 {
-                    user = new UserForm(this,userId);
+                    user = new MemberForm(this,member.UserId);
                     this.Hide();
                     user.Text = " Welcome" + member.UserName;
                     user.Show();
