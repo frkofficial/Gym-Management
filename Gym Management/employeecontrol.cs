@@ -1,179 +1,174 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Configuration;
 using Microsoft.Data.SqlClient;
 
 namespace Gym_Management
 {
     public partial class employeecontrol : UserControl
-
-
     {
-        DataAccess dataAccess;
+        private DataAccess dataAccess;
+
         public employeecontrol()
         {
             InitializeComponent();
-            dataAccess = new DataAccess();
-        }
 
-        private void employeecontrol_Load(object sender, EventArgs e)
-        {
-            
-            LoadEmployeeData();
-            dataGridViewemployee.SelectionChanged += dataGridViewemployee_SelectionChanged;
-
-        }
-
-        private void LoadEmployeeData()
-        {
+            // Connection test
             try
             {
-                string cs = ConfigurationManager.ConnectionStrings["GymsDB"].ConnectionString;
-
-                using (SqlConnection con = new SqlConnection(cs))
+                dataAccess = new DataAccess();
+                if (!dataAccess.TestConnection())
                 {
-                    con.Open();
-
-                    SqlDataAdapter da = new
-                       SqlDataAdapter(
-                        "SELECT EmpId, EmpName, EmpJob, EmpPhone, EmpFirstName, EmpLastName,EmpPass, UserType FROM EmpInfo",
-                        con
-                    );
-
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    dataGridViewemployee.DataSource = dt;
-
-                    if (dataGridViewemployee.Rows.Count > 0)
-                        dataGridViewemployee.Rows[0].Selected = true;
+                    MessageBox.Show("Database connection failed!", "Error",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Employee load error: " + ex.Message);
+                MessageBox.Show($"Error: {ex.Message}", "Initialization Error");
             }
         }
 
-       
+        private void employeecontrol_Load(object sender, EventArgs e)
+        {
+            LoadEmployeeData();
+            dataGridViewemployee.SelectionChanged += dataGridViewemployee_SelectionChanged;
+        }
 
-        //to clear fields
+        // ================= LOAD EMPLOYEE =================
+        private void LoadEmployeeData()
+        {
+            try
+            {
+                SqlCommand cmd = dataAccess.GetCommand(
+                    @"SELECT EmpId, EmpName, EmpFirstName, EmpLastName, EmpPass, 
+                     EmpJob, UserType, EmpPhone, EmpAddress, EmpEmail, EmpGender
+              FROM EmpInfo"
+                );
+
+                DataTable dt = dataAccess.Execute(cmd);
+                dataGridViewemployee.DataSource = dt;
+
+                if (dataGridViewemployee.Rows.Count > 0)
+                    dataGridViewemployee.Rows[0].Selected = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Load Error: " + ex.Message, "Error");
+            }
+        }
+
+
+        
+
+        // ================= INSERT EMPLOYEE =================
+        private void btnInsertEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                // 1. Get next EmpId
+                int nextEmpId = dataAccess.GetNextEmpId();
+
+                // 2. Collect form data
+                string EmpName = txtEmpName.Text.Trim();
+                string EmpJob = txtEmpJob.Text.Trim();
+                string EmpPhone = txtEmpPhone.Text.Trim();
+                string EmpFirstName = textBoxfname.Text.Trim();
+                string EmpLastName = textBoxLname.Text.Trim();
+                string EmpPass = textBoxEpass.Text.Trim();
+                string UserType = textBoxUserT.Text.Trim();
+                string EmpAddress = "Not Provided";
+                string EmpEmail = "notprovided@email.com";
+                string EmpGender = "Not Specified";
+
+                // 3. Validation
+                if (string.IsNullOrWhiteSpace(EmpName) ||
+                    string.IsNullOrWhiteSpace(EmpFirstName) ||
+                    string.IsNullOrWhiteSpace(EmpPass) ||
+                    string.IsNullOrWhiteSpace(EmpJob) ||
+                    string.IsNullOrWhiteSpace(UserType) ||
+                    string.IsNullOrWhiteSpace(EmpPhone))
+                {
+                    MessageBox.Show("Please fill all required fields!", "Validation Error");
+                    return;
+                }
+
+                // 4. SQL Command WITH EmpId
+                SqlCommand cmd = dataAccess.GetCommand(@"
+            INSERT INTO EmpInfo 
+            (EmpId, EmpName, EmpFirstName, EmpLastName, EmpPass, EmpJob, 
+             UserType, EmpPhone, EmpAddress, EmpEmail, EmpGender)
+            VALUES 
+            (@empid, @name, @fname, @lname, @pass, @job, @usertype, 
+             @phone, @address, @email, @gender)
+        ");
+
+                // 5. Add parameters
+                cmd.Parameters.AddWithValue("@empid", nextEmpId);
+                cmd.Parameters.AddWithValue("@name", EmpName);
+                cmd.Parameters.AddWithValue("@fname", EmpFirstName);
+                cmd.Parameters.AddWithValue("@lname", string.IsNullOrEmpty(EmpLastName) ? (object)DBNull.Value : EmpLastName);
+                cmd.Parameters.AddWithValue("@pass", EmpPass);
+                cmd.Parameters.AddWithValue("@job", EmpJob);
+                cmd.Parameters.AddWithValue("@usertype", UserType);
+                cmd.Parameters.AddWithValue("@phone", EmpPhone);
+                cmd.Parameters.AddWithValue("@address", EmpAddress);
+                cmd.Parameters.AddWithValue("@email", EmpEmail);
+                cmd.Parameters.AddWithValue("@gender", EmpGender);
+
+                // 6. Execute
+                int rows = dataAccess.ExecuteNonQuery(cmd);
+
+                if (rows > 0)
+                {
+                    MessageBox.Show($"✅ Success! Employee ID: {nextEmpId}", "Success");
+                    LoadEmployeeData();
+                    ClearFields();
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show($"SQL Error: {sqlEx.Message}", "Error");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error");
+            }
+        }
+
+        // ================= GRID → TEXTBOX =================
+        private void dataGridViewemployee_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewemployee.CurrentRow == null) return;
+
+            try
+            {
+                txtEmpId.Text = dataGridViewemployee.CurrentRow.Cells["EmpId"].Value?.ToString();
+                txtEmpName.Text = dataGridViewemployee.CurrentRow.Cells["EmpName"].Value?.ToString();
+                txtEmpJob.Text = dataGridViewemployee.CurrentRow.Cells["EmpJob"].Value?.ToString();
+                txtEmpPhone.Text = dataGridViewemployee.CurrentRow.Cells["EmpPhone"].Value?.ToString();
+                textBoxfname.Text = dataGridViewemployee.CurrentRow.Cells["EmpFirstName"].Value?.ToString();
+                textBoxLname.Text = dataGridViewemployee.CurrentRow.Cells["EmpLastName"].Value?.ToString();
+                textBoxEpass.Text = dataGridViewemployee.CurrentRow.Cells["EmpPass"].Value?.ToString();
+                textBoxUserT.Text = dataGridViewemployee.CurrentRow.Cells["UserType"].Value?.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading row data: " + ex.Message);
+            }
+        }
+        // ================= CLEAR =================
         private void ClearFields()
         {
             txtEmpId.Clear();
             txtEmpName.Clear();
             txtEmpJob.Clear();
             txtEmpPhone.Clear();
-        }
-
-
-
-        private void btnInsertEmployee_Click(object sender, EventArgs e)
-        {
-            var EmpName = txtEmpName.Text.Trim();
-            var EmpJob = txtEmpJob.Text.Trim();
-            var EmpPhone = txtEmpPhone.Text.Trim();
-            var EmpFirstName = textBoxfname.Text.Trim();
-            var EmpLastName = textBoxLname.Text.Trim();
-            var EmpPass = textBoxEpass.Text.Trim();
-            var UserType = textBoxUserT.Text.Trim();
-            // basic validation
-            if (string.IsNullOrWhiteSpace(EmpName) ||
-                string.IsNullOrWhiteSpace(EmpJob) ||
-                string.IsNullOrWhiteSpace(EmpPhone) ||
-                string.IsNullOrWhiteSpace(EmpPass) || 
-                string.IsNullOrWhiteSpace(UserType) ||
-                string.IsNullOrWhiteSpace(EmpFirstName))   
-
-            {
-                MessageBox.Show("Please fill all fields");
-                return;
-            }
-
-            // INSERT command (exact UserInfo style)
-            SqlCommand empCmd = dataAccess.GetCommand(@"
-        INSERT INTO EmpInfo (EmpName, EmpJob, EmpPhone, EmpFirstName, EmpLastName,EmpPass, UserType)
-        VALUES (@name, @job, @phone, @Fname, @Lname, @pass, @Usertype);
-    ");
-
-            empCmd.Parameters.AddWithValue("@name", EmpName);
-            empCmd.Parameters.AddWithValue("@job", EmpJob);
-            empCmd.Parameters.Add("@phone", SqlDbType.VarChar,20).Value = EmpPhone;
-            empCmd.Parameters.AddWithValue("@Fname", EmpFirstName);
-            empCmd.Parameters.AddWithValue("@Lname", EmpLastName);
-            empCmd.Parameters.AddWithValue("@pass", EmpPass);
-            empCmd.Parameters.AddWithValue("@Usertype", UserType);
-
-            try
-            {
-                var rows = dataAccess.ExecuteNonQuery(empCmd);
-
-                if (rows > 0)
-                {
-                    MessageBox.Show("Employee inserted successfully ✅");
-                }
-                else
-                {
-                    MessageBox.Show("Employee insert failed ❌");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Database Error");
-            }
-
-            LoadEmployeeData(); // grid refresh
-            ClearFields();      // textbox clear
-        }
-
-
-
-
-
-        private void dataGridViewemployee_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridViewemployee.CurrentRow != null)
-            {
-                txtEmpId.Text = dataGridViewemployee.CurrentRow.Cells["EmpId"].Value?.ToString();
-                txtEmpName.Text = dataGridViewemployee.CurrentRow.Cells["EmpName"].Value?.ToString();
-                txtEmpJob.Text = dataGridViewemployee.CurrentRow.Cells["EmpJob"].Value?.ToString();
-                txtEmpPhone.Text = dataGridViewemployee.CurrentRow.Cells["EmpPhone"].Value?.ToString();
-            }
-        }
-
-
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void employeepannel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridViewemployee_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            textBoxfname.Clear();
+            textBoxLname.Clear();
+            textBoxEpass.Clear();
+            textBoxUserT.Clear();
         }
     }
 }

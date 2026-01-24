@@ -60,15 +60,7 @@ namespace Gym_Management
             
         }
 
-        //private void loaduser()
-        //{
-        //    SqlCommand cmd = access.GetCommand(@"SELECT * FROM AdminInfo");
-        //    DataTable dt = access.Execute(cmd);
-        //    //dgvAdmins.DataSource = dt;
-
-
-        //}
-        //DataAccess base connet
+        
         private void TestDb()
         {
             try

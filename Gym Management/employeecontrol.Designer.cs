@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             buttonInsertbtnInsertEmployee_Click = new Button();
             dataGridViewemployee = new DataGridView();
             employeepannel2 = new Panel();
@@ -54,7 +55,7 @@
             // 
             // buttonInsertbtnInsertEmployee_Click
             // 
-            buttonInsertbtnInsertEmployee_Click.Location = new Point(592, 197);
+            buttonInsertbtnInsertEmployee_Click.Location = new Point(45, 330);
             buttonInsertbtnInsertEmployee_Click.Name = "buttonInsertbtnInsertEmployee_Click";
             buttonInsertbtnInsertEmployee_Click.Size = new Size(138, 53);
             buttonInsertbtnInsertEmployee_Click.TabIndex = 0;
@@ -64,15 +65,26 @@
             // 
             // dataGridViewemployee
             // 
-            dataGridViewemployee.BackgroundColor = Color.White;
+            dataGridViewemployee.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewemployee.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
+            dataGridViewemployee.BackgroundColor = Color.DimGray;
             dataGridViewemployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewemployee.GridColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewemployee.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewemployee.GridColor = SystemColors.ControlLightLight;
             dataGridViewemployee.Location = new Point(34, 11);
             dataGridViewemployee.Name = "dataGridViewemployee";
+            dataGridViewemployee.ReadOnly = true;
             dataGridViewemployee.RowHeadersWidth = 51;
             dataGridViewemployee.Size = new Size(929, 230);
             dataGridViewemployee.TabIndex = 1;
-            dataGridViewemployee.CellContentClick += dataGridViewemployee_CellContentClick;
             // 
             // employeepannel2
             // 
@@ -95,11 +107,10 @@
             employeepannel2.Controls.Add(label2);
             employeepannel2.Controls.Add(label1);
             employeepannel2.Controls.Add(txtEmpId);
-            employeepannel2.Location = new Point(34, 231);
+            employeepannel2.Location = new Point(23, 247);
             employeepannel2.Name = "employeepannel2";
-            employeepannel2.Size = new Size(1039, 373);
+            employeepannel2.Size = new Size(1039, 448);
             employeepannel2.TabIndex = 2;
-            employeepannel2.Paint += employeepannel2_Paint;
             // 
             // textBoxUserT
             // 
@@ -175,13 +186,12 @@
             // 
             // button2
             // 
-            button2.Location = new Point(748, 197);
+            button2.Location = new Point(375, 330);
             button2.Name = "button2";
             button2.Size = new Size(138, 53);
             button2.TabIndex = 8;
             button2.Text = "Delete";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // txtEmpPhone
             // 
@@ -236,7 +246,6 @@
             label2.Size = new Size(120, 28);
             label2.TabIndex = 2;
             label2.Text = "EmpName :";
-            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -248,7 +257,6 @@
             label1.Size = new Size(82, 28);
             label1.TabIndex = 1;
             label1.Text = "EmpId :";
-            label1.Click += label1_Click;
             // 
             // txtEmpId
             // 
@@ -265,7 +273,7 @@
             Controls.Add(employeepannel2);
             Controls.Add(dataGridViewemployee);
             Name = "employeecontrol";
-            Size = new Size(1227, 604);
+            Size = new Size(1227, 682);
             Load += employeecontrol_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewemployee).EndInit();
             employeepannel2.ResumeLayout(false);

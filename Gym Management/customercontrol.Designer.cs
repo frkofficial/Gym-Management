@@ -28,35 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewCustomer = new DataGridView();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).BeginInit();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Location = new Point(129, 404);
-            button1.Name = "button1";
-            button1.Size = new Size(140, 59);
-            button1.TabIndex = 0;
-            button1.Text = "customer";
-            button1.UseVisualStyleBackColor = true;
             // 
             // dataGridViewCustomer
             // 
             dataGridViewCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCustomer.Location = new Point(110, 66);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewCustomer.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCustomer.Location = new Point(118, 87);
             dataGridViewCustomer.Name = "dataGridViewCustomer";
             dataGridViewCustomer.RowHeadersWidth = 51;
-            dataGridViewCustomer.Size = new Size(514, 313);
+            dataGridViewCustomer.Size = new Size(905, 375);
             dataGridViewCustomer.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.Font = new Font("Elephant", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Firebrick;
+            label1.ImageAlign = ContentAlignment.BottomCenter;
+            label1.Location = new Point(337, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(421, 53);
+            label1.TabIndex = 2;
+            label1.Text = "Customer List ";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             // 
             // customercontrol
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label1);
             Controls.Add(dataGridViewCustomer);
-            Controls.Add(button1);
             Name = "customercontrol";
             Size = new Size(1236, 481);
             Load += customercontrol_Load;
@@ -65,8 +78,7 @@
         }
 
         #endregion
-
-        private Button button1;
         private DataGridView dataGridViewCustomer;
+        private Label label1;
     }
 }

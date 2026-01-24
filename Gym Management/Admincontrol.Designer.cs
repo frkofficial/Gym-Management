@@ -28,37 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            btnInsertAdmin1_Click = new Button();
             dataGridViewadmin = new DataGridView();
             panel1 = new Panel();
-            label1 = new Label();
-            textBoxId = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
+            label5 = new Label();
+            txtLastName = new TextBox();
+            adminFirstName = new TextBox();
+            label4 = new Label();
+            btnDeleteAdmin = new Button();
+            txtPhone = new TextBox();
+            txtAdminName = new TextBox();
+            txtRank = new TextBox();
             AdminUserName = new Label();
-            textBoxRank = new TextBox();
-            textBoxName = new TextBox();
-            textBoxPhone = new TextBox();
-            button2 = new Button();
+            label3 = new Label();
+            label2 = new Label();
+            textBoxId = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewadmin).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // button1
+            // btnInsertAdmin1_Click
             // 
-            button1.BackColor = SystemColors.ActiveCaption;
-            button1.ForeColor = SystemColors.InfoText;
-            button1.Location = new Point(58, 155);
-            button1.Name = "button1";
-            button1.Size = new Size(163, 48);
-            button1.TabIndex = 0;
-            button1.Text = "Insert";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnInsertAdmin1_Click.BackColor = SystemColors.ActiveCaption;
+            btnInsertAdmin1_Click.ForeColor = SystemColors.InfoText;
+            btnInsertAdmin1_Click.Location = new Point(19, 236);
+            btnInsertAdmin1_Click.Name = "btnInsertAdmin1_Click";
+            btnInsertAdmin1_Click.Size = new Size(163, 48);
+            btnInsertAdmin1_Click.TabIndex = 0;
+            btnInsertAdmin1_Click.Text = "Insert";
+            btnInsertAdmin1_Click.UseVisualStyleBackColor = false;
+            btnInsertAdmin1_Click.Click += btnInsertAdmin1_Click_Click;
             // 
             // dataGridViewadmin
             // 
             dataGridViewadmin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridViewadmin.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewadmin.Location = new Point(85, 15);
             dataGridViewadmin.Name = "dataGridViewadmin";
             dataGridViewadmin.RowHeadersWidth = 51;
@@ -68,55 +81,90 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(textBoxPhone);
-            panel1.Controls.Add(textBoxName);
-            panel1.Controls.Add(textBoxRank);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(txtLastName);
+            panel1.Controls.Add(adminFirstName);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(btnDeleteAdmin);
+            panel1.Controls.Add(txtPhone);
+            panel1.Controls.Add(txtAdminName);
+            panel1.Controls.Add(txtRank);
             panel1.Controls.Add(AdminUserName);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(textBoxId);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnInsertAdmin1_Click);
             panel1.Location = new Point(84, 288);
             panel1.Name = "panel1";
-            panel1.Size = new Size(857, 222);
+            panel1.Size = new Size(857, 299);
             panel1.TabIndex = 2;
             panel1.Paint += panel1_Paint;
             // 
-            // label1
+            // label5
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(19, 33);
-            label1.Name = "label1";
-            label1.Size = new Size(66, 20);
-            label1.TabIndex = 1;
-            label1.Text = "AdminId";
+            label5.AutoSize = true;
+            label5.Location = new Point(273, 101);
+            label5.Name = "label5";
+            label5.Size = new Size(86, 20);
+            label5.TabIndex = 13;
+            label5.Text = "Last Name :";
             // 
-            // textBoxId
+            // txtLastName
             // 
-            textBoxId.Location = new Point(98, 34);
-            textBoxId.Name = "textBoxId";
-            textBoxId.Size = new Size(100, 27);
-            textBoxId.TabIndex = 2;
+            txtLastName.Location = new Point(375, 94);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(119, 27);
+            txtLastName.TabIndex = 12;
             // 
-            // label2
+            // adminFirstName
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(297, 41);
-            label2.Name = "label2";
-            label2.Size = new Size(41, 20);
-            label2.TabIndex = 3;
-            label2.Text = "Rank";
+            adminFirstName.Location = new Point(141, 175);
+            adminFirstName.Name = "adminFirstName";
+            adminFirstName.Size = new Size(119, 27);
+            adminFirstName.TabIndex = 11;
             // 
-            // label3
+            // label4
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(297, 101);
-            label3.Name = "label3";
-            label3.Size = new Size(50, 20);
-            label3.TabIndex = 4;
-            label3.Text = "Phone";
+            label4.AutoSize = true;
+            label4.Location = new Point(31, 178);
+            label4.Name = "label4";
+            label4.Size = new Size(87, 20);
+            label4.TabIndex = 10;
+            label4.Text = "First Name :";
+            // 
+            // btnDeleteAdmin
+            // 
+            btnDeleteAdmin.BackColor = SystemColors.ActiveCaption;
+            btnDeleteAdmin.ForeColor = SystemColors.InfoText;
+            btnDeleteAdmin.Location = new Point(341, 236);
+            btnDeleteAdmin.Name = "btnDeleteAdmin";
+            btnDeleteAdmin.Size = new Size(163, 48);
+            btnDeleteAdmin.TabIndex = 9;
+            btnDeleteAdmin.Text = "Delete";
+            btnDeleteAdmin.UseVisualStyleBackColor = false;
+            btnDeleteAdmin.Click += btnDeleteAdmin_Click;
+            // 
+            // txtPhone
+            // 
+            txtPhone.Location = new Point(597, 41);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(119, 27);
+            txtPhone.TabIndex = 8;
+            // 
+            // txtAdminName
+            // 
+            txtAdminName.Location = new Point(129, 98);
+            txtAdminName.Name = "txtAdminName";
+            txtAdminName.Size = new Size(119, 27);
+            txtAdminName.TabIndex = 7;
+            // 
+            // txtRank
+            // 
+            txtRank.Location = new Point(375, 41);
+            txtRank.Name = "txtRank";
+            txtRank.Size = new Size(119, 27);
+            txtRank.TabIndex = 6;
             // 
             // AdminUserName
             // 
@@ -127,37 +175,39 @@
             AdminUserName.TabIndex = 5;
             AdminUserName.Text = "Admin Name :";
             // 
-            // textBoxRank
+            // label3
             // 
-            textBoxRank.Location = new Point(375, 41);
-            textBoxRank.Name = "textBoxRank";
-            textBoxRank.Size = new Size(119, 27);
-            textBoxRank.TabIndex = 6;
+            label3.AutoSize = true;
+            label3.Location = new Point(530, 48);
+            label3.Name = "label3";
+            label3.Size = new Size(50, 20);
+            label3.TabIndex = 4;
+            label3.Text = "Phone";
             // 
-            // textBoxName
+            // label2
             // 
-            textBoxName.Location = new Point(129, 98);
-            textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(119, 27);
-            textBoxName.TabIndex = 7;
+            label2.AutoSize = true;
+            label2.Location = new Point(297, 41);
+            label2.Name = "label2";
+            label2.Size = new Size(41, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Rank";
             // 
-            // textBoxPhone
+            // textBoxId
             // 
-            textBoxPhone.Location = new Point(375, 98);
-            textBoxPhone.Name = "textBoxPhone";
-            textBoxPhone.Size = new Size(119, 27);
-            textBoxPhone.TabIndex = 8;
+            textBoxId.Location = new Point(98, 34);
+            textBoxId.Name = "textBoxId";
+            textBoxId.Size = new Size(100, 27);
+            textBoxId.TabIndex = 2;
             // 
-            // button2
+            // label1
             // 
-            button2.BackColor = SystemColors.ActiveCaption;
-            button2.ForeColor = SystemColors.InfoText;
-            button2.Location = new Point(331, 155);
-            button2.Name = "button2";
-            button2.Size = new Size(163, 48);
-            button2.TabIndex = 9;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = false;
+            label1.AutoSize = true;
+            label1.Location = new Point(19, 33);
+            label1.Name = "label1";
+            label1.Size = new Size(66, 20);
+            label1.TabIndex = 1;
+            label1.Text = "AdminId";
             // 
             // Admincontrol
             // 
@@ -166,7 +216,7 @@
             Controls.Add(panel1);
             Controls.Add(dataGridViewadmin);
             Name = "Admincontrol";
-            Size = new Size(1230, 534);
+            Size = new Size(1230, 624);
             Load += Admincontrol_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewadmin).EndInit();
             panel1.ResumeLayout(false);
@@ -176,17 +226,21 @@
 
         #endregion
 
-        private Button button1;
+        private Button btnInsertAdmin1_Click;
         private DataGridView dataGridViewadmin;
         private Panel panel1;
-        private TextBox textBoxPhone;
-        private TextBox textBoxName;
-        private TextBox textBoxRank;
+        private TextBox txtPhone;
+        private TextBox txtAdminName;
+        private TextBox txtRank;
         private Label AdminUserName;
         private Label label3;
         private Label label2;
         private TextBox textBoxId;
         private Label label1;
-        private Button button2;
+        private Button btnDeleteAdmin;
+        private TextBox adminFirstName;
+        private Label label4;
+        private Label label5;
+        private TextBox txtLastName;
     }
 }
