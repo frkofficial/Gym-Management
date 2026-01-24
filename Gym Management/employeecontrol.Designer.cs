@@ -83,7 +83,7 @@
             dataGridViewemployee.Name = "dataGridViewemployee";
             dataGridViewemployee.ReadOnly = true;
             dataGridViewemployee.RowHeadersWidth = 51;
-            dataGridViewemployee.Size = new Size(929, 230);
+            dataGridViewemployee.Size = new Size(1028, 230);
             dataGridViewemployee.TabIndex = 1;
             // 
             // employeepannel2

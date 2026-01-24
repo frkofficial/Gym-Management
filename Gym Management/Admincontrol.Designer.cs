@@ -75,7 +75,7 @@
             dataGridViewadmin.Location = new Point(85, 15);
             dataGridViewadmin.Name = "dataGridViewadmin";
             dataGridViewadmin.RowHeadersWidth = 51;
-            dataGridViewadmin.Size = new Size(856, 257);
+            dataGridViewadmin.Size = new Size(1142, 257);
             dataGridViewadmin.TabIndex = 1;
             dataGridViewadmin.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -97,7 +97,7 @@
             panel1.Controls.Add(btnInsertAdmin1_Click);
             panel1.Location = new Point(84, 288);
             panel1.Name = "panel1";
-            panel1.Size = new Size(857, 299);
+            panel1.Size = new Size(1146, 299);
             panel1.TabIndex = 2;
             panel1.Paint += panel1_Paint;
             // 

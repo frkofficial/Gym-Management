@@ -235,22 +235,21 @@ namespace Gym_Management
                 // 1. Get next AdminId
                 int nextAdminId = GetNextAdminId();
 
-                // 2. Collect form data - সব NOT NULL ফিল্ড
                 string AdminUserName = txtAdminName.Text.Trim();
                 string AdminFirstName = adminFirstName.Text.Trim();
                 string AdminLastname = txtLastName.Text.Trim();
 
-                // এই ফিল্ডগুলো NOT NULL, তাই value দিতে হবে
-                string AdminPass = "defaultpassword123"; // বা TextBox থেকে নিন
+                
+                string AdminPass = "defaultpassword123"; 
                 string Rank = txtRank.Text.Trim();
-                string UserType = "Admin"; // ডিফল্ট ভ্যালু
+                string UserType = "Admin"; 
                 string AdminPhone = txtPhone.Text.Trim();
-                string AdminEmail = "admin@email.com"; // বা TextBox থেকে নিন
-                string AdminAddress = "Default Address"; // বা TextBox থেকে নিন
-                string AdminDOB = "1990-01-01"; // বা TextBox থেকে নিন
-                string AdminGender = "Male"; // বা ComboBox থেকে নিন
+                string AdminEmail = "admin@email.com"; 
+                string AdminAddress = "Default Address"; 
+                string AdminDOB = "1990-01-01"; 
+                string AdminGender = "Male"; 
 
-                // 3. Validation - সব NOT NULL ফিল্ড চেক
+              
                 if (string.IsNullOrWhiteSpace(AdminUserName) ||
                     string.IsNullOrWhiteSpace(AdminFirstName) ||
                     string.IsNullOrWhiteSpace(AdminPass) ||
@@ -276,19 +275,19 @@ namespace Gym_Management
              @usertype, @phone, @email, @address, @dob, @gender)
         ");
 
-                // 5. Add parameters - সব parameters
+                
                 cmd.Parameters.AddWithValue("@adminid", nextAdminId);
                 cmd.Parameters.AddWithValue("@username", AdminUserName);
                 cmd.Parameters.AddWithValue("@firstname", AdminFirstName);
                 cmd.Parameters.AddWithValue("@lastname", string.IsNullOrEmpty(AdminLastname) ? (object)DBNull.Value : AdminLastname);
-                cmd.Parameters.AddWithValue("@password", AdminPass);  // ✅ ADDED
+                cmd.Parameters.AddWithValue("@password", AdminPass);  
                 cmd.Parameters.AddWithValue("@rank", Rank);
-                cmd.Parameters.AddWithValue("@usertype", UserType);   // ✅ ADDED
+                cmd.Parameters.AddWithValue("@usertype", UserType);   
                 cmd.Parameters.AddWithValue("@phone", AdminPhone);
-                cmd.Parameters.AddWithValue("@email", AdminEmail);    // ✅ ADDED
-                cmd.Parameters.AddWithValue("@address", AdminAddress); // ✅ ADDED
-                cmd.Parameters.AddWithValue("@dob", AdminDOB);        // ✅ ADDED
-                cmd.Parameters.AddWithValue("@gender", AdminGender);  // ✅ ADDED
+                cmd.Parameters.AddWithValue("@email", AdminEmail);    
+                cmd.Parameters.AddWithValue("@address", AdminAddress); 
+                cmd.Parameters.AddWithValue("@dob", AdminDOB);        
+                cmd.Parameters.AddWithValue("@gender", AdminGender);  
 
                 // 6. Execute
                 int rows = dataAccess.ExecuteNonQuery(cmd);
@@ -335,11 +334,14 @@ namespace Gym_Management
 
         //}
 
+
+        //dlt admin
+
         private void btnDeleteAdmin_Click(object sender, EventArgs e)
         {
             try
             {
-                // ১. প্রথমে check করুন admin select করা আছে কিনা
+                
                 if (dataGridViewadmin.CurrentRow == null)
                 {
                     MessageBox.Show("Please select an admin to delete!", "Error",
@@ -347,11 +349,11 @@ namespace Gym_Management
                     return;
                 }
 
-                // ২. Admin ID নিন
+               
                 int adminId = Convert.ToInt32(dataGridViewadmin.CurrentRow.Cells["AdminId"].Value);
                 string adminName = dataGridViewadmin.CurrentRow.Cells["AdminUserName"].Value?.ToString();
 
-                // ৩. Confirmation dialog
+                
                 DialogResult result = MessageBox.Show(
                     $"Are you sure you want to delete Admin?\n\n" +
                     $"ID: {adminId}\n" +
@@ -364,7 +366,7 @@ namespace Gym_Management
                 if (result != DialogResult.Yes)
                     return;
 
-                // ৪. Delete query
+                
                 SqlCommand cmd = dataAccess.GetCommand("DELETE FROM AdminInfo WHERE AdminId = @adminid");
                 cmd.Parameters.AddWithValue("@adminid", adminId);
 
@@ -376,7 +378,7 @@ namespace Gym_Management
                     MessageBox.Show($"✅ Admin deleted successfully!\nID: {adminId}\nName: {adminName}",
                                   "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // ৬. Data refresh
+                    
                     LoadAdminData();
                     ClearAdminFields();
                 }
