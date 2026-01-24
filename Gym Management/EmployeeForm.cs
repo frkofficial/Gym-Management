@@ -14,13 +14,15 @@ namespace Gym_Management
 {
     public partial class EmployeeForm : Form
     {
-        LoginForm login;
+        //LoginForm login;
+        private Form previousform;
         DataAccess dataAccess;
         int empId;
-        public EmployeeForm(LoginForm login, int empId)
+        public EmployeeForm(Form previousform, int empId)
         {
             InitializeComponent();
-            this.login = login;
+            //this.login = login;
+            this.previousform = previousform;
             this.empId = empId;
             this.FormClosing += EmpFormClosing;
             dataAccess = new DataAccess();
@@ -31,9 +33,9 @@ namespace Gym_Management
             Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void DashBoardBtn_Click(object sender, EventArgs e)
         {
-
+            LoadControl(new DashboardControl());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -60,8 +62,14 @@ namespace Gym_Management
             {
                 NameInfolbl.Text = "Unknown";
             }
+            LoadControl(new DashboardControl());
         }
-
+        private void LoadControl(UserControl control)
+        {
+            CenterPnl.Controls.Clear();
+            control.Dock = DockStyle.Fill;
+            CenterPnl.Controls.Add(control);
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -74,17 +82,51 @@ namespace Gym_Management
 
         private void MembershipBtn_Click(object sender, EventArgs e)
         {
-            CenterPnl.Controls.Clear();
-            CenterPnl.Controls.Add(new Button() { Name = "btnx", Text = "Test Button" });
+            //CenterPnl.Controls.Clear();
+            //CenterPnl.Controls.Add(new Button() { Name = "btnx", Text = "Test Button" });
+            LoadControl(new MemberShipControl());
         }
 
         private void MemberBtn_Click(object sender, EventArgs e)
         {
-            CenterPnl.Controls.Clear();
+            LoadControl(new MemberControl());
+
 
         }
 
         private void StaffBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CenterPnl_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MembershipListBtn_Click(object sender, EventArgs e)
+        {
+            LoadControl(new MemberShipListControl());
+        }
+
+        private void WorkoutBtn_Click(object sender, EventArgs e)
+        {
+            LoadControl(new AssignedControl());
+        }
+
+        private void PaymentBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Logoutbtn_Click(object sender, EventArgs e)
+        {
+            previousform.Show();
+            this.Hide();
+
+        }
+
+        private void GroupBtn_Click(object sender, EventArgs e)
         {
 
         }

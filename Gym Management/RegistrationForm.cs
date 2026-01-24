@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using Microsoft.SqlServer.Server;
 using System.Text.RegularExpressions;
 using Microsoft.VisualBasic.ApplicationServices;
+using Gym_Management.Entities;
+using Gym_Management.Repo;
 
 
 
@@ -23,11 +25,13 @@ namespace Gym_Management
         //public LoginForm login;
         private Form previousform;
         DataAccess DataAccess;
+        UserRepo userrepo;
         public RegistrationForm(Form previousform)
         {
 
             InitializeComponent();
             DataAccess = new DataAccess();
+            userrepo=new UserRepo();
             this.previousform = previousform;
             this.FormClosing += RegistrationFormClosing;
 
@@ -138,7 +142,7 @@ namespace Gym_Management
 
             else if (!Regex.IsMatch(Pass, passPattern))
             {
-                // passlbl.Text = "Weak Password";
+                passlbl.Text = "Weak Password";
                 passlbl.ForeColor = Color.Red;
                 passlbl.Visible = true;
                 hasError = true;
@@ -300,6 +304,7 @@ namespace Gym_Management
                 GoalWeightlbl.Text = "Weight Must be Numaric";
                 GoalWeightlbl.ForeColor = Color.Red;
                 GoalWeightlbl.Visible = true;
+                hasError = true;
 
             }
             else
@@ -345,41 +350,34 @@ namespace Gym_Management
 
             if (hasError) return;
 
-            SqlCommand Usercmd = DataAccess.GetCommand(@"INSERT INTO UserInfo(UserName,UserFirstName,UserLastName,UserPass,UserConPass,UserType,UserPhone,UserEmail,UserAddress,UserGender,UserAge,UserHeight,UserWeight,UserWeightGoal,UserTrainer,UserEmrPhone) VALUES (@username,@userfname,@userlname,@pass,@conpass,@usertype,@phone,@email,@address,@gender,@age,@height,@weight,@goalweight,@trainer,@emrphone);");
-            Usercmd.Parameters.AddWithValue("@userfname", FirstName);
-            Usercmd.Parameters.AddWithValue("@userlname", string.IsNullOrWhiteSpace(LastName) ? DBNull.Value : LastName);
-            Usercmd.Parameters.AddWithValue("@username", UserName);
-            Usercmd.Parameters.AddWithValue("@pass", Pass);
-            Usercmd.Parameters.AddWithValue("@conpass", ConPass);
-            Usercmd.Parameters.AddWithValue("@usertype", "Member");
-            Usercmd.Parameters.AddWithValue("@phone", Phone);
-            Usercmd.Parameters.AddWithValue("@email", Email);
-            Usercmd.Parameters.AddWithValue("@address", Address);
-            Usercmd.Parameters.AddWithValue("@gender", Gender);
-            Usercmd.Parameters.Add("@age", SqlDbType.Int).Value = int.Parse(Age);
-            Usercmd.Parameters.Add("@height", SqlDbType.Float).Value = float.Parse(Height);
-            Usercmd.Parameters.Add("@weight", SqlDbType.Int).Value = int.Parse(Weight);
-
-            // Handle optional GoalWeight
-            if (!string.IsNullOrWhiteSpace(GoalWeight) && int.TryParse(GoalWeight, out int goalWeightValue))
-            {
-                Usercmd.Parameters.Add("@goalweight", SqlDbType.Int).Value = goalWeightValue;
-            }
-            else
-            {
-                Usercmd.Parameters.Add("@goalweight", SqlDbType.Int).Value = DBNull.Value;
-            }
-
-            Usercmd.Parameters.AddWithValue("@trainer", UserTrainer);
-
-            // Handle optional EmrPhone
-            Usercmd.Parameters.AddWithValue("@emrphone", string.IsNullOrWhiteSpace(EmrPhone) ? DBNull.Value : EmrPhone);
-
+           
+            
             try
             {
 
+                Users users = new Users();
+                users.UserFirstName = FirstName;
+                users.UserLastName = LastName;
+                users.UserName = UserName;
+                users.UserPass = Pass;
+                users.UserConPass = ConPass;
+                users.UserPhone = Phone;
+                users.UserEmail = Email;
+                users.UserAddress = Address;
+                users.UserGender = Gender;
+                users.UserAge = int.Parse(Age);
+                users.UserHeight = float.Parse(Height);
+                users.UserWeight = int.Parse(Weight);
 
-                var rows = DataAccess.ExecuteNonQuery(Usercmd);
+                // Handle optional GoalWeight
+                if (!string.IsNullOrWhiteSpace(GoalWeight) && int.TryParse(GoalWeight, out int goalWeightValue))
+                {
+                    users.UserWeightGoal = goalWeightValue;
+                }
+
+                users.UserTrainer = UserTrainer;
+                users.UserEmrPhone = EmrPhone;
+                var rows = userrepo.MemberRegister(users);
                 if (rows > 0)
                 {
                     MessageBox.Show($"Congratulations!!! {UserName}, Your Refgistration Has Completed");

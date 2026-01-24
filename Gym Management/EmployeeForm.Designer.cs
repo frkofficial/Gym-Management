@@ -31,18 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
             DashBoardBtn = new Button();
             SliderDrawerpnl = new Panel();
-            FeedbackBtn = new Button();
-            MessageBtn = new Button();
+            Logoutbtn = new Button();
             PaymentBtn = new Button();
             WorkoutBtn = new Button();
-            ClassSchedulingBtn = new Button();
-            ActivityBtn = new Button();
-            GroupBtn = new Button();
-            StaffBtn = new Button();
+            MembershipListBtn = new Button();
             MembershipBtn = new Button();
             NameInfolbl = new Label();
             pictureBox1 = new PictureBox();
             MemberBtn = new Button();
+            GroupBtn = new Button();
             HeaderPnl = new Panel();
             panel1 = new Panel();
             pictureBox3 = new PictureBox();
@@ -69,22 +66,19 @@
             DashBoardBtn.ImageAlign = ContentAlignment.MiddleLeft;
             DashBoardBtn.Location = new Point(3, 262);
             DashBoardBtn.Name = "DashBoardBtn";
-            DashBoardBtn.Size = new Size(270, 52);
+            DashBoardBtn.Size = new Size(305, 52);
             DashBoardBtn.TabIndex = 0;
-            DashBoardBtn.Text = "Dashboard";
+            DashBoardBtn.Text = "     Dashboard";
             DashBoardBtn.UseVisualStyleBackColor = true;
-            DashBoardBtn.Click += button1_Click;
+            DashBoardBtn.Click += DashBoardBtn_Click;
             // 
             // SliderDrawerpnl
             // 
             SliderDrawerpnl.BackColor = Color.FromArgb(20, 20, 20);
-            SliderDrawerpnl.Controls.Add(FeedbackBtn);
-            SliderDrawerpnl.Controls.Add(MessageBtn);
+            SliderDrawerpnl.Controls.Add(Logoutbtn);
             SliderDrawerpnl.Controls.Add(PaymentBtn);
             SliderDrawerpnl.Controls.Add(WorkoutBtn);
-            SliderDrawerpnl.Controls.Add(ClassSchedulingBtn);
-            SliderDrawerpnl.Controls.Add(ActivityBtn);
-            SliderDrawerpnl.Controls.Add(StaffBtn);
+            SliderDrawerpnl.Controls.Add(MembershipListBtn);
             SliderDrawerpnl.Controls.Add(DashBoardBtn);
             SliderDrawerpnl.Controls.Add(MembershipBtn);
             SliderDrawerpnl.Controls.Add(NameInfolbl);
@@ -94,34 +88,19 @@
             SliderDrawerpnl.ForeColor = SystemColors.HighlightText;
             SliderDrawerpnl.Location = new Point(0, 0);
             SliderDrawerpnl.Name = "SliderDrawerpnl";
-            SliderDrawerpnl.Size = new Size(276, 1050);
+            SliderDrawerpnl.Size = new Size(314, 1050);
             SliderDrawerpnl.TabIndex = 1;
             // 
-            // FeedbackBtn
+            // Logoutbtn
             // 
-            FeedbackBtn.FlatAppearance.BorderColor = Color.FromArgb(20, 20, 20);
-            FeedbackBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
-            FeedbackBtn.FlatStyle = FlatStyle.Flat;
-            FeedbackBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            FeedbackBtn.Location = new Point(0, 842);
-            FeedbackBtn.Name = "FeedbackBtn";
-            FeedbackBtn.Size = new Size(273, 52);
-            FeedbackBtn.TabIndex = 2;
-            FeedbackBtn.Text = "Feedback List";
-            FeedbackBtn.UseVisualStyleBackColor = true;
-            // 
-            // MessageBtn
-            // 
-            MessageBtn.FlatAppearance.BorderColor = Color.FromArgb(20, 20, 20);
-            MessageBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
-            MessageBtn.FlatStyle = FlatStyle.Flat;
-            MessageBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MessageBtn.Location = new Point(0, 784);
-            MessageBtn.Name = "MessageBtn";
-            MessageBtn.Size = new Size(273, 52);
-            MessageBtn.TabIndex = 2;
-            MessageBtn.Text = "Message";
-            MessageBtn.UseVisualStyleBackColor = true;
+            Logoutbtn.ForeColor = SystemColors.ActiveCaptionText;
+            Logoutbtn.Location = new Point(82, 936);
+            Logoutbtn.Name = "Logoutbtn";
+            Logoutbtn.Size = new Size(112, 34);
+            Logoutbtn.TabIndex = 5;
+            Logoutbtn.Text = "Logout";
+            Logoutbtn.UseVisualStyleBackColor = true;
+            Logoutbtn.Click += Logoutbtn_Click;
             // 
             // PaymentBtn
             // 
@@ -129,12 +108,15 @@
             PaymentBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
             PaymentBtn.FlatStyle = FlatStyle.Flat;
             PaymentBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            PaymentBtn.Location = new Point(0, 726);
+            PaymentBtn.Image = (Image)resources.GetObject("PaymentBtn.Image");
+            PaymentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            PaymentBtn.Location = new Point(3, 645);
             PaymentBtn.Name = "PaymentBtn";
-            PaymentBtn.Size = new Size(273, 52);
+            PaymentBtn.Size = new Size(311, 52);
             PaymentBtn.TabIndex = 4;
-            PaymentBtn.Text = "Payment List";
+            PaymentBtn.Text = "    Payment List";
             PaymentBtn.UseVisualStyleBackColor = true;
+            PaymentBtn.Click += PaymentBtn_Click;
             // 
             // WorkoutBtn
             // 
@@ -142,65 +124,31 @@
             WorkoutBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
             WorkoutBtn.FlatStyle = FlatStyle.Flat;
             WorkoutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            WorkoutBtn.Location = new Point(0, 668);
+            WorkoutBtn.Image = (Image)resources.GetObject("WorkoutBtn.Image");
+            WorkoutBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            WorkoutBtn.Location = new Point(6, 564);
             WorkoutBtn.Name = "WorkoutBtn";
-            WorkoutBtn.Size = new Size(273, 52);
+            WorkoutBtn.Size = new Size(311, 52);
             WorkoutBtn.TabIndex = 2;
-            WorkoutBtn.Text = "Assigned Workout";
+            WorkoutBtn.Text = "     Assigned Workout";
             WorkoutBtn.UseVisualStyleBackColor = true;
+            WorkoutBtn.Click += WorkoutBtn_Click;
             // 
-            // ClassSchedulingBtn
+            // MembershipListBtn
             // 
-            ClassSchedulingBtn.FlatAppearance.BorderColor = Color.FromArgb(20, 20, 20);
-            ClassSchedulingBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
-            ClassSchedulingBtn.FlatStyle = FlatStyle.Flat;
-            ClassSchedulingBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ClassSchedulingBtn.Location = new Point(0, 610);
-            ClassSchedulingBtn.Name = "ClassSchedulingBtn";
-            ClassSchedulingBtn.Size = new Size(273, 52);
-            ClassSchedulingBtn.TabIndex = 1;
-            ClassSchedulingBtn.Text = "Class Schedule";
-            ClassSchedulingBtn.UseVisualStyleBackColor = true;
-            // 
-            // ActivityBtn
-            // 
-            ActivityBtn.FlatAppearance.BorderColor = Color.FromArgb(20, 20, 20);
-            ActivityBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
-            ActivityBtn.FlatStyle = FlatStyle.Flat;
-            ActivityBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ActivityBtn.Location = new Point(0, 552);
-            ActivityBtn.Name = "ActivityBtn";
-            ActivityBtn.Size = new Size(273, 52);
-            ActivityBtn.TabIndex = 6;
-            ActivityBtn.Text = "Activity";
-            ActivityBtn.UseVisualStyleBackColor = true;
-            // 
-            // GroupBtn
-            // 
-            GroupBtn.FlatAppearance.BorderColor = Color.FromArgb(20, 20, 20);
-            GroupBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
-            GroupBtn.FlatStyle = FlatStyle.Flat;
-            GroupBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            GroupBtn.Location = new Point(149, 115);
-            GroupBtn.Name = "GroupBtn";
-            GroupBtn.Size = new Size(273, 52);
-            GroupBtn.TabIndex = 3;
-            GroupBtn.Text = "Group";
-            GroupBtn.UseVisualStyleBackColor = true;
-            // 
-            // StaffBtn
-            // 
-            StaffBtn.FlatAppearance.BorderColor = Color.FromArgb(20, 20, 20);
-            StaffBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
-            StaffBtn.FlatStyle = FlatStyle.Flat;
-            StaffBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            StaffBtn.Location = new Point(0, 485);
-            StaffBtn.Name = "StaffBtn";
-            StaffBtn.Size = new Size(273, 52);
-            StaffBtn.TabIndex = 5;
-            StaffBtn.Text = "Staff Member";
-            StaffBtn.UseVisualStyleBackColor = true;
-            StaffBtn.Click += StaffBtn_Click;
+            MembershipListBtn.FlatAppearance.BorderColor = Color.FromArgb(20, 20, 20);
+            MembershipListBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
+            MembershipListBtn.FlatStyle = FlatStyle.Flat;
+            MembershipListBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MembershipListBtn.Image = (Image)resources.GetObject("MembershipListBtn.Image");
+            MembershipListBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            MembershipListBtn.Location = new Point(6, 483);
+            MembershipListBtn.Name = "MembershipListBtn";
+            MembershipListBtn.Size = new Size(308, 52);
+            MembershipListBtn.TabIndex = 1;
+            MembershipListBtn.Text = "    Membership List";
+            MembershipListBtn.UseVisualStyleBackColor = true;
+            MembershipListBtn.Click += MembershipListBtn_Click;
             // 
             // MembershipBtn
             // 
@@ -212,9 +160,9 @@
             MembershipBtn.ImageAlign = ContentAlignment.MiddleLeft;
             MembershipBtn.Location = new Point(3, 409);
             MembershipBtn.Name = "MembershipBtn";
-            MembershipBtn.Size = new Size(270, 53);
+            MembershipBtn.Size = new Size(311, 53);
             MembershipBtn.TabIndex = 2;
-            MembershipBtn.Text = "    Membership Type";
+            MembershipBtn.Text = "     Membership Type";
             MembershipBtn.UseVisualStyleBackColor = true;
             MembershipBtn.Click += MembershipBtn_Click;
             // 
@@ -231,7 +179,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(60, 30);
+            pictureBox1.Location = new Point(73, 30);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(157, 126);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -249,11 +197,25 @@
             MemberBtn.ImageAlign = ContentAlignment.MiddleLeft;
             MemberBtn.Location = new Point(6, 337);
             MemberBtn.Name = "MemberBtn";
-            MemberBtn.Size = new Size(270, 53);
+            MemberBtn.Size = new Size(305, 53);
             MemberBtn.TabIndex = 4;
-            MemberBtn.Text = "Member";
+            MemberBtn.Text = "   Member";
             MemberBtn.UseVisualStyleBackColor = false;
             MemberBtn.Click += MemberBtn_Click;
+            // 
+            // GroupBtn
+            // 
+            GroupBtn.FlatAppearance.BorderColor = Color.FromArgb(20, 20, 20);
+            GroupBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
+            GroupBtn.FlatStyle = FlatStyle.Flat;
+            GroupBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            GroupBtn.Location = new Point(6, 58);
+            GroupBtn.Name = "GroupBtn";
+            GroupBtn.Size = new Size(273, 53);
+            GroupBtn.TabIndex = 3;
+            GroupBtn.Text = "Group";
+            GroupBtn.UseVisualStyleBackColor = true;
+            GroupBtn.Click += GroupBtn_Click;
             // 
             // HeaderPnl
             // 
@@ -262,9 +224,9 @@
             HeaderPnl.Controls.Add(label1);
             HeaderPnl.Controls.Add(pictureBox2);
             HeaderPnl.Dock = DockStyle.Top;
-            HeaderPnl.Location = new Point(276, 0);
+            HeaderPnl.Location = new Point(314, 0);
             HeaderPnl.Name = "HeaderPnl";
-            HeaderPnl.Size = new Size(972, 156);
+            HeaderPnl.Size = new Size(1610, 120);
             HeaderPnl.TabIndex = 2;
             // 
             // panel1
@@ -272,7 +234,7 @@
             panel1.Controls.Add(pictureBox3);
             panel1.Location = new Point(422, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(550, 156);
+            panel1.Size = new Size(1188, 119);
             panel1.TabIndex = 2;
             // 
             // pictureBox3
@@ -280,7 +242,7 @@
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(0, 0);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(550, 156);
+            pictureBox3.Size = new Size(1205, 120);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
@@ -292,7 +254,7 @@
             label1.ForeColor = SystemColors.InactiveBorder;
             label1.Location = new Point(207, -8);
             label1.Name = "label1";
-            label1.Size = new Size(215, 164);
+            label1.Size = new Size(215, 128);
             label1.TabIndex = 1;
             label1.Text = "STAMINA\r\nFITNESS";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -304,7 +266,7 @@
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(0, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(228, 156);
+            pictureBox2.Size = new Size(228, 120);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
@@ -314,16 +276,17 @@
             CenterPnl.BackColor = Color.FromArgb(35, 35, 35);
             CenterPnl.Controls.Add(GroupBtn);
             CenterPnl.Dock = DockStyle.Fill;
-            CenterPnl.Location = new Point(276, 156);
+            CenterPnl.Location = new Point(314, 120);
             CenterPnl.Name = "CenterPnl";
-            CenterPnl.Size = new Size(972, 894);
+            CenterPnl.Size = new Size(1610, 930);
             CenterPnl.TabIndex = 3;
+            CenterPnl.Paint += CenterPnl_Paint;
             // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1248, 1050);
+            ClientSize = new Size(1924, 1050);
             Controls.Add(CenterPnl);
             Controls.Add(HeaderPnl);
             Controls.Add(SliderDrawerpnl);
@@ -351,17 +314,14 @@
         private Label NameInfolbl;
         private Label label1;
         private PictureBox pictureBox2;
-        private Button StaffBtn;
         private Button MemberBtn;
         private Button GroupBtn;
         private Button MembershipBtn;
-        private Button ClassSchedulingBtn;
-        private Button ActivityBtn;
+        private Button MembershipListBtn;
         private Button PaymentBtn;
         private Button WorkoutBtn;
-        private Button FeedbackBtn;
-        private Button MessageBtn;
         private Panel panel1;
         private PictureBox pictureBox3;
+        private Button Logoutbtn;
     }
 }

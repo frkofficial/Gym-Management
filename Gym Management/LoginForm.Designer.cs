@@ -162,10 +162,10 @@
             // label6
             // 
             label6.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(218, 656);
+            label6.Location = new Point(208, 656);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(212, 25);
+            label6.Size = new Size(218, 25);
             label6.TabIndex = 14;
             label6.Text = "Dont have an account?";
             // 
@@ -175,7 +175,7 @@
             SignupLinllbl.AutoSize = true;
             SignupLinllbl.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             SignupLinllbl.LinkColor = Color.White;
-            SignupLinllbl.Location = new Point(424, 656);
+            SignupLinllbl.Location = new Point(420, 656);
             SignupLinllbl.Margin = new Padding(2, 0, 2, 0);
             SignupLinllbl.Name = "SignupLinllbl";
             SignupLinllbl.Size = new Size(79, 25);

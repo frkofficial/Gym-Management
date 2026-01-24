@@ -55,6 +55,7 @@
             // 
             // label1
             // 
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(141, 553);
@@ -63,7 +64,6 @@
             label1.TabIndex = 1;
             label1.Text = "Transform Your";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            //label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -76,6 +76,7 @@
             // 
             // label3
             // 
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(131, 633);
@@ -86,6 +87,7 @@
             // 
             // label4
             // 
+            label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ControlLightLight;
             label4.Location = new Point(420, 553);
@@ -98,6 +100,7 @@
             // 
             // label5
             // 
+            label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ControlLightLight;
             label5.Location = new Point(337, 620);
