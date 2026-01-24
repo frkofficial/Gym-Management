@@ -20,7 +20,7 @@ namespace Gym_Management
         AdminRepo adminrepo;
         EmpRepo emprepo;
         public AdminForm admin { private get; set; }
-        public UserForm user { private get; set; }
+        public MemberForm user { private get; set; }
         public EmployeeForm emp { private get; set; }
         public RegistrationForm reg { private get; set; }
         public  IntroForm intro { private get; set; }
@@ -238,7 +238,7 @@ namespace Gym_Management
            
                 if (member!= null && member.UserType == "member")
                 {
-                    user = new UserForm(this,member.UserId);
+                    user = new UserForm(this,userId);
                     this.Hide();
                     user.Text = " Welcome" + member.UserName;
                     user.Show();

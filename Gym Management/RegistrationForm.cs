@@ -271,6 +271,11 @@ namespace Gym_Management
                 EmrPhonelbl.Text = "Emergency is Optional";
                 EmrPhonelbl.ForeColor = Color.Lime;
                 EmrPhonelbl.Visible = true;
+            //else
+            //{
+            //    EmrPhonelbl.Text = "Emergency is Optional";
+            //    EmrPhonelbl.ForeColor = Color.Green;
+            //    EmrPhonelbl.Visible = true;
 
             }
 
@@ -425,6 +430,11 @@ namespace Gym_Management
         {
             previousform.Show();
             this.Hide();
+
+        }
+
+        private void UseTrainercomboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
