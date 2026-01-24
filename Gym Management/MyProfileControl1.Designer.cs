@@ -253,7 +253,7 @@
             label12.Size = new Size(80, 20);
             label12.TabIndex = 19;
             label12.Text = "Gender     :";
-            label12.Click += label12_Click;
+           // label12.Click += label12_Click;
             // 
             // textBox9
             // 
@@ -262,7 +262,7 @@
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(177, 30);
             textBox9.TabIndex = 20;
-            textBox9.TextChanged += textBox9_TextChanged;
+            //textBox9.TextChanged += textBox9_TextChanged;
             // 
             // button2
             // 
