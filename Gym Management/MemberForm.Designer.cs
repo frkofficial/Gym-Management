@@ -51,9 +51,9 @@
             // panelMain
             // 
             panelMain.BackgroundImage = (Image)resources.GetObject("panelMain.BackgroundImage");
-            panelMain.Location = new Point(285, 8);
+            panelMain.Location = new Point(285, 26);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(431, 557);
+            panelMain.Size = new Size(814, 869);
             panelMain.TabIndex = 1;
             panelMain.Paint += panelMain_Paint;
             // 
@@ -88,6 +88,7 @@
             button3.TabIndex = 4;
             button3.Text = "Payment";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -108,6 +109,7 @@
             button5.TabIndex = 6;
             button5.Text = "Logout";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // panel2
             // 
@@ -121,14 +123,14 @@
             panel2.Controls.Add(btnmembershipPrice);
             panel2.Location = new Point(4, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(728, 595);
+            panel2.Size = new Size(1131, 643);
             panel2.TabIndex = 7;
             // 
             // MemberForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(732, 599);
+            ClientSize = new Size(1132, 647);
             Controls.Add(panel2);
             Name = "MemberForm";
             Text = "MemberForm";

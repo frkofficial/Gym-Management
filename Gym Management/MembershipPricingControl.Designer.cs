@@ -76,7 +76,7 @@
             lblBasic.BackColor = SystemColors.ActiveCaption;
             lblBasic.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblBasic.ForeColor = SystemColors.ActiveCaptionText;
-            lblBasic.Location = new Point(12, 18);
+            lblBasic.Location = new Point(10, 18);
             lblBasic.Name = "lblBasic";
             lblBasic.Size = new Size(160, 25);
             lblBasic.TabIndex = 5;
@@ -91,15 +91,15 @@
             label2.ForeColor = SystemColors.ActiveCaptionText;
             label2.Location = new Point(12, 66);
             label2.Name = "label2";
-            label2.Size = new Size(149, 25);
+            label2.Size = new Size(152, 25);
             label2.TabIndex = 6;
-            label2.Text = "Price : BDT 1000";
+            label2.Text = "Price : BDT 2000";
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(lblBasic);
             panel1.Controls.Add(label2);
+            panel1.Controls.Add(lblBasic);
             panel1.Location = new Point(49, 100);
             panel1.Name = "panel1";
             panel1.Size = new Size(178, 117);
@@ -121,9 +121,9 @@
             lblstuPrice.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblstuPrice.Location = new Point(10, 66);
             lblstuPrice.Name = "lblstuPrice";
-            lblstuPrice.Size = new Size(140, 25);
+            lblstuPrice.Size = new Size(149, 25);
             lblstuPrice.TabIndex = 1;
-            lblstuPrice.Text = "Price : BDT 700";
+            lblstuPrice.Text = "Price : BDT 1500";
             // 
             // lblstudentmonthly
             // 
@@ -151,9 +151,9 @@
             label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(12, 70);
             label4.Name = "label4";
-            label4.Size = new Size(152, 25);
+            label4.Size = new Size(160, 25);
             label4.TabIndex = 1;
-            label4.Text = "Price : BDT 5500";
+            label4.Text = "Price : BDT 10000";
             // 
             // label3
             // 
@@ -181,9 +181,9 @@
             lblPrice1year.AutoSize = true;
             lblPrice1year.Location = new Point(10, 70);
             lblPrice1year.Name = "lblPrice1year";
-            lblPrice1year.Size = new Size(160, 25);
+            lblPrice1year.Size = new Size(163, 25);
             lblPrice1year.TabIndex = 1;
-            lblPrice1year.Text = "Price : BDT 10000";
+            lblPrice1year.Text = "Price : BDT 20000";
             // 
             // label5
             // 

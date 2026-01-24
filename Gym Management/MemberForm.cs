@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,16 +16,18 @@ namespace Gym_Management
     {
         LoginForm login;
         int userId;
-        public MemberForm(LoginForm login, int userId)
+        private Form previousform;
+        public MemberForm(LoginForm login, int userId, Form previousform    )
         {
             InitializeComponent();
-             this.login = login;
-             this.userId = userId;
+            this.login = login;
+            this.userId = userId;
             this.FormClosing += MemberFormClosing;
+            this.previousform = previousform;
         }
-        public void MemberFormClosing(object sender, FormClosingEventArgs e)
+        public void MemberFormClosing(object? sender, FormClosingEventArgs e)
         {
-          Application.Exit();
+            Application.Exit();
         }
         private void LoadControl(UserControl control)
         {
@@ -35,7 +39,8 @@ namespace Gym_Management
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoadControl(new MyProfileControl1());
+            LoadControl(new MyProfileControl1())
+                ;
         }
 
         private void btnmembershipPrice_Click(object sender, EventArgs e)
@@ -46,6 +51,17 @@ namespace Gym_Management
         private void panelMain_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadControl(new PaymentControl1());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            previousform.Show();
+            this.Hide();
         }
     }
 }

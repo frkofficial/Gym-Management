@@ -246,7 +246,7 @@ namespace Gym_Management
                 string UserType = rows1[0]["UserType"].ToString().ToLower();
                 if (UserType == "member")
                 {
-                    user = new MemberForm(this,userId);
+                    user = new MemberForm(this, userId, this);
                     this.Hide();
                     user.Text = " Welcome" + userName;
                     user.Show();
