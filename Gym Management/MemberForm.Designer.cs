@@ -50,10 +50,9 @@
             // 
             // panelMain
             // 
-            panelMain.BackgroundImage = (Image)resources.GetObject("panelMain.BackgroundImage");
-            panelMain.Location = new Point(285, 26);
+            panelMain.Location = new Point(271, 3);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(814, 869);
+            panelMain.Size = new Size(1084, 727);
             panelMain.TabIndex = 1;
             panelMain.Paint += panelMain_Paint;
             // 
@@ -123,14 +122,14 @@
             panel2.Controls.Add(btnmembershipPrice);
             panel2.Location = new Point(4, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1131, 643);
+            panel2.Size = new Size(1355, 733);
             panel2.TabIndex = 7;
             // 
             // MemberForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1132, 647);
+            ClientSize = new Size(1371, 749);
             Controls.Add(panel2);
             Name = "MemberForm";
             Text = "MemberForm";

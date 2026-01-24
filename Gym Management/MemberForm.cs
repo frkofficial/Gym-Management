@@ -45,7 +45,7 @@ namespace Gym_Management
 
         private void btnmembershipPrice_Click(object sender, EventArgs e)
         {
-            LoadControl(new MembershipPricingControl());
+            LoadControl(new MemberShipControl());
         }
 
         private void panelMain_Paint(object sender, PaintEventArgs e)
