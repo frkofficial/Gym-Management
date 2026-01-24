@@ -1,127 +1,36 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
-using Microsoft.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Configuration;
 
 namespace Gym_Management
 {
     public class DataAccess
     {
-        public static string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["GymsDb"].ConnectionString;
-
-        //This returns the connection string  
-        private static string _connectionString = string.Empty;
-
-        public static string ConnectionString
-        {
-            get
-            {
-                if (_connectionString == string.Empty)
-                {
-                    _connectionString = CONNECTION_STRING;
-                }
-
-                return _connectionString;
-            }
-        }
-
-        public DataAccess(string connectionString)
-        {
-            _connectionString = connectionString;
-        }
+        public static string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["GymsDB"]?.ConnectionString;
 
         public DataAccess()
         {
-            string connStr = ConfigurationManager.ConnectionStrings["GymsDb"].ConnectionString;
-            CONNECTION_STRING = connStr;
+            if (string.IsNullOrEmpty(CONNECTION_STRING))
+            {
+                throw new Exception("Connection string not found!");
+            }
         }
 
-        /// <summary>
-        /// Returns a SqlCommand object to add some parameters in it. After you send this to Execute method.
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <returns></returns>
         public SqlCommand GetCommand(string sql)
         {
-            SqlConnection conn = new SqlConnection(ConnectionString);
+            SqlConnection conn = new SqlConnection(CONNECTION_STRING);
             SqlCommand sqlCmd = new SqlCommand(sql, conn);
             return sqlCmd;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <returns></returns>
-        public DataTable Execute(string sql)
-        {
-            DataTable dt = new DataTable();
-            SqlCommand cmd = GetCommand(sql);
-
-            cmd.Connection.Open();
-            dt.Load(cmd.ExecuteReader());
-            cmd.Connection.Close();
-            return dt;
-        }
-
-        /// <summary>
-        /// Returns DataTable
-        /// </summary>
-        /// <param name="command"></param>
-        /// <returns></returns>
-        public DataTable Execute(SqlCommand command)
-        {
-            DataTable dt = new DataTable();
-            try
-            {
-
-                command.Connection.Open();
-                dt.Load(command.ExecuteReader());
-            }
-            catch (Exception ex) { }
-            finally
-            {
-                command.Connection.Close();
-            }
-
-            return dt;
-        }
-
-        /// <summary>
-        /// returns affected row count
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <returns></returns>
-        public int ExecuteNonQuery(string sql)
-        {
-            SqlCommand cmd = GetCommand(sql);
-            int result = 0;
-            try
-            {
-                cmd.Connection.Open();
-                result = cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-            }
-            finally
-            {
-                cmd.Connection.Close();
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="command"></param>
-        /// <returns></returns>
         public int ExecuteNonQuery(SqlCommand command)
         {
             int result = 0;
@@ -132,15 +41,80 @@ namespace Gym_Management
             }
             catch (Exception ex)
             {
-
+                // ERROR THROW করতেই হবে
+                throw new Exception($"Database Error: {ex.Message}", ex);
             }
             finally
             {
-                command.Connection.Close();
+                if (command.Connection.State == ConnectionState.Open)
+                    command.Connection.Close();
             }
-
             return result;
         }
 
+        public object ExecuteScalar(SqlCommand command)
+        {
+            try
+            {
+                command.Connection.Open();
+                return command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"ExecuteScalar Error: {ex.Message}", ex);
+            }
+            finally
+            {
+                if (command.Connection.State == ConnectionState.Open)
+                    command.Connection.Close();
+            }
+        }
+
+        public int GetNextEmpId()
+        {
+            SqlCommand cmd = GetCommand("SELECT ISNULL(MAX(EmpId), 0) + 1 FROM EmpInfo");
+            object result = ExecuteScalar(cmd);
+            return Convert.ToInt32(result);
+        }
+
+        public DataTable Execute(SqlCommand command)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                command.Connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    dt.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Database Error: {ex.Message}", ex);
+            }
+            finally
+            {
+                if (command.Connection.State == ConnectionState.Open)
+                    command.Connection.Close();
+            }
+            return dt;
+        }
+
+        // Connection test করার মেথড
+        public bool TestConnection()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
+                {
+                    conn.Open();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -9,11 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.SqlServer.Server;
+using Gym_Management.Entities;
+using Gym_Management.Repo;
 
 namespace Gym_Management
 {
     public partial class LoginForm : Form
     {
+        UserRepo userrepo;
+        AdminRepo adminrepo;
+        EmpRepo emprepo;
         public AdminForm admin { private get; set; }
         public MemberForm user { private get; set; }
         public EmployeeForm emp { private get; set; }
@@ -25,6 +30,9 @@ namespace Gym_Management
         public LoginForm(IntroForm intro)
         {
             InitializeComponent();
+            userrepo = new UserRepo();
+            adminrepo = new AdminRepo();
+            emprepo = new EmpRepo();
             DataAccess = new DataAccess();
             this.intro=intro ;
             this.FormClosing += LoginFormClosing;
@@ -207,72 +215,49 @@ namespace Gym_Management
             if (hasError) return;
 
             TestDb();
-            SqlCommand Admincmd = DataAccess.GetCommand(@"SELECT AdminId, AdminUserName,UserType
-                       FROM AdminInfo
-                         WHERE AdminUserName= @name AND AdminPass= @password");
+            string username = UserNameTextBox.Text.Trim();
+            string password = PassTextBox.Text.Trim();
 
-            Admincmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
-            Admincmd.Parameters.AddWithValue("@password", PassTextBox.Text.Trim());
-            DataTable Admindt = DataAccess.Execute(Admincmd);
-            var rows = Admindt.Rows;
-            if (rows.Count == 1)
-            {
-                int adminId = int.Parse(rows[0]["AdminId"].ToString());
-                string adminName = rows[0]["AdminUserName"].ToString();
-                string userType = rows[0]["UserType"].ToString().ToLower();
-                if (userType == "admin")
-                {
-                    if (admin == null)
-                    {
-                        admin = new AdminForm(this,adminId);
-                    }
+
+            Admins adminusers = adminrepo.LoginAdmin(username, password);
+
+           
+             if (adminusers !=null && adminusers.UserType == "admin")
+             {
+                    
+                    
+                        admin = new AdminForm(this,adminusers.AdminId);
+                    
                     this.Hide();
-                    admin.Text = "WelCome" + adminName;
+                    admin.Text = "WelCome" + adminusers.AdminUserName;
                     admin.Show();
-                }
+                    return;
+             }
 
-            }
-            SqlCommand Usercmd = DataAccess.GetCommand(@"SELECT UserId,UserName,UserType
-                                  FROM UserInfo
-                                   WHERE UserName= @name AND UserPass= @password");
-            Usercmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
-            Usercmd.Parameters.AddWithValue("password", PassTextBox.Text.Trim());
-            DataTable Userdt = DataAccess.Execute(Usercmd);
-            var rows1 = Userdt.Rows;
-            if (rows1.Count == 1)
-            {
-                int userId = int.Parse(rows1[0]["UserId"].ToString());
-                string userName = rows1[0]["UserName"].ToString();
-                string UserType = rows1[0]["UserType"].ToString().ToLower();
-                if (UserType == "member")
+            Users member = userrepo.LoginMember(username, password);
+           
+                if (member!= null && member.UserType == "member")
                 {
-                    user = new MemberForm(this, userId, this);
+                    user = new UserForm(this,userId);
                     this.Hide();
-                    user.Text = " Welcome" + userName;
+                    user.Text = " Welcome" + member.UserName;
                     user.Show();
+                    return;
 
                 }
-            }
-            SqlCommand Empcmd = DataAccess.GetCommand(@"SELECT EmpId,EmpName,EmpPass,UserType
-                                                      FROM EmpInfo
-                                                       WHERE  EmpName =@name AND EmpPass= @password");
-            Empcmd.Parameters.AddWithValue("@name", UserNameTextBox.Text.Trim());
-            Empcmd.Parameters.AddWithValue("@password", PassTextBox.Text.Trim());
-            DataTable Empdt = DataAccess.Execute(Empcmd);
-            var Emprows = Empdt.Rows;
-            if (Emprows.Count == 1)
-            {
-                int empId = int.Parse(Emprows[0]["EmpId"].ToString());
-                string empName = Emprows[0]["EmpName"].ToString();
-                string userType = Emprows[0]["UserType"].ToString().ToLower();
-                if (userType == "employee")
+
+                Employees emps= emprepo.LoginEmployee(username, password);
+            
+           
+                if (emps != null & emps.UserType == "employee")
                 {
-                    emp = new EmployeeForm(this,empId);
+                    emp = new EmployeeForm(this,emps.EmpId);
                     this.Hide();
-                    emp.Text = "WelCome " + empName;
+                    emp.Text = "WelCome " + emps.EmpName;
                     emp.Show();
+                    return;
                 }
-            }
+            
 
 
             else
