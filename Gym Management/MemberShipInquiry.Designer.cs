@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberShipInquiry));
             Bookbtn = new Button();
             cancelbtn = new Button();
             usernametxt = new TextBox();
@@ -200,6 +201,7 @@
             BackColor = Color.FromArgb(20, 20, 20);
             ClientSize = new Size(484, 561);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MemberShipInquiry";
             Text = "MemberShipInquiry";
             Load += MemberShipInquiry_Load;

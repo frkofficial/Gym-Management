@@ -172,6 +172,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(IntroPicBox);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "IntroForm";
             Text = "IntroForm";
             ((System.ComponentModel.ISupportInitialize)IntroPicBox).EndInit();

@@ -537,6 +537,7 @@
             AutoScroll = true;
             ClientSize = new Size(1247, 1018);
             Controls.Add(RegiPnl);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RegistrationForm";
             Text = "RegistrationForm";
             Load += RegistrationForm_Load;

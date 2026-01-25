@@ -162,10 +162,10 @@
             // label6
             // 
             label6.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(260, 820);
+            label6.Location = new Point(203, 650);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(265, 31);
+            label6.Size = new Size(219, 31);
             label6.TabIndex = 14;
             label6.Text = "Dont have an account?";
             // 
@@ -175,7 +175,7 @@
             SignupLinllbl.AutoSize = true;
             SignupLinllbl.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             SignupLinllbl.LinkColor = Color.White;
-            SignupLinllbl.Location = new Point(530, 820);
+            SignupLinllbl.Location = new Point(426, 650);
             SignupLinllbl.Margin = new Padding(2, 0, 2, 0);
             SignupLinllbl.Name = "SignupLinllbl";
             SignupLinllbl.Size = new Size(79, 25);
@@ -270,6 +270,8 @@
             PassTextBox.Margin = new Padding(1, 4, 1, 4);
             PassTextBox.Multiline = true;
             PassTextBox.Name = "PassTextBox";
+            PassTextBox.PasswordChar = '*';
+            PassTextBox.PlaceholderText = "Enter Password";
             PassTextBox.Size = new Size(400, 50);
             PassTextBox.TabIndex = 3;
             PassTextBox.Text = "Enter Password";
@@ -418,6 +420,7 @@
             Controls.Add(panellogo);
             Controls.Add(panel1);
             ForeColor = SystemColors.ControlLightLight;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(1, 4, 1, 4);
             Name = "LoginForm";
             Padding = new Padding(6);
