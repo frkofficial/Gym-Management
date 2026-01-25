@@ -41,7 +41,7 @@ namespace Gym_Management
             }
             catch (Exception ex)
             {
-                
+               
                 throw new Exception($"Database Error: {ex.Message}", ex);
             }
             finally

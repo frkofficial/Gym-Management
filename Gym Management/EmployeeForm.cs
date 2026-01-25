@@ -116,7 +116,7 @@ namespace Gym_Management
 
         private void PaymentBtn_Click(object sender, EventArgs e)
         {
-
+            LoadControl(new CalPaymentCont());
         }
 
         private void Logoutbtn_Click(object sender, EventArgs e)

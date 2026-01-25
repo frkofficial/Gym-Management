@@ -194,5 +194,98 @@ namespace Gym_Management.Repo
 
             return dataAccess.ExecuteNonQuery(command);
         }
+
+
+
+        public string GetCustomerName(int customerId)
+        {
+            var sql = "SELECT UserName FROM UserInfo WHERE UserId = @customerid";
+            var command = dataAccess.GetCommand(sql);
+            command.Parameters.AddWithValue("@customerid", customerId);
+            var result = dataAccess.Execute(command);
+
+            if (result.Rows.Count > 0)
+            {
+                return result.Rows[0]["UserName"].ToString();
+            }
+            return "";
+        }
+
+        public decimal GetPackageAmountByCustomer(int customerId)
+        {
+            var sql = @"SELECT TOP 1 Price FROM MemberShipBooking 
+                       WHERE UserId = @customerid 
+                       ORDER BY BookingId DESC";
+
+            var command = dataAccess.GetCommand(sql);
+            command.Parameters.AddWithValue("@customerid", customerId);
+            var result = dataAccess.Execute(command);
+
+            if (result.Rows.Count > 0 && result.Rows[0]["Price"] != DBNull.Value)
+            {
+                if (decimal.TryParse(result.Rows[0]["Price"].ToString(), out decimal price))
+                    return price;
+            }
+            return 0;
+        }
+        public decimal GetTrainerPriceByCustomer(int customerId)
+        {
+            var sql = @"SELECT TOP 1 TrainerPrice FROM CustomerAssignmentTrainerInfo 
+                       WHERE UserId = @customerid 
+                       ORDER BY AssignmentId DESC";
+
+            var command = dataAccess.GetCommand(sql);
+            command.Parameters.AddWithValue("@customerid", customerId);
+            var result = dataAccess.Execute(command);
+
+            if (result.Rows.Count > 0 && result.Rows[0]["TrainerPrice"] != DBNull.Value)
+            {
+                if (decimal.TryParse(result.Rows[0]["TrainerPrice"].ToString(), out decimal price))
+                    return price;
+            }
+            return 0;
+        }
+        public int InsertPayment(Payment payment)
+        {
+            var sql = @"INSERT INTO Payment (CustomerID, CustomerName, PackageAmount, TrainerPriceAmount, TotalAmount, PayingDate, Status, PaymentMethod)
+                       VALUES (@customerid, @customername, @packageamount, @trainerpriceamount, @totalamount, @payingdate, @status, @paymentmethod)";
+
+            var command = dataAccess.GetCommand(sql);
+            command.Parameters.AddWithValue("@customerid", payment.CustomerID);
+            command.Parameters.AddWithValue("@customername", payment.CustomerName ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@packageamount", payment.PackageAmount);
+            command.Parameters.AddWithValue("@trainerpriceamount", payment.TrainerPriceAmount);
+            command.Parameters.AddWithValue("@totalamount", payment.TotalAmount);
+            command.Parameters.Add("@payingdate", SqlDbType.Date).Value = payment.PayingDate;
+            command.Parameters.AddWithValue("@status", payment.Status);
+            command.Parameters.AddWithValue("@paymentmethod", payment.PaymentMethod ?? (object)DBNull.Value);
+
+            return dataAccess.ExecuteNonQuery(command);
+        }
+
+
+        public DataTable AllPayments()
+        {
+            SqlCommand cmd = dataAccess.GetCommand(
+                "SELECT PaymentID, CustomerID, CustomerName, PackageAmount, TrainerPriceAmount, TotalAmount, PayingDate, Status, PaymentMethod FROM Payment"
+            );
+            return dataAccess.Execute(cmd);
+        }
+
+        public DataTable TotalEarningPerCustomer()
+        {
+            SqlCommand cmd = dataAccess.GetCommand(@"
+        SELECT 
+            CustomerID,
+            CustomerName,
+            SUM(TotalAmount) AS TotalEarning
+        FROM Payment
+        WHERE Status = 'Paid'
+        GROUP BY CustomerID, CustomerName
+        ORDER BY TotalEarning DESC
+    ");
+            return dataAccess.Execute(cmd);
+        }
+
     }
 }
