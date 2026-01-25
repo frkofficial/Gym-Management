@@ -54,19 +54,17 @@
             textBox12 = new TextBox();
             label13 = new Label();
             label14 = new Label();
-            textBox14 = new TextBox();
-            label15 = new Label();
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
             textBox10 = new TextBox();
             label16 = new Label();
             label17 = new Label();
             textBox13 = new TextBox();
-            textBox15 = new TextBox();
-            textBox16 = new TextBox();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            label15 = new Label();
+            textBox14 = new TextBox();
             label18 = new Label();
-            label19 = new Label();
-            button1 = new Button();
+            textBox15 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -134,7 +132,7 @@
             label5.AutoSize = true;
             label5.BackColor = SystemColors.ControlLightLight;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(382, 242);
+            label5.Location = new Point(379, 200);
             label5.Name = "label5";
             label5.Size = new Size(87, 20);
             label5.TabIndex = 6;
@@ -150,7 +148,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(525, 242);
+            textBox4.Location = new Point(525, 201);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(178, 29);
@@ -172,7 +170,7 @@
             label7.AutoSize = true;
             label7.BackColor = SystemColors.ControlLightLight;
             label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(384, 190);
+            label7.Location = new Point(379, 145);
             label7.Name = "label7";
             label7.Size = new Size(85, 20);
             label7.TabIndex = 10;
@@ -194,7 +192,7 @@
             label9.AutoSize = true;
             label9.BackColor = SystemColors.ControlLightLight;
             label9.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(16, 461);
+            label9.Location = new Point(16, 473);
             label9.Name = "label9";
             label9.Size = new Size(82, 20);
             label9.TabIndex = 12;
@@ -210,7 +208,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(525, 190);
+            textBox6.Location = new Point(525, 146);
             textBox6.Multiline = true;
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(178, 30);
@@ -226,7 +224,7 @@
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(145, 461);
+            textBox8.Location = new Point(145, 473);
             textBox8.Multiline = true;
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(177, 30);
@@ -248,12 +246,11 @@
             label12.AutoSize = true;
             label12.BackColor = SystemColors.ControlLightLight;
             label12.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(389, 302);
+            label12.Location = new Point(379, 253);
             label12.Name = "label12";
             label12.Size = new Size(80, 20);
             label12.TabIndex = 19;
             label12.Text = "Gender     :";
-           // label12.Click += label12_Click;
             // 
             // textBox9
             // 
@@ -262,13 +259,12 @@
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(177, 30);
             textBox9.TabIndex = 20;
-            //textBox9.TextChanged += textBox9_TextChanged;
             // 
             // button2
             // 
             button2.BackColor = SystemColors.ControlLightLight;
             button2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(471, 573);
+            button2.Location = new Point(322, 542);
             button2.Name = "button2";
             button2.Size = new Size(92, 39);
             button2.TabIndex = 23;
@@ -297,7 +293,7 @@
             // 
             // textBox12
             // 
-            textBox12.Location = new Point(525, 345);
+            textBox12.Location = new Point(525, 303);
             textBox12.Multiline = true;
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(178, 32);
@@ -308,7 +304,7 @@
             label13.AutoSize = true;
             label13.BackColor = SystemColors.ControlLightLight;
             label13.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(389, 345);
+            label13.Location = new Point(379, 302);
             label13.Name = "label13";
             label13.Size = new Size(81, 20);
             label13.TabIndex = 27;
@@ -325,30 +321,11 @@
             label14.TabIndex = 28;
             label14.Text = "User Trainer: ";
             // 
-            // textBox14
-            // 
-            textBox14.Location = new Point(525, 138);
-            textBox14.Multiline = true;
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(178, 32);
-            textBox14.TabIndex = 30;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.BackColor = SystemColors.ControlLightLight;
-            label15.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.Location = new Point(403, 136);
-            label15.Name = "label15";
-            label15.Size = new Size(66, 20);
-            label15.TabIndex = 31;
-            label15.Text = "UserId   :";
-            // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Male", "Female" });
-            comboBox1.Location = new Point(525, 299);
+            comboBox1.Location = new Point(525, 254);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(178, 23);
             comboBox1.TabIndex = 32;
@@ -364,7 +341,7 @@
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(529, 401);
+            textBox10.Location = new Point(525, 360);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(174, 23);
             textBox10.TabIndex = 34;
@@ -373,9 +350,10 @@
             // 
             label16.AutoSize = true;
             label16.BackColor = SystemColors.ControlLightLight;
-            label16.Location = new Point(408, 409);
+            label16.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label16.Location = new Point(379, 361);
             label16.Name = "label16";
-            label16.Size = new Size(62, 15);
+            label16.Size = new Size(77, 20);
             label16.TabIndex = 35;
             label16.Text = "Emrphone";
             // 
@@ -383,81 +361,75 @@
             // 
             label17.AutoSize = true;
             label17.BackColor = SystemColors.ControlLightLight;
-            label17.Location = new Point(403, 466);
+            label17.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label17.Location = new Point(379, 418);
             label17.Name = "label17";
-            label17.Size = new Size(74, 15);
+            label17.Size = new Size(92, 20);
             label17.TabIndex = 36;
             label17.Text = "Membership";
             // 
             // textBox13
             // 
-            textBox13.Location = new Point(529, 461);
+            textBox13.Location = new Point(525, 412);
             textBox13.Name = "textBox13";
             textBox13.Size = new Size(174, 23);
             textBox13.TabIndex = 37;
             // 
-            // textBox15
+            // sqlCommand1
             // 
-            textBox15.Location = new Point(529, 514);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(174, 23);
-            textBox15.TabIndex = 38;
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
-            // textBox16
+            // label15
             // 
-            textBox16.Location = new Point(145, 519);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(177, 23);
-            textBox16.TabIndex = 39;
+            label15.AutoSize = true;
+            label15.BackColor = SystemColors.ControlLightLight;
+            label15.ForeColor = SystemColors.ControlText;
+            label15.Location = new Point(379, 452);
+            label15.Name = "label15";
+            label15.Size = new Size(62, 15);
+            label15.TabIndex = 43;
+            label15.Text = "join date : ";
+            // 
+            // textBox14
+            // 
+            textBox14.Location = new Point(525, 452);
+            textBox14.Name = "textBox14";
+            textBox14.Size = new Size(174, 23);
+            textBox14.TabIndex = 44;
             // 
             // label18
             // 
             label18.AutoSize = true;
             label18.BackColor = SystemColors.ControlLightLight;
-            label18.Location = new Point(17, 522);
+            label18.Location = new Point(379, 488);
             label18.Name = "label18";
-            label18.Size = new Size(55, 15);
-            label18.TabIndex = 40;
-            label18.Text = "Join Date";
+            label18.Size = new Size(69, 15);
+            label18.TabIndex = 45;
+            label18.Text = "leave date : ";
             // 
-            // label19
+            // textBox15
             // 
-            label19.AutoSize = true;
-            label19.BackColor = SystemColors.ControlLightLight;
-            label19.Location = new Point(409, 522);
-            label19.Name = "label19";
-            label19.Size = new Size(61, 15);
-            label19.TabIndex = 41;
-            label19.Text = "leave Date";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(209, 573);
-            button1.Name = "button1";
-            button1.Size = new Size(113, 39);
-            button1.TabIndex = 42;
-            button1.Text = "show information";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            textBox15.Location = new Point(526, 495);
+            textBox15.Name = "textBox15";
+            textBox15.Size = new Size(173, 23);
+            textBox15.TabIndex = 46;
             // 
             // MyProfileControl1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            Controls.Add(button1);
-            Controls.Add(label19);
-            Controls.Add(label18);
-            Controls.Add(textBox16);
             Controls.Add(textBox15);
+            Controls.Add(label18);
+            Controls.Add(textBox14);
+            Controls.Add(label15);
             Controls.Add(textBox13);
             Controls.Add(label17);
             Controls.Add(label16);
             Controls.Add(textBox10);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
-            Controls.Add(label15);
-            Controls.Add(textBox14);
             Controls.Add(label14);
             Controls.Add(label13);
             Controls.Add(textBox12);
@@ -518,18 +490,16 @@
         private TextBox textBox12;
         private Label label13;
         private Label label14;
-        private TextBox textBox14;
-        private Label label15;
         private ComboBox comboBox1;
         private ComboBox comboBox2;
         private TextBox textBox10;
         private Label label16;
         private Label label17;
         private TextBox textBox13;
-        private TextBox textBox15;
-        private TextBox textBox16;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private Label label15;
+        private TextBox textBox14;
         private Label label18;
-        private Label label19;
-        private Button button1;
+        private TextBox textBox15;
     }
 }

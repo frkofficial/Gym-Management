@@ -238,7 +238,11 @@ namespace Gym_Management
            
                 if (member!= null && member.UserType == "member")
                 {
-                    user = new MemberForm(this, member.UserId,this);
+                Session.UserId = member.UserId;
+                Session.UserName = member.UserName;
+                Session.UserType = "member";
+
+                user = new MemberForm(this, member.UserId,this);
                     this.Hide();
                     user.Text = " Welcome" + member.UserName;
                     user.Show();
@@ -274,5 +278,6 @@ namespace Gym_Management
             this.Hide();
             reg.Show();
         }
+
     }
 }
