@@ -59,14 +59,14 @@ namespace Gym_Management
         }
 
 
-        
+
 
         // ================= INSERT EMPLOYEE =================
         private void btnInsertEmployee_Click(object sender, EventArgs e)
         {
             try
             {
-                
+
                 // 1. Get next EmpId
                 int nextEmpId = dataAccess.GetNextEmpId();
 
@@ -169,6 +169,86 @@ namespace Gym_Management
             textBoxLname.Clear();
             textBoxEpass.Clear();
             textBoxUserT.Clear();
+        }
+
+
+
+        //EMPLOYEEEDLETE CONTROLS
+        private void btnemployeedlt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //  selection check
+                if (dataGridViewemployee.CurrentRow == null)
+                {
+                    MessageBox.Show("Please select an employee to delete!", "Error",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                //  Employee 
+                int empId = Convert.ToInt32(dataGridViewemployee.CurrentRow.Cells["EmpId"].Value);
+                string empName = dataGridViewemployee.CurrentRow.Cells["EmpName"].Value?.ToString();
+
+                
+                DialogResult result = MessageBox.Show(
+                    $"Are you sure you want to delete Employee?\n\n" +
+                    $"ID: {empId}\n" +
+                    $"Name: {empName}\n\n" +
+                    "This action cannot be undone!",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (result != DialogResult.Yes)
+                    return;
+
+                // ৪. SQL Command 
+                SqlCommand cmd = dataAccess.GetCommand("DELETE FROM EmpInfo WHERE EmpId = @empid");
+                cmd.Parameters.AddWithValue("@empid", empId);
+
+                // ৫. Execute
+                int rows = dataAccess.ExecuteNonQuery(cmd);
+
+                if (rows > 0)
+                {
+                    MessageBox.Show($"✅ Employee deleted successfully!\nID: {empId}\nName: {empName}",
+                                  "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                   
+                    LoadEmployeeData();
+                    ClearFields();
+                }
+                else
+                {
+                    MessageBox.Show("❌ Delete failed - Employee not found!", "Error",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Invalid Employee ID format!", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (SqlException sqlEx)
+            {
+                // Foreign key constraint error (547 error number for SQL Server)
+                if (sqlEx.Number == 547)
+                {
+                    MessageBox.Show("Cannot delete this employee!\n\n" +
+                                  "This employee is referenced in other tables.\n" +
+                                  "Please remove related records first.",
+                                  "Constraint Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show($"SQL Error: {sqlEx.Message}", "Database Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "System Error");
+            }
         }
     }
 }

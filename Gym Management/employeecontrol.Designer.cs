@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             buttonInsertbtnInsertEmployee_Click = new Button();
             dataGridViewemployee = new DataGridView();
             employeepannel2 = new Panel();
@@ -40,7 +40,7 @@
             label6 = new Label();
             textBoxfname = new TextBox();
             label5 = new Label();
-            button2 = new Button();
+            btnemployeedlt = new Button();
             txtEmpPhone = new TextBox();
             txtEmpJob = new TextBox();
             txtEmpName = new TextBox();
@@ -69,15 +69,15 @@
             dataGridViewemployee.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
             dataGridViewemployee.BackgroundColor = Color.DimGray;
             dataGridViewemployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.Padding = new Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ControlLight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridViewemployee.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewemployee.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewemployee.GridColor = SystemColors.ControlLightLight;
             dataGridViewemployee.Location = new Point(34, 11);
             dataGridViewemployee.Name = "dataGridViewemployee";
@@ -97,7 +97,7 @@
             employeepannel2.Controls.Add(label6);
             employeepannel2.Controls.Add(textBoxfname);
             employeepannel2.Controls.Add(label5);
-            employeepannel2.Controls.Add(button2);
+            employeepannel2.Controls.Add(btnemployeedlt);
             employeepannel2.Controls.Add(txtEmpPhone);
             employeepannel2.Controls.Add(txtEmpJob);
             employeepannel2.Controls.Add(buttonInsertbtnInsertEmployee_Click);
@@ -184,14 +184,15 @@
             label5.TabIndex = 9;
             label5.Text = "Fname :";
             // 
-            // button2
+            // btnemployeedlt
             // 
-            button2.Location = new Point(375, 330);
-            button2.Name = "button2";
-            button2.Size = new Size(138, 53);
-            button2.TabIndex = 8;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = true;
+            btnemployeedlt.Location = new Point(375, 330);
+            btnemployeedlt.Name = "btnemployeedlt";
+            btnemployeedlt.Size = new Size(138, 53);
+            btnemployeedlt.TabIndex = 8;
+            btnemployeedlt.Text = "Delete";
+            btnemployeedlt.UseVisualStyleBackColor = true;
+            btnemployeedlt.Click += btnemployeedlt_Click;
             // 
             // txtEmpPhone
             // 
@@ -294,7 +295,7 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private Button button2;
+        private Button btnemployeedlt;
         private TextBox textBoxUserT;
         private Label label8;
         private TextBox textBoxLname;

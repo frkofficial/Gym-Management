@@ -82,96 +82,7 @@ namespace Gym_Management
             }
         }
 
-        // ================= INSERT ADMIN =================
-        private void btnInsertAdmin_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // 1. Get next AdminId
-                int nextAdminId = GetNextAdminId();
-
-                // 2. Collect form data
-                string AdminUserName = txtAdminName.Text.Trim();
-                string AdminFirstName = adminFirstName.Text.Trim();
-                string AdminLastname = txtLastName.Text.Trim();
-                //string AdminPass = txtPassword.Text.Trim();
-                string Rank = txtRank.Text.Trim();
-                //string UserType = txtUserType.Text.Trim();
-                string AdminPhone = txtPhone.Text.Trim();
-                string AdminEmail = "notprovided@email.com";
-                string AdminAddress = "Not Provided";
-                string AdminDOB = "not given";
-                string AdminGender = "Not Specified";
-
-
-
-                // 3. Validation - NOT NULL fields check
-                if (string.IsNullOrWhiteSpace(AdminUserName) ||
-                    string.IsNullOrWhiteSpace(AdminFirstName) ||
-                    //string.IsNullOrWhiteSpace(AdminPass) ||
-                    string.IsNullOrWhiteSpace(Rank) ||
-                    //string.IsNullOrWhiteSpace(UserType) ||
-                    string.IsNullOrWhiteSpace(AdminPhone) ||
-                    string.IsNullOrWhiteSpace(AdminEmail) ||
-                    string.IsNullOrWhiteSpace(AdminAddress) ||
-                    string.IsNullOrWhiteSpace(AdminDOB) ||
-                    string.IsNullOrWhiteSpace(AdminGender))
-                {
-                    MessageBox.Show("Please fill all required fields!", "Validation Error");
-                    return;
-                }
-
-                // 4. SQL Command WITH AdminId
-                SqlCommand cmd = dataAccess.GetCommand(@"
-                    INSERT INTO AdminInfo 
-                    (AdminId, AdminUserName, AdminFirstName, AdminLastname, AdminPass, 
-                     Rank, UserType, AdminPhone, AdminEmail, AdminAddress, AdminDOB, AdminGender)
-                    VALUES 
-                    (@adminid, @username, @firstname, @lastname, @password, @rank, 
-                     @usertype, @phone, @email, @address, @dob, @gender)
-                ");
-
-                // 5. Add parameters
-                cmd.Parameters.AddWithValue("@adminid", nextAdminId);
-                cmd.Parameters.AddWithValue("@username", AdminUserName);
-                cmd.Parameters.AddWithValue("@firstname", AdminFirstName);
-                cmd.Parameters.AddWithValue("@lastname", string.IsNullOrEmpty(AdminLastname) ? (object)DBNull.Value : AdminLastname);
-                //cmd.Parameters.AddWithValue("@password", AdminPass);
-                cmd.Parameters.AddWithValue("@rank", Rank);
-                //cmd.Parameters.AddWithValue("@usertype", UserType);
-                cmd.Parameters.AddWithValue("@phone", AdminPhone);
-                cmd.Parameters.AddWithValue("@email", AdminEmail);
-                cmd.Parameters.AddWithValue("@address", AdminAddress);
-                cmd.Parameters.AddWithValue("@dob", AdminDOB);
-                cmd.Parameters.AddWithValue("@gender", AdminGender);
-
-                // 6. Execute
-                int rows = dataAccess.ExecuteNonQuery(cmd);
-
-                if (rows > 0)
-                {
-                    MessageBox.Show($"✅ Success! Admin ID: {nextAdminId}", "Success");
-                    LoadAdminData();
-                    ClearAdminFields();
-                }
-                else
-                {
-                    MessageBox.Show("❌ Insert failed - No rows affected", "Error");
-                }
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show($"SQL Error: {sqlEx.Message}", "Database Error");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "System Error");
-            }
-        }
-
-
-
-
+       
         // ================= GRID → TEXTBOX =================
         private void dataGridViewadmin_SelectionChanged(object sender, EventArgs e)
         {
@@ -228,6 +139,9 @@ namespace Gym_Management
             // Keep as is
         }
 
+
+
+          //adminInsert
         private void btnInsertAdmin1_Click_Click(object sender, EventArgs e)
         {
             try
