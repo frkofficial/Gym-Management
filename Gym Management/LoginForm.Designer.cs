@@ -418,6 +418,7 @@
             Controls.Add(panellogo);
             Controls.Add(panel1);
             ForeColor = SystemColors.ControlLightLight;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(1, 3, 1, 3);
             Name = "LoginForm";
             Padding = new Padding(5);

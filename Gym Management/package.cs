@@ -12,16 +12,21 @@ using Microsoft.Data.SqlClient;
 
 namespace Gym_Management
 {
-    public partial class customercontrol : UserControl
+    public partial class package : UserControl
     {
-        public customercontrol()
+        public package()
         {
             InitializeComponent();
         }
 
-        private void customercontrol_Load(object sender, EventArgs e)
+        private void dataGridViewPackage_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //dataGridViewCustomer
+
+        }
+
+        private void package_Load(object sender, EventArgs e)
+        {
+            //dataGridViewPackage
 
             try
             {
@@ -34,30 +39,20 @@ namespace Gym_Management
                     con.Open();
 
                     SqlDataAdapter da = new SqlDataAdapter(
-                        "SELECT UserId, UserName, UserType, UserPhone FROM UserInfo",
+                        "SELECT * FROM package1",
                         con
                     );
 
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-                    dataGridViewCustomer.DataSource = dt;
+                    dataGridViewPackage.DataSource = dt;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Customer load error: " + ex.Message);
             }
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
     }

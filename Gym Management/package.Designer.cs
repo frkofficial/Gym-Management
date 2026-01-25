@@ -1,6 +1,6 @@
 ﻿namespace Gym_Management
 {
-    partial class customercontrol
+    partial class package
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            dataGridViewCustomer = new DataGridView();
+            dataGridViewPackage = new DataGridView();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewPackage).BeginInit();
             SuspendLayout();
             // 
-            // dataGridViewCustomer
+            // dataGridViewPackage
             // 
-            dataGridViewCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewPackage.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.ControlText;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -44,43 +44,41 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridViewCustomer.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCustomer.Location = new Point(118, 87);
-            dataGridViewCustomer.Name = "dataGridViewCustomer";
-            dataGridViewCustomer.RowHeadersWidth = 51;
-            dataGridViewCustomer.Size = new Size(905, 375);
-            dataGridViewCustomer.TabIndex = 1;
-            dataGridViewCustomer.CellContentClick += dataGridViewCustomer_CellContentClick;
+            dataGridViewPackage.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewPackage.Location = new Point(278, 113);
+            dataGridViewPackage.Name = "dataGridViewPackage";
+            dataGridViewPackage.RowHeadersWidth = 51;
+            dataGridViewPackage.Size = new Size(546, 208);
+            dataGridViewPackage.TabIndex = 0;
+            dataGridViewPackage.CellContentClick += dataGridViewPackage_CellContentClick;
             // 
             // label1
             // 
             label1.BackColor = SystemColors.ActiveCaption;
-            label1.Font = new Font("Elephant", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.ImageAlign = ContentAlignment.BottomCenter;
-            label1.Location = new Point(329, 22);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(378, 51);
             label1.Name = "label1";
-            label1.Size = new Size(421, 53);
-            label1.TabIndex = 2;
-            label1.Text = "Customer List ";
+            label1.Size = new Size(322, 47);
+            label1.TabIndex = 1;
+            label1.Text = "Current Packages";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
-            // customercontrol
+            // package
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label1);
-            Controls.Add(dataGridViewCustomer);
-            Name = "customercontrol";
-            Size = new Size(1236, 481);
-            Load += customercontrol_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).EndInit();
+            Controls.Add(dataGridViewPackage);
+            Name = "package";
+            Size = new Size(1379, 610);
+            Load += package_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewPackage).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private DataGridView dataGridViewCustomer;
+
+        private DataGridView dataGridViewPackage;
         private Label label1;
     }
 }

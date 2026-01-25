@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             dashboardbutton = new Button();
             EmployeeListbutton = new Button();
             Packagesbutton = new Button();
@@ -161,6 +162,7 @@
             ClientSize = new Size(1184, 687);
             Controls.Add(panel2);
             Controls.Add(contentpannel);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
             Name = "AdminForm";
             Text = "AdminForm";
