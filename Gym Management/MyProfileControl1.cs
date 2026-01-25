@@ -20,8 +20,10 @@ namespace Gym_Management
         public MyProfileControl1()
         {
             InitializeComponent();
+            textBox16.Text = Session.UserId.ToString();
             textBox14.ReadOnly = true;  
             textBox15.ReadOnly = true;
+            textBox16.ReadOnly = true;
             dataaccess = new DataAccess();
             LoadLoggedInUser();
         }
@@ -73,7 +75,7 @@ namespace Gym_Management
             }
         }
 
-        // UPDATE
+       
         private void button2_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = dataaccess.GetCommand(@"
@@ -97,7 +99,7 @@ UserJoinDate=@join,
 UserLeaveDate=@leave
 WHERE UserId=@id");
 
-            cmd.Parameters.AddWithValue("@id", currentUserId);
+            cmd.Parameters.AddWithValue("@id",currentUserId);
             cmd.Parameters.AddWithValue("@fname", textBox1.Text);
             cmd.Parameters.AddWithValue("@lname", textBox2.Text);
             cmd.Parameters.AddWithValue("@username", textBox3.Text);

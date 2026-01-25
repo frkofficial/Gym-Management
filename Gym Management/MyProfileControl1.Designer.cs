@@ -65,6 +65,8 @@
             textBox14 = new TextBox();
             label18 = new Label();
             textBox15 = new TextBox();
+            label19 = new Label();
+            textBox16 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -110,7 +112,7 @@
             label3.AutoSize = true;
             label3.BackColor = SystemColors.ControlLightLight;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(379, 88);
+            label3.Location = new Point(379, 90);
             label3.Name = "label3";
             label3.Size = new Size(90, 20);
             label3.TabIndex = 4;
@@ -132,7 +134,7 @@
             label5.AutoSize = true;
             label5.BackColor = SystemColors.ControlLightLight;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(379, 200);
+            label5.Location = new Point(377, 251);
             label5.Name = "label5";
             label5.Size = new Size(87, 20);
             label5.TabIndex = 6;
@@ -148,7 +150,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(525, 201);
+            textBox4.Location = new Point(525, 242);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(178, 29);
@@ -170,7 +172,7 @@
             label7.AutoSize = true;
             label7.BackColor = SystemColors.ControlLightLight;
             label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(379, 145);
+            label7.Location = new Point(377, 189);
             label7.Name = "label7";
             label7.Size = new Size(85, 20);
             label7.TabIndex = 10;
@@ -208,7 +210,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(525, 146);
+            textBox6.Location = new Point(525, 189);
             textBox6.Multiline = true;
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(178, 30);
@@ -246,7 +248,7 @@
             label12.AutoSize = true;
             label12.BackColor = SystemColors.ControlLightLight;
             label12.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(379, 253);
+            label12.Location = new Point(377, 302);
             label12.Name = "label12";
             label12.Size = new Size(80, 20);
             label12.TabIndex = 19;
@@ -264,7 +266,7 @@
             // 
             button2.BackColor = SystemColors.ControlLightLight;
             button2.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(322, 542);
+            button2.Location = new Point(322, 576);
             button2.Name = "button2";
             button2.Size = new Size(92, 39);
             button2.TabIndex = 23;
@@ -293,7 +295,7 @@
             // 
             // textBox12
             // 
-            textBox12.Location = new Point(525, 303);
+            textBox12.Location = new Point(525, 348);
             textBox12.Multiline = true;
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(178, 32);
@@ -304,7 +306,7 @@
             label13.AutoSize = true;
             label13.BackColor = SystemColors.ControlLightLight;
             label13.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(379, 302);
+            label13.Location = new Point(377, 360);
             label13.Name = "label13";
             label13.Size = new Size(81, 20);
             label13.TabIndex = 27;
@@ -325,7 +327,7 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Male", "Female" });
-            comboBox1.Location = new Point(525, 254);
+            comboBox1.Location = new Point(525, 299);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(178, 23);
             comboBox1.TabIndex = 32;
@@ -341,7 +343,7 @@
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(525, 360);
+            textBox10.Location = new Point(525, 414);
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(174, 23);
             textBox10.TabIndex = 34;
@@ -351,7 +353,7 @@
             label16.AutoSize = true;
             label16.BackColor = SystemColors.ControlLightLight;
             label16.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.Location = new Point(379, 361);
+            label16.Location = new Point(377, 414);
             label16.Name = "label16";
             label16.Size = new Size(77, 20);
             label16.TabIndex = 35;
@@ -362,7 +364,7 @@
             label17.AutoSize = true;
             label17.BackColor = SystemColors.ControlLightLight;
             label17.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.Location = new Point(379, 418);
+            label17.Location = new Point(377, 472);
             label17.Name = "label17";
             label17.Size = new Size(92, 20);
             label17.TabIndex = 36;
@@ -370,7 +372,7 @@
             // 
             // textBox13
             // 
-            textBox13.Location = new Point(525, 412);
+            textBox13.Location = new Point(525, 469);
             textBox13.Name = "textBox13";
             textBox13.Size = new Size(174, 23);
             textBox13.TabIndex = 37;
@@ -385,7 +387,7 @@
             label15.AutoSize = true;
             label15.BackColor = SystemColors.ControlLightLight;
             label15.ForeColor = SystemColors.ControlText;
-            label15.Location = new Point(379, 452);
+            label15.Location = new Point(379, 527);
             label15.Name = "label15";
             label15.Size = new Size(62, 15);
             label15.TabIndex = 43;
@@ -393,7 +395,7 @@
             // 
             // textBox14
             // 
-            textBox14.Location = new Point(525, 452);
+            textBox14.Location = new Point(525, 527);
             textBox14.Name = "textBox14";
             textBox14.Size = new Size(174, 23);
             textBox14.TabIndex = 44;
@@ -402,7 +404,7 @@
             // 
             label18.AutoSize = true;
             label18.BackColor = SystemColors.ControlLightLight;
-            label18.Location = new Point(379, 488);
+            label18.Location = new Point(16, 527);
             label18.Name = "label18";
             label18.Size = new Size(69, 15);
             label18.TabIndex = 45;
@@ -410,16 +412,36 @@
             // 
             // textBox15
             // 
-            textBox15.Location = new Point(526, 495);
+            textBox15.Location = new Point(145, 527);
             textBox15.Name = "textBox15";
-            textBox15.Size = new Size(173, 23);
+            textBox15.Size = new Size(177, 23);
             textBox15.TabIndex = 46;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.BackColor = SystemColors.ControlLightLight;
+            label19.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label19.Location = new Point(377, 137);
+            label19.Name = "label19";
+            label19.Size = new Size(98, 20);
+            label19.TabIndex = 47;
+            label19.Text = "CustomerID : ";
+            // 
+            // textBox16
+            // 
+            textBox16.Location = new Point(525, 141);
+            textBox16.Name = "textBox16";
+            textBox16.Size = new Size(178, 23);
+            textBox16.TabIndex = 48;
             // 
             // MyProfileControl1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
+            Controls.Add(textBox16);
+            Controls.Add(label19);
             Controls.Add(textBox15);
             Controls.Add(label18);
             Controls.Add(textBox14);
@@ -501,5 +523,7 @@
         private TextBox textBox14;
         private Label label18;
         private TextBox textBox15;
+        private Label label19;
+        private TextBox textBox16;
     }
 }

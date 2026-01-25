@@ -41,7 +41,7 @@ namespace Gym_Management
             }
             catch (Exception ex)
             {
-                // ERROR THROW করতেই হবে
+               
                 throw new Exception($"Database Error: {ex.Message}", ex);
             }
             finally
@@ -100,7 +100,7 @@ namespace Gym_Management
             return dt;
         }
 
-        // Connection test করার মেথড
+        
         public bool TestConnection()
         {
             try
