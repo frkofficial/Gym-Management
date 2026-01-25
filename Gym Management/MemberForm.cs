@@ -55,7 +55,7 @@ namespace Gym_Management
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LoadControl(new PaymentControl1());
+            LoadControl(new PaymrntControl());
         }
 
         private void button5_Click(object sender, EventArgs e)
