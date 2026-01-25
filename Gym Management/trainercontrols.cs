@@ -12,16 +12,16 @@ using Microsoft.Data.SqlClient;
 
 namespace Gym_Management
 {
-    public partial class customercontrol : UserControl
+    public partial class trainercontrols : UserControl
     {
-        public customercontrol()
+        public trainercontrols()
         {
             InitializeComponent();
         }
 
-        private void customercontrol_Load(object sender, EventArgs e)
+        private void trainercontrols_Load(object sender, EventArgs e)
         {
-            //dataGridViewCustomer
+            //dataGridViewtrainer
 
             try
             {
@@ -34,26 +34,20 @@ namespace Gym_Management
                     con.Open();
 
                     SqlDataAdapter da = new SqlDataAdapter(
-                        "SELECT UserId, UserName, UserType, UserPhone FROM UserInfo",
+                        "SELECT TrainerId, TrainerName, TrainerPrice FROM TrainerTable",
                         con
                     );
 
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-                    dataGridViewCustomer.DataSource = dt;
+                    dataGridViewtrainer.DataSource = dt;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Customer load error: " + ex.Message);
+                MessageBox.Show("Trainer load error: " + ex.Message);
             }
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

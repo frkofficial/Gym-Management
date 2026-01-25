@@ -57,10 +57,10 @@ namespace Gym_Management
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        
+
         private void TestDb()
         {
             try
@@ -78,8 +78,8 @@ namespace Gym_Management
                 MessageBox.Show(ex.Message);
             }
         }
-       
-       
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -93,7 +93,7 @@ namespace Gym_Management
         private void adminListbutton_Click(object sender, EventArgs e)
         {
             LoadControl(new Admincontrol());
-            
+
         }
 
         private void CustomerListbutton_Click(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace Gym_Management
         private void EmployeeListbutton_Click(object sender, EventArgs e)
         {
             LoadControl(new employeecontrol());
-            
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -138,6 +138,11 @@ namespace Gym_Management
         {
             previousform.Show();
             this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadControl(new trainercontrols());
         }
     }
 }

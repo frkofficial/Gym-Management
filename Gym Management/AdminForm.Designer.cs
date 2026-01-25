@@ -36,7 +36,7 @@
             adminListbutton = new Button();
             contentpannel = new Panel();
             panel2 = new Panel();
-            button1 = new Button();
+            btntrainerlist = new Button();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -129,7 +129,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(btntrainerlist);
             panel2.Controls.Add(Logoutbutton);
             panel2.Controls.Add(dashboardbutton);
             panel2.Controls.Add(EmployeeListbutton);
@@ -141,17 +141,18 @@
             panel2.Size = new Size(181, 668);
             panel2.TabIndex = 8;
             // 
-            // button1
+            // btntrainerlist
             // 
-            button1.BackColor = SystemColors.Control;
-            button1.Font = new Font("Stencil", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(2, 310);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(173, 43);
-            button1.TabIndex = 7;
-            button1.Text = "Trainer List";
-            button1.UseVisualStyleBackColor = false;
+            btntrainerlist.BackColor = SystemColors.Control;
+            btntrainerlist.Font = new Font("Stencil", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btntrainerlist.Location = new Point(2, 310);
+            btntrainerlist.Margin = new Padding(2);
+            btntrainerlist.Name = "btntrainerlist";
+            btntrainerlist.Size = new Size(173, 43);
+            btntrainerlist.TabIndex = 7;
+            btntrainerlist.Text = "Trainer List";
+            btntrainerlist.UseVisualStyleBackColor = false;
+            btntrainerlist.Click += button1_Click;
             // 
             // AdminForm
             // 
@@ -178,6 +179,6 @@
         private Button adminListbutton;
         private Panel contentpannel;
         private Panel panel2;
-        private Button button1;
+        private Button btntrainerlist;
     }
 }
