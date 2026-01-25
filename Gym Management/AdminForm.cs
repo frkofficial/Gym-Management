@@ -131,7 +131,7 @@ namespace Gym_Management
 
         private void Packagesbutton_Click(object sender, EventArgs e)
         {
-            LoadControl(new packagescontrol());
+            LoadControl(new package());
         }
 
         private void Logoutbutton_Click(object sender, EventArgs e)

@@ -46,25 +46,23 @@
             panel1.Location = new Point(74, 50);
             panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(240, 285);
+            panel1.Size = new Size(168, 171);
             panel1.TabIndex = 0;
             // 
             // panelMain
             // 
-            panelMain.Location = new Point(387, 5);
-            panelMain.Margin = new Padding(4, 5, 4, 5);
+            panelMain.Location = new Point(271, 3);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1549, 1212);
+            panelMain.Size = new Size(1084, 727);
             panelMain.TabIndex = 1;
             panelMain.Paint += panelMain_Paint;
             // 
             // btnMyProfile
             // 
             btnMyProfile.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMyProfile.Location = new Point(24, 420);
-            btnMyProfile.Margin = new Padding(4, 5, 4, 5);
+            btnMyProfile.Location = new Point(17, 252);
             btnMyProfile.Name = "btnMyProfile";
-            btnMyProfile.Size = new Size(354, 62);
+            btnMyProfile.Size = new Size(248, 37);
             btnMyProfile.TabIndex = 2;
             btnMyProfile.Text = "My Profile";
             btnMyProfile.UseVisualStyleBackColor = true;
@@ -73,10 +71,9 @@
             // btnmembershipPrice
             // 
             btnmembershipPrice.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnmembershipPrice.Location = new Point(24, 525);
-            btnmembershipPrice.Margin = new Padding(4, 5, 4, 5);
+            btnmembershipPrice.Location = new Point(17, 315);
             btnmembershipPrice.Name = "btnmembershipPrice";
-            btnmembershipPrice.Size = new Size(354, 60);
+            btnmembershipPrice.Size = new Size(248, 36);
             btnmembershipPrice.TabIndex = 3;
             btnmembershipPrice.Text = "Membership Pricing";
             btnmembershipPrice.UseVisualStyleBackColor = true;
@@ -85,10 +82,9 @@
             // button3
             // 
             button3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(24, 627);
-            button3.Margin = new Padding(4, 5, 4, 5);
+            button3.Location = new Point(17, 376);
             button3.Name = "button3";
-            button3.Size = new Size(354, 60);
+            button3.Size = new Size(248, 36);
             button3.TabIndex = 4;
             button3.Text = "Payment";
             button3.UseVisualStyleBackColor = true;
@@ -97,10 +93,9 @@
             // button4
             // 
             button4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(24, 743);
-            button4.Margin = new Padding(4, 5, 4, 5);
+            button4.Location = new Point(17, 446);
             button4.Name = "button4";
-            button4.Size = new Size(354, 57);
+            button4.Size = new Size(248, 34);
             button4.TabIndex = 5;
             button4.Text = "Print";
             button4.UseVisualStyleBackColor = true;
@@ -108,10 +103,9 @@
             // button5
             // 
             button5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(129, 917);
-            button5.Margin = new Padding(4, 5, 4, 5);
+            button5.Location = new Point(90, 550);
             button5.Name = "button5";
-            button5.Size = new Size(107, 55);
+            button5.Size = new Size(75, 33);
             button5.TabIndex = 6;
             button5.Text = "Logout";
             button5.UseVisualStyleBackColor = true;
@@ -127,20 +121,17 @@
             panel2.Controls.Add(btnMyProfile);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(btnmembershipPrice);
-            panel2.Location = new Point(6, 7);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(4, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1936, 1222);
+            panel2.Size = new Size(1355, 733);
             panel2.TabIndex = 7;
             // 
             // MemberForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 1050);
+            ClientSize = new Size(1371, 749);
             Controls.Add(panel2);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 5, 4, 5);
             Name = "MemberForm";
             Text = "MemberForm";
             panel2.ResumeLayout(false);
