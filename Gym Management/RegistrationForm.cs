@@ -382,6 +382,7 @@ namespace Gym_Management
 
                 users.UserTrainer = UserTrainer;
                 users.UserEmrPhone = EmrPhone;
+
                 var rows = userrepo.MemberRegister(users);
                 if (rows > 0)
                 {

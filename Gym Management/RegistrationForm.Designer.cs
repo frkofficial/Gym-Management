@@ -120,7 +120,6 @@
             RegiPnl.Controls.Add(Headinglabel);
             RegiPnl.Dock = DockStyle.Fill;
             RegiPnl.Location = new Point(0, 0);
-            RegiPnl.Margin = new Padding(2, 2, 2, 2);
             RegiPnl.Name = "RegiPnl";
             RegiPnl.Size = new Size(1247, 1018);
             RegiPnl.TabIndex = 0;
@@ -166,8 +165,7 @@
             // FirstNamePnl
             // 
             FirstNamePnl.Controls.Add(Fnamelbl);
-            FirstNamePnl.Location = new Point(538, 274);
-            FirstNamePnl.Margin = new Padding(2, 2, 2, 2);
+            FirstNamePnl.Location = new Point(673, 343);
             FirstNamePnl.Name = "FirstNamePnl";
             FirstNamePnl.Size = new Size(211, 31);
             FirstNamePnl.TabIndex = 37;
@@ -278,8 +276,7 @@
             CancelBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 207, 64);
             CancelBtn.FlatStyle = FlatStyle.Flat;
             CancelBtn.ForeColor = SystemColors.Window;
-            CancelBtn.Location = new Point(799, 685);
-            CancelBtn.Margin = new Padding(2, 2, 2, 2);
+            CancelBtn.Location = new Point(999, 856);
             CancelBtn.Name = "CancelBtn";
             CancelBtn.Size = new Size(211, 41);
             CancelBtn.TabIndex = 25;
@@ -294,8 +291,7 @@
             ProceedBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 207, 64);
             ProceedBtn.FlatStyle = FlatStyle.Flat;
             ProceedBtn.ForeColor = SystemColors.Window;
-            ProceedBtn.Location = new Point(538, 685);
-            ProceedBtn.Margin = new Padding(2, 2, 2, 2);
+            ProceedBtn.Location = new Point(673, 856);
             ProceedBtn.Name = "ProceedBtn";
             ProceedBtn.Size = new Size(211, 41);
             ProceedBtn.TabIndex = 24;
@@ -303,12 +299,37 @@
             ProceedBtn.UseVisualStyleBackColor = true;
             ProceedBtn.Click += ProceedBtn_Click;
             // 
+            // UseTrainercomboBox2
+            // 
+            UseTrainercomboBox2.BackColor = SystemColors.WindowText;
+            UseTrainercomboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            UseTrainercomboBox2.FlatStyle = FlatStyle.Flat;
+            UseTrainercomboBox2.ForeColor = SystemColors.Window;
+            UseTrainercomboBox2.FormattingEnabled = true;
+            UseTrainercomboBox2.Items.AddRange(new object[] { "Need Personal Trainer", "Yes", "No" });
+            UseTrainercomboBox2.Location = new Point(999, 705);
+            UseTrainercomboBox2.Name = "UseTrainercomboBox2";
+            UseTrainercomboBox2.Size = new Size(211, 33);
+            UseTrainercomboBox2.TabIndex = 23;
+            // 
+            // GendercomboBox
+            // 
+            GendercomboBox.BackColor = SystemColors.WindowText;
+            GendercomboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            GendercomboBox.FlatStyle = FlatStyle.Flat;
+            GendercomboBox.ForeColor = SystemColors.Window;
+            GendercomboBox.FormattingEnabled = true;
+            GendercomboBox.Items.AddRange(new object[] { "Select Gender", "Male", "Female" });
+            GendercomboBox.Location = new Point(673, 705);
+            GendercomboBox.Name = "GendercomboBox";
+            GendercomboBox.Size = new Size(211, 33);
+            GendercomboBox.TabIndex = 22;
+            // 
             // UserEmerPhonetextBox
             // 
             UserEmerPhonetextBox.BackColor = SystemColors.WindowText;
             UserEmerPhonetextBox.ForeColor = SystemColors.Window;
-            UserEmerPhonetextBox.Location = new Point(799, 514);
-            UserEmerPhonetextBox.Margin = new Padding(2, 2, 2, 2);
+            UserEmerPhonetextBox.Location = new Point(999, 643);
             UserEmerPhonetextBox.Name = "UserEmerPhonetextBox";
             UserEmerPhonetextBox.PlaceholderText = " Emergency Contact";
             UserEmerPhonetextBox.Size = new Size(211, 31);
@@ -318,8 +339,7 @@
             // 
             UserPhonetextBox.BackColor = Color.Black;
             UserPhonetextBox.ForeColor = SystemColors.Window;
-            UserPhonetextBox.Location = new Point(799, 465);
-            UserPhonetextBox.Margin = new Padding(2, 2, 2, 2);
+            UserPhonetextBox.Location = new Point(999, 581);
             UserPhonetextBox.Name = "UserPhonetextBox";
             UserPhonetextBox.PlaceholderText = " Contact Number";
             UserPhonetextBox.Size = new Size(211, 31);
@@ -330,8 +350,7 @@
             UserLastNametextBox.BackColor = SystemColors.WindowText;
             UserLastNametextBox.Cursor = Cursors.IBeam;
             UserLastNametextBox.ForeColor = SystemColors.Window;
-            UserLastNametextBox.Location = new Point(799, 250);
-            UserLastNametextBox.Margin = new Padding(2, 2, 2, 2);
+            UserLastNametextBox.Location = new Point(999, 313);
             UserLastNametextBox.Name = "UserLastNametextBox";
             UserLastNametextBox.PlaceholderText = " Your Last name";
             UserLastNametextBox.Size = new Size(211, 31);
@@ -342,8 +361,7 @@
             // 
             UserEmailtextBox.BackColor = SystemColors.WindowText;
             UserEmailtextBox.ForeColor = SystemColors.Window;
-            UserEmailtextBox.Location = new Point(538, 514);
-            UserEmailtextBox.Margin = new Padding(2, 2, 2, 2);
+            UserEmailtextBox.Location = new Point(673, 643);
             UserEmailtextBox.Multiline = true;
             UserEmailtextBox.Name = "UserEmailtextBox";
             UserEmailtextBox.PlaceholderText = " Email ID";
@@ -354,8 +372,7 @@
             // 
             UserAddresstextBox.BackColor = SystemColors.WindowText;
             UserAddresstextBox.ForeColor = SystemColors.Window;
-            UserAddresstextBox.Location = new Point(538, 623);
-            UserAddresstextBox.Margin = new Padding(2, 2, 2, 2);
+            UserAddresstextBox.Location = new Point(673, 779);
             UserAddresstextBox.Multiline = true;
             UserAddresstextBox.Name = "UserAddresstextBox";
             UserAddresstextBox.PlaceholderText = " Provide Your Address";
@@ -367,8 +384,7 @@
             // 
             UserWeightGoaltextBox.BackColor = SystemColors.WindowText;
             UserWeightGoaltextBox.ForeColor = SystemColors.Window;
-            UserWeightGoaltextBox.Location = new Point(538, 465);
-            UserWeightGoaltextBox.Margin = new Padding(2, 2, 2, 2);
+            UserWeightGoaltextBox.Location = new Point(673, 581);
             UserWeightGoaltextBox.Name = "UserWeightGoaltextBox";
             UserWeightGoaltextBox.PlaceholderText = " Goal Weight";
             UserWeightGoaltextBox.Size = new Size(211, 31);
@@ -378,8 +394,7 @@
             // 
             UserHeighttextBox.BackColor = SystemColors.WindowText;
             UserHeighttextBox.ForeColor = SystemColors.Window;
-            UserHeighttextBox.Location = new Point(799, 412);
-            UserHeighttextBox.Margin = new Padding(2, 2, 2, 2);
+            UserHeighttextBox.Location = new Point(999, 515);
             UserHeighttextBox.Name = "UserHeighttextBox";
             UserHeighttextBox.PlaceholderText = " Your Current Height";
             UserHeighttextBox.Size = new Size(211, 31);
@@ -389,8 +404,7 @@
             // 
             UserWeighttextBox.BackColor = SystemColors.WindowText;
             UserWeighttextBox.ForeColor = SystemColors.Window;
-            UserWeighttextBox.Location = new Point(538, 412);
-            UserWeighttextBox.Margin = new Padding(2, 2, 2, 2);
+            UserWeighttextBox.Location = new Point(673, 515);
             UserWeighttextBox.Name = "UserWeighttextBox";
             UserWeighttextBox.PlaceholderText = " Your Current Weight";
             UserWeighttextBox.Size = new Size(211, 31);
@@ -400,8 +414,7 @@
             // 
             UserPasstextBox.BackColor = SystemColors.WindowText;
             UserPasstextBox.ForeColor = SystemColors.Window;
-            UserPasstextBox.Location = new Point(538, 355);
-            UserPasstextBox.Margin = new Padding(2, 2, 2, 2);
+            UserPasstextBox.Location = new Point(673, 444);
             UserPasstextBox.Name = "UserPasstextBox";
             UserPasstextBox.PlaceholderText = " Password(Strong)";
             UserPasstextBox.Size = new Size(211, 31);
@@ -411,8 +424,7 @@
             // 
             UserConfirmPasstextBox.BackColor = SystemColors.WindowText;
             UserConfirmPasstextBox.ForeColor = SystemColors.Window;
-            UserConfirmPasstextBox.Location = new Point(799, 355);
-            UserConfirmPasstextBox.Margin = new Padding(2, 2, 2, 2);
+            UserConfirmPasstextBox.Location = new Point(999, 444);
             UserConfirmPasstextBox.Name = "UserConfirmPasstextBox";
             UserConfirmPasstextBox.PlaceholderText = " Confirm Password";
             UserConfirmPasstextBox.Size = new Size(211, 31);
@@ -423,8 +435,7 @@
             // 
             UserAgetextBox.BackColor = SystemColors.WindowText;
             UserAgetextBox.ForeColor = SystemColors.Window;
-            UserAgetextBox.Location = new Point(799, 304);
-            UserAgetextBox.Margin = new Padding(2, 2, 2, 2);
+            UserAgetextBox.Location = new Point(999, 380);
             UserAgetextBox.Name = "UserAgetextBox";
             UserAgetextBox.PlaceholderText = " Your Age";
             UserAgetextBox.Size = new Size(211, 31);
@@ -434,8 +445,7 @@
             // 
             UserNametextBox.BackColor = SystemColors.WindowText;
             UserNametextBox.ForeColor = SystemColors.Window;
-            UserNametextBox.Location = new Point(538, 304);
-            UserNametextBox.Margin = new Padding(2, 2, 2, 2);
+            UserNametextBox.Location = new Point(673, 380);
             UserNametextBox.Name = "UserNametextBox";
             UserNametextBox.PlaceholderText = " Your User Name";
             UserNametextBox.Size = new Size(211, 31);
@@ -445,8 +455,7 @@
             // 
             UserFirstNametextBox.BackColor = SystemColors.WindowText;
             UserFirstNametextBox.ForeColor = SystemColors.Window;
-            UserFirstNametextBox.Location = new Point(538, 250);
-            UserFirstNametextBox.Margin = new Padding(2, 2, 2, 2);
+            UserFirstNametextBox.Location = new Point(673, 313);
             UserFirstNametextBox.Name = "UserFirstNametextBox";
             UserFirstNametextBox.PlaceholderText = " Your First Name";
             UserFirstNametextBox.Size = new Size(211, 31);
@@ -456,8 +465,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(25, 63);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Location = new Point(31, 79);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(558, 818);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -467,8 +475,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLightLight;
-            panel1.Location = new Point(497, 220);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Location = new Point(621, 275);
             panel1.Name = "panel1";
             panel1.Size = new Size(589, 1);
             panel1.TabIndex = 6;
@@ -486,14 +493,12 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(830, 63);
-            pictureBox2.Margin = new Padding(2, 2, 2, 2);
+            pictureBox2.Location = new Point(1037, 79);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(173, 95);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
-            //pictureBox2.Click += pictureBox2_Click;
             // 
             // label2
             // 
@@ -532,7 +537,6 @@
             AutoScroll = true;
             ClientSize = new Size(1247, 1018);
             Controls.Add(RegiPnl);
-            Margin = new Padding(2, 2, 2, 2);
             Name = "RegistrationForm";
             Text = "RegistrationForm";
             Load += RegistrationForm_Load;

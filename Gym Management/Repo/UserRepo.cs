@@ -262,5 +262,30 @@ namespace Gym_Management.Repo
 
             return dataAccess.ExecuteNonQuery(command);
         }
+
+
+        public DataTable AllPayments()
+        {
+            SqlCommand cmd = dataAccess.GetCommand(
+                "SELECT PaymentID, CustomerID, CustomerName, PackageAmount, TrainerPriceAmount, TotalAmount, PayingDate, Status, PaymentMethod FROM Payment"
+            );
+            return dataAccess.Execute(cmd);
+        }
+
+        public DataTable TotalEarningPerCustomer()
+        {
+            SqlCommand cmd = dataAccess.GetCommand(@"
+        SELECT 
+            CustomerID,
+            CustomerName,
+            SUM(TotalAmount) AS TotalEarning
+        FROM Payment
+        WHERE Status = 'Paid'
+        GROUP BY CustomerID, CustomerName
+        ORDER BY TotalEarning DESC
+    ");
+            return dataAccess.Execute(cmd);
+        }
+
     }
 }
