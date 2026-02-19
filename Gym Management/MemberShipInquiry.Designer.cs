@@ -203,6 +203,7 @@
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MemberShipInquiry";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "MemberShipInquiry";
             Load += MemberShipInquiry_Load;
             panel1.ResumeLayout(false);
