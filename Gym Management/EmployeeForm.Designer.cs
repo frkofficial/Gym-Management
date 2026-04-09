@@ -64,10 +64,10 @@
             DashBoardBtn.ForeColor = SystemColors.HighlightText;
             DashBoardBtn.Image = (Image)resources.GetObject("DashBoardBtn.Image");
             DashBoardBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            DashBoardBtn.Location = new Point(2, 210);
-            DashBoardBtn.Margin = new Padding(2, 2, 2, 2);
+            DashBoardBtn.Location = new Point(2, 262);
+            DashBoardBtn.Margin = new Padding(2);
             DashBoardBtn.Name = "DashBoardBtn";
-            DashBoardBtn.Size = new Size(244, 42);
+            DashBoardBtn.Size = new Size(309, 52);
             DashBoardBtn.TabIndex = 0;
             DashBoardBtn.Text = "     Dashboard";
             DashBoardBtn.UseVisualStyleBackColor = true;
@@ -76,6 +76,7 @@
             // SliderDrawerpnl
             // 
             SliderDrawerpnl.BackColor = Color.FromArgb(20, 20, 20);
+            SliderDrawerpnl.BorderStyle = BorderStyle.FixedSingle;
             SliderDrawerpnl.Controls.Add(Logoutbtn);
             SliderDrawerpnl.Controls.Add(PaymentBtn);
             SliderDrawerpnl.Controls.Add(WorkoutBtn);
@@ -88,18 +89,18 @@
             SliderDrawerpnl.Dock = DockStyle.Left;
             SliderDrawerpnl.ForeColor = SystemColors.HighlightText;
             SliderDrawerpnl.Location = new Point(0, 0);
-            SliderDrawerpnl.Margin = new Padding(2, 2, 2, 2);
+            SliderDrawerpnl.Margin = new Padding(2);
             SliderDrawerpnl.Name = "SliderDrawerpnl";
-            SliderDrawerpnl.Size = new Size(251, 840);
+            SliderDrawerpnl.Size = new Size(314, 1050);
             SliderDrawerpnl.TabIndex = 1;
             // 
             // Logoutbtn
             // 
             Logoutbtn.ForeColor = SystemColors.ActiveCaptionText;
-            Logoutbtn.Location = new Point(66, 749);
-            Logoutbtn.Margin = new Padding(2, 2, 2, 2);
+            Logoutbtn.Location = new Point(82, 936);
+            Logoutbtn.Margin = new Padding(2);
             Logoutbtn.Name = "Logoutbtn";
-            Logoutbtn.Size = new Size(90, 27);
+            Logoutbtn.Size = new Size(112, 34);
             Logoutbtn.TabIndex = 5;
             Logoutbtn.Text = "Logout";
             Logoutbtn.UseVisualStyleBackColor = true;
@@ -113,10 +114,10 @@
             PaymentBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PaymentBtn.Image = (Image)resources.GetObject("PaymentBtn.Image");
             PaymentBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            PaymentBtn.Location = new Point(2, 516);
-            PaymentBtn.Margin = new Padding(2, 2, 2, 2);
+            PaymentBtn.Location = new Point(2, 645);
+            PaymentBtn.Margin = new Padding(2);
             PaymentBtn.Name = "PaymentBtn";
-            PaymentBtn.Size = new Size(249, 42);
+            PaymentBtn.Size = new Size(311, 52);
             PaymentBtn.TabIndex = 4;
             PaymentBtn.Text = "    Payment List";
             PaymentBtn.UseVisualStyleBackColor = true;
@@ -130,10 +131,10 @@
             WorkoutBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             WorkoutBtn.Image = (Image)resources.GetObject("WorkoutBtn.Image");
             WorkoutBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            WorkoutBtn.Location = new Point(5, 451);
-            WorkoutBtn.Margin = new Padding(2, 2, 2, 2);
+            WorkoutBtn.Location = new Point(6, 564);
+            WorkoutBtn.Margin = new Padding(2);
             WorkoutBtn.Name = "WorkoutBtn";
-            WorkoutBtn.Size = new Size(249, 42);
+            WorkoutBtn.Size = new Size(311, 52);
             WorkoutBtn.TabIndex = 2;
             WorkoutBtn.Text = "     Assigned Workout";
             WorkoutBtn.UseVisualStyleBackColor = true;
@@ -147,10 +148,10 @@
             MembershipListBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             MembershipListBtn.Image = (Image)resources.GetObject("MembershipListBtn.Image");
             MembershipListBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            MembershipListBtn.Location = new Point(5, 386);
-            MembershipListBtn.Margin = new Padding(2, 2, 2, 2);
+            MembershipListBtn.Location = new Point(6, 482);
+            MembershipListBtn.Margin = new Padding(2);
             MembershipListBtn.Name = "MembershipListBtn";
-            MembershipListBtn.Size = new Size(246, 42);
+            MembershipListBtn.Size = new Size(308, 52);
             MembershipListBtn.TabIndex = 1;
             MembershipListBtn.Text = "    Membership List";
             MembershipListBtn.UseVisualStyleBackColor = true;
@@ -164,10 +165,10 @@
             MembershipBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             MembershipBtn.Image = (Image)resources.GetObject("MembershipBtn.Image");
             MembershipBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            MembershipBtn.Location = new Point(2, 327);
-            MembershipBtn.Margin = new Padding(2, 2, 2, 2);
+            MembershipBtn.Location = new Point(2, 409);
+            MembershipBtn.Margin = new Padding(2);
             MembershipBtn.Name = "MembershipBtn";
-            MembershipBtn.Size = new Size(249, 42);
+            MembershipBtn.Size = new Size(311, 52);
             MembershipBtn.TabIndex = 2;
             MembershipBtn.Text = "     Membership Type";
             MembershipBtn.UseVisualStyleBackColor = true;
@@ -176,10 +177,10 @@
             // NameInfolbl
             // 
             NameInfolbl.Font = new Font("Sitka Banner", 14.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            NameInfolbl.Location = new Point(48, 127);
+            NameInfolbl.Location = new Point(72, 158);
             NameInfolbl.Margin = new Padding(2, 0, 2, 0);
             NameInfolbl.Name = "NameInfolbl";
-            NameInfolbl.Size = new Size(126, 33);
+            NameInfolbl.Size = new Size(158, 41);
             NameInfolbl.TabIndex = 1;
             NameInfolbl.TextAlign = ContentAlignment.MiddleCenter;
             NameInfolbl.Click += NameInfolbl_Click;
@@ -187,10 +188,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(58, 24);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Location = new Point(72, 30);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(126, 101);
+            pictureBox1.Size = new Size(158, 126);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -204,10 +205,10 @@
             MemberBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             MemberBtn.Image = (Image)resources.GetObject("MemberBtn.Image");
             MemberBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            MemberBtn.Location = new Point(5, 270);
-            MemberBtn.Margin = new Padding(2, 2, 2, 2);
+            MemberBtn.Location = new Point(6, 338);
+            MemberBtn.Margin = new Padding(2);
             MemberBtn.Name = "MemberBtn";
-            MemberBtn.Size = new Size(244, 42);
+            MemberBtn.Size = new Size(305, 52);
             MemberBtn.TabIndex = 4;
             MemberBtn.Text = "   Member";
             MemberBtn.UseVisualStyleBackColor = false;
@@ -219,10 +220,10 @@
             GroupBtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
             GroupBtn.FlatStyle = FlatStyle.Flat;
             GroupBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            GroupBtn.Location = new Point(5, 46);
-            GroupBtn.Margin = new Padding(2, 2, 2, 2);
+            GroupBtn.Location = new Point(6, 58);
+            GroupBtn.Margin = new Padding(2);
             GroupBtn.Name = "GroupBtn";
-            GroupBtn.Size = new Size(218, 42);
+            GroupBtn.Size = new Size(272, 52);
             GroupBtn.TabIndex = 3;
             GroupBtn.Text = "Group";
             GroupBtn.UseVisualStyleBackColor = true;
@@ -235,28 +236,28 @@
             HeaderPnl.Controls.Add(label1);
             HeaderPnl.Controls.Add(pictureBox2);
             HeaderPnl.Dock = DockStyle.Top;
-            HeaderPnl.Location = new Point(251, 0);
-            HeaderPnl.Margin = new Padding(2, 2, 2, 2);
+            HeaderPnl.Location = new Point(314, 0);
+            HeaderPnl.Margin = new Padding(2);
             HeaderPnl.Name = "HeaderPnl";
-            HeaderPnl.Size = new Size(1288, 96);
+            HeaderPnl.Size = new Size(1610, 120);
             HeaderPnl.TabIndex = 2;
             // 
             // panel1
             // 
             panel1.Controls.Add(pictureBox3);
-            panel1.Location = new Point(338, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Location = new Point(422, 0);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(950, 95);
+            panel1.Size = new Size(1188, 119);
             panel1.TabIndex = 2;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(0, 0);
-            pictureBox3.Margin = new Padding(2, 2, 2, 2);
+            pictureBox3.Margin = new Padding(2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(964, 96);
+            pictureBox3.Size = new Size(1205, 120);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
@@ -266,10 +267,10 @@
             label1.BackColor = Color.Black;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.InactiveBorder;
-            label1.Location = new Point(166, -6);
+            label1.Location = new Point(208, -8);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(172, 102);
+            label1.Size = new Size(215, 128);
             label1.TabIndex = 1;
             label1.Text = "STAMINA\r\nFITNESS";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -280,9 +281,9 @@
             pictureBox2.BackColor = Color.Black;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(0, 0);
-            pictureBox2.Margin = new Padding(2, 2, 2, 2);
+            pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(182, 96);
+            pictureBox2.Size = new Size(228, 120);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
@@ -292,23 +293,23 @@
             CenterPnl.BackColor = Color.FromArgb(35, 35, 35);
             CenterPnl.Controls.Add(GroupBtn);
             CenterPnl.Dock = DockStyle.Fill;
-            CenterPnl.Location = new Point(251, 96);
-            CenterPnl.Margin = new Padding(2, 2, 2, 2);
+            CenterPnl.Location = new Point(314, 120);
+            CenterPnl.Margin = new Padding(2);
             CenterPnl.Name = "CenterPnl";
-            CenterPnl.Size = new Size(1288, 744);
+            CenterPnl.Size = new Size(1610, 930);
             CenterPnl.TabIndex = 3;
             CenterPnl.Paint += CenterPnl_Paint;
             // 
             // EmployeeForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1539, 840);
+            ClientSize = new Size(1924, 1050);
             Controls.Add(CenterPnl);
             Controls.Add(HeaderPnl);
             Controls.Add(SliderDrawerpnl);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "EmployeeForm";
             Text = "EmployeeForm";
             WindowState = FormWindowState.Maximized;

@@ -63,7 +63,7 @@ namespace Gym_Management
         }
         private void LoadUser()
         {
-            SqlCommand Usercmd = dataAccess.GetCommand("SELECT * FROM UserInfo");
+            SqlCommand Usercmd = dataAccess.GetCommand("SELECT * FROM MemberInfo");
             DataTable dt = dataAccess.Execute(Usercmd);
             UserDataGridView.DataSource = dt;
         }
@@ -450,7 +450,7 @@ namespace Gym_Management
 
 
 
-            SqlCommand Usercmd = dataAccess.GetCommand(@"INSERT INTO UserInfo(UserName,UserFirstName,UserLastName,UserPass,UserConPass,UserType,UserPhone,UserEmail,UserAddress,UserGender,UserAge,UserHeight,UserWeight,UserWeightGoal,UserTrainer,UserEmrPhone,UserMembership,UserJoinDate,UserLeaveDate) VALUES (@username,@userfname,@userlname,@pass,@conpass,@usertype,@phone,@email,@address,@gender,@age,@height,@weight,@goalweight,@trainer,@emrphone,@membership,@join,@leave);");
+            SqlCommand Usercmd = dataAccess.GetCommand(@"INSERT INTO MemberInfo(UserName,UserFirstName,UserLastName,UserPass,UserConPass,UserType,UserPhone,UserEmail,UserAddress,UserGender,UserAge,UserHeight,UserWeight,UserWeightGoal,UserTrainer,UserEmrPhone,UserMembership,UserJoinDate,UserLeaveDate) VALUES (@username,@userfname,@userlname,@pass,@conpass,@usertype,@phone,@email,@address,@gender,@age,@height,@weight,@goalweight,@trainer,@emrphone,@membership,@join,@leave);");
             Usercmd.Parameters.AddWithValue("@userfname", FirstName);
             Usercmd.Parameters.AddWithValue("@userlname", string.IsNullOrWhiteSpace(LastName) ? DBNull.Value : LastName);
             Usercmd.Parameters.AddWithValue("@username", UserName);
@@ -682,7 +682,7 @@ namespace Gym_Management
 
 
             SqlCommand Usercmd = dataAccess.GetCommand(@"
-UPDATE UserInfo
+UPDATE MemberInfo
 SET
     UserName        = @username,
     UserFirstName   = @userfname,
@@ -784,7 +784,7 @@ WHERE UserId = @id
 
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
-            SqlCommand usercmd = dataAccess.GetCommand(@"SELECT * FROM UserInfo WHERE UserName LIKE @name OR CAST(UserId AS VARCHAR) LIKE @id");
+            SqlCommand usercmd = dataAccess.GetCommand(@"SELECT * FROM MemberInfo WHERE UserName LIKE @name OR CAST(UserId AS VARCHAR) LIKE @id");
             string search = "%" + textBox9.Text.Trim() + "%";
             usercmd.Parameters.AddWithValue("@name", search);
             usercmd.Parameters.AddWithValue("@id", search);

@@ -29,7 +29,7 @@ namespace Gym_Management.Repo
         public int RegisteredMemberCount()
         {
             SqlCommand cmd = dataaccess.GetCommand(
-                "SELECT COUNT(*) FROM UserInfo WHERE UserType = 'Member'"
+                "SELECT COUNT(*) FROM MemberInfo WHERE UserType = 'Member'"
             );
             return Convert.ToInt32(dataaccess.ExecuteScalar(cmd));
         }

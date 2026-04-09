@@ -23,7 +23,7 @@ namespace Gym_Management.Repo
         }
         public Users LoginMember(string username, string password)
         {
-            SqlCommand cmd = dataAccess.GetCommand("SELECT * FROM UserInfo WHERE UserName=@username AND UserPass=@password");
+            SqlCommand cmd = dataAccess.GetCommand("SELECT * FROM MemberInfo WHERE UserName=@username AND UserPass=@password");
             cmd.Parameters.AddWithValue("@username", username);
             cmd.Parameters.AddWithValue("@password", password);
             DataTable dt = dataAccess.Execute(cmd);
@@ -43,7 +43,7 @@ namespace Gym_Management.Repo
 
         public int MemberRegister(Users users)
         {
-            SqlCommand Usercmd = dataAccess.GetCommand(@"INSERT INTO UserInfo(UserName,UserFirstName,UserLastName,UserPass,UserConPass,UserType,UserPhone,UserEmail,UserAddress,UserGender,UserAge,UserHeight,UserWeight,UserWeightGoal,UserTrainer,UserEmrPhone,UserMembership, UserJoinDate, UserLeaveDate) VALUES (@username,@userfname,@userlname,@pass,@conpass,@usertype,@phone,@email,@address,@gender,@age,@height,@weight,@goalweight,@trainer,@emrphone,@membership,@join,@leave);");
+            SqlCommand Usercmd = dataAccess.GetCommand(@"INSERT INTO MemberInfo(UserName,UserFirstName,UserLastName,UserPass,UserConPass,UserType,UserPhone,UserEmail,UserAddress,UserGender,UserAge,UserHeight,UserWeight,UserWeightGoal,UserTrainer,UserEmrPhone,UserMembership, UserJoinDate, UserLeaveDate) VALUES (@username,@userfname,@userlname,@pass,@conpass,@usertype,@phone,@email,@address,@gender,@age,@height,@weight,@goalweight,@trainer,@emrphone,@membership,@join,@leave);");
             Usercmd.Parameters.AddWithValue("@userfname", users.UserFirstName);
             Usercmd.Parameters.AddWithValue("@userlname", string.IsNullOrWhiteSpace(users.UserLastName) ? DBNull.Value : (object)users.UserLastName);
             Usercmd.Parameters.AddWithValue("@username", users.UserName);
@@ -82,7 +82,95 @@ namespace Gym_Management.Repo
         }
 
 
+        public string GetMemberName(int Mid)
+        {
+            SqlCommand cmd = dataAccess.GetCommand(@"SELECT UserName FROM MemberInfo WHERE UserId=@id");
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Mid;
+            DataTable dt = dataAccess.Execute(cmd);
+            var rows = dt.Rows;
+            if (rows.Count > 0)
+            {
+                return rows[0]["UserName"].ToString();
+            }
+            
+        
+            return "Unknown";
+        }
+        public string GetPackage(int Mid)
+        {
+            SqlCommand cmd = dataAccess.GetCommand(@"SELECT PackageName FROM MembershipBooking WHERE UserId=@id");
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Mid;
+            DataTable dt = dataAccess.Execute(cmd);
+            var rows = dt.Rows;
+            if (rows.Count > 0)
+            {
+                return rows[0]["PackageName"].ToString();
+            }
 
+
+            return "Book Package";
+        }
+
+        public DateTime? GetExpireDate(int Mid)
+        {
+            SqlCommand cmd = dataAccess.GetCommand(@"SELECT ExpireDate FROM MembershipBooking WHERE UserId=@id");
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Mid;
+            DataTable dt = dataAccess.Execute(cmd);
+            var rows = dt.Rows;
+            if (rows.Count > 0 && rows[0]["ExpireDate"]!= DBNull.Value)
+            {
+                return Convert.ToDateTime(rows[0]["ExpireDate"]);
+            }
+
+
+            return null;
+        }
+
+        public string GetPaymentStatus(int Mid)
+        {
+            SqlCommand cmd = dataAccess.GetCommand(@"SELECT Status FROM Payment WHERE CustomerId=@id");
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Mid;
+            DataTable dt = dataAccess.Execute(cmd);
+            var rows = dt.Rows;
+            if (rows.Count > 0)
+            {
+                return rows[0]["Status"].ToString();
+            }
+
+
+            return "Loading";
+
+        }
+
+        public string GetTrainer(int Mid)
+        {
+            SqlCommand cmd = dataAccess.GetCommand(@"SELECT TrainerName FROM CustomerAssignmentTrainerInfo WHERE UserId=@id");
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Mid;
+            DataTable dt = dataAccess.Execute(cmd);
+            var rows = dt.Rows;
+            if (rows.Count > 0)
+            {
+                return rows[0]["TrainerName"].ToString();
+            }
+
+
+            return "Book Trainer";
+        }
+
+        public string GetStatus(int Mid)
+        {
+            SqlCommand cmd = dataAccess.GetCommand(@"SELECT Status FROM Payment WHERE CustomerId=@id");
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = Mid;
+            DataTable dt = dataAccess.Execute(cmd);
+            var rows = dt.Rows;
+            if (rows.Count > 0)
+            {
+                return rows[0]["Status"].ToString();
+            }
+
+
+            return "Due";
+        }
         public int BookMembership(MembershipBooking booking)
         {
             
@@ -197,19 +285,24 @@ namespace Gym_Management.Repo
 
 
 
-        public string GetCustomerName(int customerId)
+        public (string CusName,string PackName) GetCustomerName(int customerId)
         {
-            var sql = "SELECT UserName FROM UserInfo WHERE UserId = @customerid";
+            var sql = "SELECT PackageName,UserName FROM MembershipBooking WHERE UserId = @customerid";
             var command = dataAccess.GetCommand(sql);
             command.Parameters.AddWithValue("@customerid", customerId);
             var result = dataAccess.Execute(command);
 
             if (result.Rows.Count > 0)
             {
-                return result.Rows[0]["UserName"].ToString();
+                return (
+                    result.Rows[0]["UserName"].ToString(),
+                    result.Rows[0]["PackageName"].ToString()
+                );
             }
-            return "";
+
+            return ("", "");
         }
+        
 
         public decimal GetPackageAmountByCustomer(int customerId)
         {

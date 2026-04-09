@@ -35,7 +35,7 @@ namespace Gym_Management
 
         private void DashBoardBtn_Click(object sender, EventArgs e)
         {
-            LoadControl(new EmpDashboardControl());
+            LoadControl(new EmpDashboardControl(this,empId));
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace Gym_Management
             {
                 NameInfolbl.Text = "Unknown";
             }
-            LoadControl(new EmpDashboardControl());
+            LoadControl(new EmpDashboardControl(this,empId));
         }
         private void LoadControl(UserControl control)
         {

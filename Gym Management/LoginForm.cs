@@ -242,7 +242,7 @@ namespace Gym_Management
                 Session.UserName = member.UserName;
                 Session.UserType = "member";
 
-                user = new MemberForm(this, member.UserId,this);
+                user = new MemberForm(this, member.UserId);
                     this.Hide();
                     user.Text = " Welcome" + member.UserName;
                     user.Show();
@@ -253,7 +253,7 @@ namespace Gym_Management
                 Employees emps= emprepo.LoginEmployee(username, password);
             
            
-                if (emps != null & emps.UserType == "employee")
+                if (emps != null && emps.UserType == "employee")
                 {
                     emp = new EmployeeForm(this,emps.EmpId);
                     this.Hide();
