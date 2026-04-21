@@ -13,9 +13,11 @@ namespace Gym_Management.Entities
         public int CustomerID { get; set; }
         public int PackageId { get; set; }
         public string CustomerName { get; set; }
+        public string PackageName { get; set; }
         public decimal PackageAmount { get; set; }
         public decimal TrainerPriceAmount { get; set; }
         public decimal TotalAmount { get; set; }
+        public string TransactionID { get; set; }
         public DateTime PayingDate { get; set; }
         public string Status { get; set; }
         public string PaymentMethod { get; set; }

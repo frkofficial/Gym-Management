@@ -88,6 +88,7 @@ namespace Gym_Management
 
                 if (result > 0)
                 {
+                    userrepo.InsertFee(userId,"Package Fee",price);
                     MessageBox.Show(
                         $"Booking Successful!\n" +
                         $"Package: {PackageName}\n" +

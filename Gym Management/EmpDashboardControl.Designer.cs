@@ -394,7 +394,7 @@
             Membershipdatadgv.BackgroundColor = Color.FromArgb(35, 35, 35);
             Membershipdatadgv.BorderStyle = BorderStyle.None;
             Membershipdatadgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Membershipdatadgv.Location = new Point(103, 279);
+            Membershipdatadgv.Location = new Point(103, 281);
             Membershipdatadgv.Name = "Membershipdatadgv";
             Membershipdatadgv.RowHeadersWidth = 62;
             Membershipdatadgv.Size = new Size(779, 256);
@@ -577,7 +577,7 @@
             Controls.Add(label1);
             Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "EmpDashboardControl";
-            Size = new Size(1614, 944);
+            Size = new Size(1588, 918);
             Load += EmpDashboardControl_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

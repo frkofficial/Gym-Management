@@ -28,14 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            paydtp = new DateTimePicker();
-            methodcmb = new ComboBox();
-            changeamounttxt = new TextBox();
-            payamounttxt = new TextBox();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
             Process = new Button();
             Clearbtn = new Button();
             label6 = new Label();
@@ -61,79 +53,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // paydtp
-            // 
-            paydtp.Format = DateTimePickerFormat.Short;
-            paydtp.Location = new Point(1265, 67);
-            paydtp.Name = "paydtp";
-            paydtp.Size = new Size(285, 31);
-            paydtp.TabIndex = 10;
-            // 
-            // methodcmb
-            // 
-            methodcmb.FormattingEnabled = true;
-            methodcmb.Location = new Point(1265, 129);
-            methodcmb.Name = "methodcmb";
-            methodcmb.Size = new Size(285, 33);
-            methodcmb.TabIndex = 11;
-            // 
-            // changeamounttxt
-            // 
-            changeamounttxt.Location = new Point(1265, 254);
-            changeamounttxt.Name = "changeamounttxt";
-            changeamounttxt.Size = new Size(285, 31);
-            changeamounttxt.TabIndex = 13;
-            // 
-            // payamounttxt
-            // 
-            payamounttxt.Location = new Point(1265, 190);
-            payamounttxt.Name = "payamounttxt";
-            payamounttxt.Size = new Size(285, 31);
-            payamounttxt.TabIndex = 12;
-            // 
-            // label7
-            // 
-            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.ButtonHighlight;
-            label7.Location = new Point(1108, 254);
-            label7.Name = "label7";
-            label7.Size = new Size(151, 38);
-            label7.TabIndex = 17;
-            label7.Text = "Change Amount";
-            // 
-            // label8
-            // 
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.ButtonHighlight;
-            label8.Location = new Point(1108, 189);
-            label8.Name = "label8";
-            label8.Size = new Size(151, 38);
-            label8.TabIndex = 16;
-            label8.Text = "Paying Amount";
-            // 
-            // label9
-            // 
-            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.ButtonHighlight;
-            label9.Location = new Point(1108, 127);
-            label9.Name = "label9";
-            label9.Size = new Size(151, 38);
-            label9.TabIndex = 15;
-            label9.Text = "Method";
-            // 
-            // label10
-            // 
-            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = SystemColors.ButtonHighlight;
-            label10.Location = new Point(1108, 60);
-            label10.Name = "label10";
-            label10.Size = new Size(151, 38);
-            label10.TabIndex = 14;
-            label10.Text = "Payment Date";
-            // 
             // Process
             // 
-            Process.Location = new Point(1164, 319);
+            Process.Location = new Point(1196, 146);
             Process.Name = "Process";
             Process.Size = new Size(126, 34);
             Process.TabIndex = 18;
@@ -167,9 +89,9 @@
             amountlbl.BackColor = Color.FromArgb(35, 35, 35);
             amountlbl.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             amountlbl.ForeColor = SystemColors.Control;
-            amountlbl.Location = new Point(33, 257);
+            amountlbl.Location = new Point(33, 254);
             amountlbl.Name = "amountlbl";
-            amountlbl.Size = new Size(1049, 720);
+            amountlbl.Size = new Size(1049, 673);
             amountlbl.TabIndex = 21;
             amountlbl.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -262,13 +184,13 @@
             label2.BackColor = Color.FromArgb(255, 87, 34);
             label2.Location = new Point(33, 257);
             label2.Name = "label2";
-            label2.Size = new Size(2, 716);
+            label2.Size = new Size(2, 670);
             label2.TabIndex = 31;
             // 
             // label3
             // 
             label3.BackColor = Color.FromArgb(255, 87, 34);
-            label3.Location = new Point(33, 973);
+            label3.Location = new Point(33, 925);
             label3.Name = "label3";
             label3.Size = new Size(1049, 2);
             label3.TabIndex = 32;
@@ -278,7 +200,7 @@
             label4.BackColor = Color.FromArgb(255, 87, 34);
             label4.Location = new Point(1080, 255);
             label4.Name = "label4";
-            label4.Size = new Size(2, 720);
+            label4.Size = new Size(2, 670);
             label4.TabIndex = 33;
             // 
             // label5
@@ -351,7 +273,7 @@
             webViewpayment.DefaultBackgroundColor = Color.White;
             webViewpayment.Location = new Point(58, 394);
             webViewpayment.Name = "webViewpayment";
-            webViewpayment.Size = new Size(1003, 557);
+            webViewpayment.Size = new Size(1003, 511);
             webViewpayment.TabIndex = 50;
             webViewpayment.ZoomFactor = 1D;
             webViewpayment.Click += webViewpayment_Click;
@@ -371,6 +293,8 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            AutoScrollMinSize = new Size(0, 1180);
             BackColor = Color.FromArgb(20, 20, 20);
             Controls.Add(pictureBox1);
             Controls.Add(webViewpayment);
@@ -393,32 +317,15 @@
             Controls.Add(label6);
             Controls.Add(Clearbtn);
             Controls.Add(Process);
-            Controls.Add(label7);
-            Controls.Add(label8);
-            Controls.Add(label9);
-            Controls.Add(label10);
-            Controls.Add(changeamounttxt);
-            Controls.Add(payamounttxt);
-            Controls.Add(methodcmb);
-            Controls.Add(paydtp);
             Name = "PaymrntControl";
-            Size = new Size(1567, 1045);
+            Size = new Size(1567, 1765);
             Load += PaymrntControl_Load;
             ((System.ComponentModel.ISupportInitialize)webViewpayment).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-        private DateTimePicker paydtp;
-        private ComboBox methodcmb;
-        private TextBox changeamounttxt;
-        private TextBox payamounttxt;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
         private Button Process;
         private Button Clearbtn;
         private Label label6;

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -186,9 +187,52 @@ namespace Gym_Management.Repo
 
             return dataAccess.ExecuteNonQuery(command);
         }
+        public void InsertFee(int userid,string feetype,decimal amount)
+        {
+            SqlCommand cmd = dataAccess.GetCommand(@"INSERT INTO PaymentBreakdown (CustomerId, FeeName, Amount)
+                   VALUES (@cid, @name, @amount);");
+            cmd.Parameters.AddWithValue("@cid", userid);
+            cmd.Parameters.AddWithValue("@name",feetype);
+            cmd.Parameters.AddWithValue("@amount", amount);
+            dataAccess.ExecuteNonQuery(cmd);
 
+        }
+        public decimal GetVat(int customerId)
+        {
+            SqlCommand cmd = dataAccess.GetCommand("SELECT SUM(Amount) FROM PaymentBreakdown WHERE CustomerId=@cid");
+            cmd.Parameters.AddWithValue("@cid", customerId);
+            var result = dataAccess.ExecuteScalar(cmd);
 
+            if (result == DBNull.Value || result == null)
+                return 0;
+            return Convert.ToDecimal(result);
 
+        }
+        public List<SummaryItem> GetPaymentBreakdown(int customerId)
+        {
+            var list = new List<SummaryItem>();
+            SqlCommand cmd = dataAccess.GetCommand("SELECT FeeName, Amount FROM PaymentBreakdown  WHERE CustomerId = @cid;");
+            cmd.Parameters.AddWithValue("@cid", customerId);
+            DataTable dt = dataAccess.Execute(cmd);
+            var rows = dt.Rows;
+            foreach(DataRow row in rows)
+            {
+                list.Add(new SummaryItem
+                {
+                    Name = row["FeeName"].ToString(),
+                    Amount = Convert.ToDecimal(row["Amount"])
+                });
+            }
+            return list;
+        }
+        public void DeleteFeeByType(int customerId, string feeName)
+        {
+            SqlCommand cmd = dataAccess.GetCommand(
+                "DELETE FROM PaymentBreakdown WHERE CustomerId = @cid AND FeeName = @name");
+            cmd.Parameters.AddWithValue("@cid", customerId);
+            cmd.Parameters.AddWithValue("@name", feeName);
+            dataAccess.ExecuteNonQuery(cmd);
+        }
         public DataTable DataGridV()
         {
            

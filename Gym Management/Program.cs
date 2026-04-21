@@ -12,7 +12,7 @@ namespace Gym_Management
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new MemberForm(null,0));
-            Application.Run(new IntroForm());
+           Application.Run(new IntroForm());
         }
     }
 }

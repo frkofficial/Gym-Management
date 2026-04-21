@@ -208,13 +208,12 @@
             // 
             // panelMain
             // 
-            panelMain.AutoScroll = true;
             panelMain.AutoSize = true;
             panelMain.BackColor = Color.FromArgb(35, 35, 35);
             panelMain.Location = new Point(383, 128);
             panelMain.Margin = new Padding(4, 5, 4, 5);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1509, 900);
+            panelMain.Size = new Size(1536, 915);
             panelMain.TabIndex = 1;
             panelMain.Paint += panelMain_Paint;
             // 

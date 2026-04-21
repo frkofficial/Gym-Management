@@ -25,6 +25,12 @@ namespace Gym_Management
         int customerId;
         decimal totalAmount;
         string cusname;
+        string transactionid;
+        decimal packageAmount;
+        decimal trainerPrice;
+        string selectedPaymentMethod;
+        decimal subtotal,vat;
+        FlowLayoutPanel flowSummary;
         public PaymrntControl(Form previousform,int Mid)
         {
             InitializeComponent();
@@ -32,6 +38,15 @@ namespace Gym_Management
             dataaccess = new DataAccess();
             this.previousform=previousform;
             this.customerId = Mid;
+
+            flowSummary = new FlowLayoutPanel();
+            flowSummary.Location = new Point(1108, 333);
+            flowSummary.Size = new Size(350, 400);
+            flowSummary.AutoScroll = true;
+            flowSummary.FlowDirection = FlowDirection.TopDown;
+            flowSummary.WrapContents = false;
+
+            this.Controls.Add(flowSummary);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -47,9 +62,11 @@ namespace Gym_Management
         private async void PaymrntControl_Load(object sender, EventArgs e)
         {
             LoadComboBoxes();
-            paydtp.Value = DateTime.Now;
+            //paydtp.Value = DateTime.Now;
 
             LoadCustomerDetails(customerId);
+            LoadSummary(customerId);
+
             webViewpayment.EnsureCoreWebView2Async(null);
             if (webViewpayment.CoreWebView2 != null)
             {
@@ -71,14 +88,14 @@ namespace Gym_Management
         private void LoadComboBoxes()
         {
             // Payment Method ComboBox
-            methodcmb.Items.Clear();
-            methodcmb.Items.Add("Cash");
-            methodcmb.Items.Add("Card");
-            methodcmb.Items.Add("Bank Transfer");
-            methodcmb.Items.Add("bKash");
-            methodcmb.Items.Add("Nagad");
-            methodcmb.Items.Add("Rocket");
-            methodcmb.SelectedIndex = 0;
+            //methodcmb.Items.Clear();
+            //methodcmb.Items.Add("Cash");
+            //methodcmb.Items.Add("Card");
+            //methodcmb.Items.Add("Bank Transfer");
+            //methodcmb.Items.Add("bKash");
+            //methodcmb.Items.Add("Nagad");
+            //methodcmb.Items.Add("Rocket");
+            //methodcmb.SelectedIndex = 0;
         }
 
         private void webViewpayment_Click(object sender, EventArgs e)
@@ -104,11 +121,11 @@ namespace Gym_Management
                 pckgname.Text = packname.ToUpper();
 
                 // Get Package Amount
-                decimal packageAmount = userrepo.GetPackageAmountByCustomer(customerId);
+                 packageAmount = userrepo.GetPackageAmountByCustomer(customerId);
                 //pckamount.Text = packageAmount.ToString("N2");
 
                 // Get Trainer Price
-                decimal trainerPrice = userrepo.GetTrainerPriceByCustomer(customerId);
+                 trainerPrice = userrepo.GetTrainerPriceByCustomer(customerId);
                 //trainertxt.Text = trainerPrice.ToString("N2");
 
                 // Calculate Total
@@ -122,24 +139,101 @@ namespace Gym_Management
             {
                 MessageBox.Show($"Error loading customer details: {ex.Message}", "Error");
             }
+            //subtotal=userrepo.GetVat(customerId);
+            //vat=subtotal * 0.10m;
+            //userrepo.InsertFee(customerId, "Vat(10%)", vat);
+            // ✅ Delete old VAT row first to prevent duplicates
+            userrepo.DeleteFeeByType(customerId, "Vat(10%)");
+
+            // ✅ GetVat now sums only package + trainer rows (not previous VAT)
+            subtotal = userrepo.GetVat(customerId);
+            vat = subtotal * 0.10m;
+
+            if (vat > 0)
+                userrepo.InsertFee(customerId, "Vat(10%)", vat);
+
+        }
+        private Panel CreateRow(string title, string amount, bool isBold = false)
+        {
+            Panel row = new Panel();
+            row.Width = 320;
+            row.Height = 30;
+            row.Margin = new Padding(0, 5, 0, 5);
+
+            Label lblTitle = new Label();
+            lblTitle.Text = title;
+            lblTitle.ForeColor = Color.White;
+            lblTitle.AutoSize = false;
+            lblTitle.Width = 200;
+            lblTitle.Height = 25;
+            lblTitle.Location = new Point(0, 5);
+
+            Label lblAmount = new Label();
+            lblAmount.Text = amount;
+            lblAmount.ForeColor = Color.White;
+            lblAmount.AutoSize = false;
+            lblAmount.Width = 100;
+            lblAmount.Height = 25;
+            lblAmount.TextAlign = ContentAlignment.MiddleRight;
+            lblAmount.Location = new Point(210, 5);
+
+            if (isBold)
+            {
+                lblTitle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                lblAmount.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            }
+
+            row.Controls.Add(lblTitle);
+            row.Controls.Add(lblAmount);
+
+            return row;
+        }
+
+        private Panel CreateDivider()
+        {
+            Panel line = new Panel();
+            line.Height = 2;
+            line.Width = 320;
+            line.BackColor = Color.Gray;
+            line.Margin = new Padding(0, 10, 0, 10);
+            return line;
+        }
+        decimal SummaryTotal = 0;
+        private void LoadSummary(int customerId)
+        {
+            decimal summaryTotal = 0;
+            flowSummary.Controls.Clear();
+            var items = userrepo.GetPaymentBreakdown(customerId);
+            foreach( var item in items)
+            {
+                flowSummary.Controls.Add(CreateRow(item.Name, item.Amount.ToString()));
+                summaryTotal += item.Amount;
+            }
+            flowSummary.Controls.Add(CreateDivider() );
+            flowSummary.Controls.Add(CreateRow("Total", summaryTotal.ToString()));
+            SummaryTotal = summaryTotal;
         }
         private async void cardbtn_Click(object sender, EventArgs e)
         {
+            selectedPaymentMethod="Card";
             await StartPayment("card",totalAmount,cusname);
 
         }
 
         private async void  mobilebankbtn_Click(object sender, EventArgs e)
         {
+            selectedPaymentMethod= "Mobile Banking";
             await StartPayment("mobilebanking",totalAmount,cusname);
         }
 
         private async void netbankbtn_Click(object sender, EventArgs e)
         {
+            selectedPaymentMethod= "Net Banking";
            await StartPayment("netbanking",totalAmount,cusname);
         }
         private async Task StartPayment(string paymentType,decimal totalAmount,string cusname)
         {
+            transactionid = Guid.NewGuid().ToString();
             var client = new HttpClient();
 
             var values = new Dictionary<string, string>()
@@ -148,7 +242,7 @@ namespace Gym_Management
         {"store_passwd", "qwerty"},
         {"total_amount", totalAmount.ToString()},
         {"currency", "BDT"},
-        {"tran_id", Guid.NewGuid().ToString()},
+        {"tran_id", transactionid},
         {"success_url", "https://sandbox.sslcommerz.com/demo/success.php"},
         {"fail_url", "https://sandbox.sslcommerz.com/demo/fail.php"},
         {"cancel_url", "https://sandbox.sslcommerz.com/demo/cancel.php"},
@@ -177,6 +271,7 @@ namespace Gym_Management
             {
                 string paymentUrl = result.GatewayPageURL;
                 webViewpayment.CoreWebView2.Navigate(paymentUrl);
+
             }
             else
             {
@@ -192,6 +287,23 @@ namespace Gym_Management
             if (url.Contains("success"))
             {
                 MessageBox.Show("✅ Payment Successful");
+                Payment p = new Payment()
+                {
+                    CustomerID = customerId,
+                    CustomerName = cusname,
+                    PackageName = pckgname.Text,
+                    PackageAmount =  packageAmount,
+                       TrainerPriceAmount =  trainerPrice,
+                       TotalAmount= totalAmount,
+                       TransactionID=transactionid,
+                       PayingDate = DateTime.Now,
+                    Status = "Paid",
+                       PaymentMethod = selectedPaymentMethod
+
+
+                };
+                var result=userrepo.InsertPayment(p);
+
             }
             else if (url.Contains("fail"))
             {
