@@ -67,12 +67,12 @@ namespace Gym_Management
             LoadCustomerDetails(customerId);
             LoadSummary(customerId);
 
-            webViewpayment.EnsureCoreWebView2Async(null);
-            if (webViewpayment.CoreWebView2 != null)
-            {
-
-                webViewpayment.CoreWebView2.NavigationStarting += CoreWebView2_NavigationStarting;
-            }
+            //webViewpayment.EnsureCoreWebView2Async(null);
+            //if (webViewpayment.CoreWebView2 != null)
+            //{
+            await webViewpayment.EnsureCoreWebView2Async();
+            webViewpayment.CoreWebView2.NavigationStarting += CoreWebView2_NavigationStarting;
+            
 
             // Make fields readonly
             //cnametxt.ReadOnly = true;

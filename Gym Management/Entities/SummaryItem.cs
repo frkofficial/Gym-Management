@@ -8,7 +8,7 @@ namespace Gym_Management.Entities
 {
     public class SummaryItem
     {
-        public string Name { get; set; }
-        public decimal Amount { get;set; }
+        public string FeeName { get; set; }
+        public decimal FeeAmount { get;set; }
     }
 }

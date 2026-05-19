@@ -45,8 +45,7 @@ namespace Gym_Management
             string name = userrepo.GetMemberName(Mid);
             MmbrNamelbl.Text = name + "!";
 
-            string packagename = userrepo.GetPackage(Mid);
-            pckgelbl.Text = packagename;
+           
 
             DateTime? expiredate = userrepo.GetExpireDate(Mid);
             if (expiredate.HasValue)
@@ -57,16 +56,33 @@ namespace Gym_Management
             {
                 expirelbl.Text = "-------";
             }
-
+            string packagename = userrepo.GetPackage(Mid);
+            if (expiredate.HasValue && expiredate.Value > DateTime.Today)
+            {
+               
+                pckgelbl.Text = packagename;
+                pckgelbl.ForeColor = Color.Green;
+            }
+            else if(expiredate.HasValue && expiredate.Value<DateTime.Today)
+            {
+                pckgelbl.Text = packagename;
+                pckgelbl.ForeColor = ColorTranslator.FromHtml("#ff0000");
+            }
 
 
             string paystatus = userrepo.GetPaymentStatus(Mid);
             paymentlbl.Text = paystatus;
-
+           
             if (paystatus == "Paid")
             {
                 paymentlbl.ForeColor = Color.Green;
             }
+            if (expiredate.HasValue && expiredate.Value < DateTime.Today)
+            {
+                paymentlbl.Text = "--------";
+                paymentlbl.ForeColor = ColorTranslator.FromHtml("#ff0000");
+            }
+
             else if (paystatus == "Due")
             {
                 //paymentlbl.ForeColor= Color.Red;
@@ -86,7 +102,7 @@ namespace Gym_Management
             string status = userrepo.GetStatus(Mid);
             statuslbl.Text = status;
 
-            if (status == "Paid")
+            if (status == "Paid" && expiredate.HasValue && expiredate.Value> DateTime.Today)
             {
                 statuslbl.ForeColor = Color.Green;
                 statuslbl.Text = "✅Active";

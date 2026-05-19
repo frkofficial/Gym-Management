@@ -318,7 +318,7 @@
             Controls.Add(Clearbtn);
             Controls.Add(Process);
             Name = "PaymrntControl";
-            Size = new Size(1567, 1765);
+            Size = new Size(1567, 1739);
             Load += PaymrntControl_Load;
             ((System.ComponentModel.ISupportInitialize)webViewpayment).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
