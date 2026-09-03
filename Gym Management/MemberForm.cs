@@ -48,7 +48,7 @@ namespace Gym_Management
         private void button1_Click(object sender, EventArgs e)
         {
             LoadControl(new MemberDashboard(this, Mid));
-                
+
         }
 
         private void btnmembershipPrice_Click(object sender, EventArgs e)
@@ -63,9 +63,13 @@ namespace Gym_Management
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LoadControl(new PaymrntControl(this,Mid));
+            LoadControl(new PaymrntControl(this, Mid));
         }
+        private void TrainerPricing_Click(object sender, EventArgs e)
+        {
+            LoadControl(new MemberTrainerBookingControl(this,Mid));
 
+        }
         private void button5_Click(object sender, EventArgs e)
         {
             previousform.Show();
@@ -76,15 +80,17 @@ namespace Gym_Management
         {
 
         }
-        
+
 
         private void MemberForm_Load(object sender, EventArgs e)
         {
             string name = userrepo.GetMemberName(Mid);
 
-            NameInfolbl.Text= name;
+            NameInfolbl.Text = name;
 
-            LoadControl(new MemberDashboard(this,Mid));
+            LoadControl(new MemberDashboard(this, Mid));
         }
+
+       
     }
 }

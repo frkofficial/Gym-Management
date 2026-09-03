@@ -255,14 +255,14 @@ namespace Gym_Management
             this.Close();
         }
 
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 600);
-            this.Name = "AddMembershipCardForm";
-            this.ResumeLayout(false);
-        }
+        //private void InitializeComponent()
+        //{
+        //    this.SuspendLayout();
+        //    this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+        //    this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        //    this.ClientSize = new System.Drawing.Size(500, 600);
+        //    this.Name = "AddMembershipCardForm";
+        //    this.ResumeLayout(false);
+        //}
     }
 }

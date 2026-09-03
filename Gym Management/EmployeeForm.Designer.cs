@@ -46,6 +46,7 @@
             label1 = new Label();
             pictureBox2 = new PictureBox();
             CenterPnl = new Panel();
+            trainertypebtn = new Button();
             SliderDrawerpnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             HeaderPnl.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             SliderDrawerpnl.BackColor = Color.FromArgb(20, 20, 20);
             SliderDrawerpnl.BorderStyle = BorderStyle.FixedSingle;
+            SliderDrawerpnl.Controls.Add(trainertypebtn);
             SliderDrawerpnl.Controls.Add(Logoutbtn);
             SliderDrawerpnl.Controls.Add(PaymentBtn);
             SliderDrawerpnl.Controls.Add(WorkoutBtn);
@@ -114,7 +116,7 @@
             PaymentBtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PaymentBtn.Image = (Image)resources.GetObject("PaymentBtn.Image");
             PaymentBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            PaymentBtn.Location = new Point(2, 645);
+            PaymentBtn.Location = new Point(2, 719);
             PaymentBtn.Margin = new Padding(2);
             PaymentBtn.Name = "PaymentBtn";
             PaymentBtn.Size = new Size(311, 52);
@@ -300,6 +302,23 @@
             CenterPnl.TabIndex = 3;
             CenterPnl.Paint += CenterPnl_Paint;
             // 
+            // trainertypebtn
+            // 
+            trainertypebtn.FlatAppearance.BorderColor = Color.FromArgb(20, 20, 20);
+            trainertypebtn.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 87, 34);
+            trainertypebtn.FlatStyle = FlatStyle.Flat;
+            trainertypebtn.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            trainertypebtn.Image = (Image)resources.GetObject("trainertypebtn.Image");
+            trainertypebtn.ImageAlign = ContentAlignment.MiddleLeft;
+            trainertypebtn.Location = new Point(0, 640);
+            trainertypebtn.Margin = new Padding(2);
+            trainertypebtn.Name = "trainertypebtn";
+            trainertypebtn.Size = new Size(311, 52);
+            trainertypebtn.TabIndex = 5;
+            trainertypebtn.Text = "Trainer Type";
+            trainertypebtn.UseVisualStyleBackColor = true;
+            trainertypebtn.Click += trainertypebtn_Click;
+            // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -343,5 +362,6 @@
         private Panel panel1;
         private PictureBox pictureBox3;
         private Button Logoutbtn;
+        private Button trainertypebtn;
     }
 }

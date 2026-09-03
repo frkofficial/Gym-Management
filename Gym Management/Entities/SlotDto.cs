@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Gym_Management.Entities
 {
-    public class SummaryItem
+    public class SlotDto
     {
-        public string Name { get; set; }
-        public decimal Amount { get;set; }
+        public int Id { get; set; }
+        public TimeSpan SlotTime { get; set; }
+        public bool IsBooked { get; set; }
     }
 }

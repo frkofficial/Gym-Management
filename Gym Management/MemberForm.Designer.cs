@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberForm));
-            button4 = new Button();
+            TrainerPricing = new Button();
             button3 = new Button();
             btnmembershipPrice = new Button();
             btnMyProfile = new Button();
@@ -51,21 +51,22 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // button4
+            // TrainerPricing
             // 
-            button4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(7, 683);
-            button4.Margin = new Padding(4, 5, 4, 5);
-            button4.Name = "button4";
-            button4.Size = new Size(354, 57);
-            button4.TabIndex = 5;
-            button4.Text = "Print";
-            button4.UseVisualStyleBackColor = true;
+            TrainerPricing.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TrainerPricing.Location = new Point(7, 549);
+            TrainerPricing.Margin = new Padding(4, 5, 4, 5);
+            TrainerPricing.Name = "TrainerPricing";
+            TrainerPricing.Size = new Size(354, 57);
+            TrainerPricing.TabIndex = 5;
+            TrainerPricing.Text = "Trainer Pricing";
+            TrainerPricing.UseVisualStyleBackColor = true;
+            TrainerPricing.Click += TrainerPricing_Click;
             // 
             // button3
             // 
             button3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(7, 567);
+            button3.Location = new Point(7, 648);
             button3.Margin = new Padding(4, 5, 4, 5);
             button3.Name = "button3";
             button3.Size = new Size(354, 60);
@@ -176,7 +177,7 @@
             panel1.Controls.Add(button5);
             panel1.Controls.Add(btnMyProfile);
             panel1.Controls.Add(btnmembershipPrice);
-            panel1.Controls.Add(button4);
+            panel1.Controls.Add(TrainerPricing);
             panel1.Controls.Add(button3);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -239,7 +240,7 @@
         }
 
         #endregion
-        private Button button4;
+        private Button TrainerPricing;
         private Button button3;
         private Button btnmembershipPrice;
         private Button btnMyProfile;
